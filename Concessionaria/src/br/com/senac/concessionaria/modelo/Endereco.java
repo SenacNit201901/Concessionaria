@@ -1,0 +1,72 @@
+package br.com.senac.concessionaria.modelo;
+
+public class Endereco  {
+	private int id_endereco;
+	private String cep;
+	private String rua;
+	private String numero;
+	private String complemento;
+	private Cidade cidade;
+	private Estado estado;
+	private Bairro bairro;
+	
+
+	
+	public int getId_endereco() {
+		return id_endereco;
+	}
+
+	public void setId_endereco(int id_endereco) {
+		this.id_endereco = id_endereco;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public String getRua() {
+		return rua;
+	}
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public Bairro getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(Bairro bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	public String getComplemento() {
+		return complemento;
+	}
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+	
+}
