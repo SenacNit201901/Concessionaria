@@ -14,10 +14,26 @@ public class Usuario {
 	private Endereco endereco;
 	private List<Contato> contatos;
 	
+	public Usuario() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Usuario(int id_usuario, String nome, String sobrenome, String cpf, String email, String senha,
+			TipoUsuario tipo_usuario, Endereco endereco, List<Contato> contatos) {
+		super();
+		this.id_usuario = id_usuario;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.email = email;
+		this.senha = senha;
+		this.tipo_usuario = tipo_usuario;
+		this.endereco = endereco;
+		this.contatos = contatos;
+	}
 
-	
-	
-	
+
 	public int getId_usuario() {
 		return id_usuario;
 	}

@@ -20,6 +20,24 @@ public class Pedido {
 	private int quantidade_parcelamento;
 	private FormaPagamento pagamento;
 	private Usuario usuario;
+	
+	public Pedido() {}
+	
+	
+	
+	public Pedido(int id_pedido, Date data_pedido, double valor_total, List<ItemPedido> item_pedido,
+			int quantidade_parcelamento, FormaPagamento pagamento, Usuario usuario) {
+		super();
+		this.id_pedido = id_pedido;
+		this.data_pedido = data_pedido;
+		this.valor_total = valor_total;
+		this.item_pedido = item_pedido;
+		this.quantidade_parcelamento = quantidade_parcelamento;
+		this.pagamento = pagamento;
+		this.usuario = usuario;
+	}
+
+
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -29,7 +47,7 @@ public class Pedido {
 		this.usuario = usuario;
 	}
 
-	public Pedido() {}
+	
 	
 	public List<ItemPedido> getItem_pedido() {
 		return item_pedido;

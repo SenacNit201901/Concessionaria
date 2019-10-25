@@ -14,6 +14,17 @@ public class Veiculo {
 		
 	}
 	
+	public Veiculo(int id_Veiculo, String modeloVeiculo, int anoVeiculo, String chassiVeiculo, Double valorVeiculo, Cor cor, Combustivel combustivel,Marca marca) {
+		this.id_Veiculo = id_Veiculo;
+		this.modeloVeiculo = modeloVeiculo;
+		this.anoVeiculo = anoVeiculo;
+		this.chassiVeiculo = chassiVeiculo;
+		this.valorVeiculo = valorVeiculo;
+		this.cor = cor;
+		this.combustivel = combustivel;
+		this.marca = marca;
+	}	
+	
 	public int getId_Veiculo() {
 		return id_Veiculo;
 	}
@@ -38,16 +49,7 @@ public class Veiculo {
 		this.combustivel = combustivel;
 	}
 
-	public Veiculo(int id_Veiculo, String modeloVeiculo, int anoVeiculo, String chassiVeiculo, Double valorVeiculo, Cor cor, Combustivel combustivel,Marca marca) {
-		this.id_Veiculo = id_Veiculo;
-		this.modeloVeiculo = modeloVeiculo;
-		this.anoVeiculo = anoVeiculo;
-		this.chassiVeiculo = chassiVeiculo;
-		this.valorVeiculo = valorVeiculo;
-		this.cor = cor;
-		this.combustivel = combustivel;
-		this.marca = marca;
-	}
+
 	
 	public Marca getMarca() {
 		return marca;

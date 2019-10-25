@@ -4,6 +4,19 @@ public class TipoUsuario {
 	
 	private int id_tipo_usuario;
 	private String tipo_usuario;
+	
+	public TipoUsuario() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public TipoUsuario(int id_tipo_usuario, String tipo_usuario) {
+		super();
+		this.id_tipo_usuario = id_tipo_usuario;
+		this.tipo_usuario = tipo_usuario;
+	}
+
+
 	public int getId_tipo_usuario() {
 		return id_tipo_usuario;
 	}

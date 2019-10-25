@@ -16,10 +16,9 @@ public class ItemPedido {
 	
 	public ItemPedido() {}
 	
-	public ItemPedido(int id_item, int quantidade, Double sub_Total, Veiculo veiculo) {
+	public ItemPedido(int id_item, int quantidade, Veiculo veiculo) {
 		this.id_item = id_item;
 		this.quantidade = quantidade;
-		this.sub_Total = sub_Total;
 		this.veiculo = veiculo;
 	}
 

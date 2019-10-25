@@ -4,6 +4,17 @@ public class Estado {
 	private int id_UF;
 	private String UF;
 	
+	public Estado() {
+		// TODO Auto-generated constructor stub
+	}
+	
+
+
+	public Estado(int id_UF, String uF) {
+		super();
+		this.id_UF = id_UF;
+		UF = uF;
+	}
 
 
 

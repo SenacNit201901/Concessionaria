@@ -10,8 +10,25 @@ public class Endereco  {
 	private Estado estado;
 	private Bairro bairro;
 	
-
+	public Endereco() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	
+	public Endereco(int id_endereco, String cep, String rua, String numero, String complemento, Cidade cidade,
+			Estado estado, Bairro bairro) {
+		super();
+		this.id_endereco = id_endereco;
+		this.cep = cep;
+		this.rua = rua;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.bairro = bairro;
+	}
+
+
 	public int getId_endereco() {
 		return id_endereco;
 	}
