@@ -94,6 +94,9 @@ public class Testes {
 		veiculo.setCombustivel(combustivel);
 		veiculo.setValorVeiculo(30000.00);
 		
+		Cor vermelho = new Cor(1, "vermelho");
+		Veiculo veiculo2 = new Veiculo(2, "UNO", 2012, "SJAJSK222", 30000.00, vermelho, combustivel, marca);
+		
 		
 		ItemPedido item = new ItemPedido();
 		item.setId_item(1);
@@ -101,16 +104,19 @@ public class Testes {
 		Double subTotal = veiculo.getValorVeiculo() * item.getQuantidade();
 		item.setSub_Total(subTotal);
 		item.setVeiculo(veiculo);
-		lista.add(item);
 		
 		FormaPagamento pagamento = new FormaPagamento();
 		pagamento.setId_forma_pagamento(1);
 		pagamento.setTipo_pagamento("Cartao");
 		
 		
+		ItemPedido item2 = new ItemPedido(2, 3, veiculo2);
 		
-		
-		
+		lista.add(item);
+		lista.add(item2);
+
+		Double subtotal2 = veiculo2.getValorVeiculo() * item2.getQuantidade();
+		item2.setSub_Total(subtotal2);
 		Pedido pedido = new Pedido();
 		
 		pedido.setId_pedido(1);
@@ -118,19 +124,21 @@ public class Testes {
 		pedido.setItem_pedido(lista);
 		pedido.setPagamento(pagamento);
 		
+		Double soma = 0d;
+
+
+		for(ItemPedido i: lista) {
+			soma = soma + i.getSub_Total();
+		}
+		
+		pedido.setValor_total(soma);
+		
 		pedido.setQuantidade_parcelamento(2);
 		pedido.setUsuario(usuario);
 		
+
 		
-		for(ItemPedido p: lista) {
-			
-			pedido.setValor_total(p.getSub_Total());
-			
-			
-		}
-		System.out.println("Veiculo cadastrado");
 		
-		System.out.println(pedido);
 		
 		
 	}
