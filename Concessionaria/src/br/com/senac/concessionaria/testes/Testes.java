@@ -15,9 +15,9 @@ import br.com.senac.concessionaria.modelo.FormaPagamento;
 import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Marca;
 import br.com.senac.concessionaria.modelo.Pedido;
-import br.com.senac.concessionaria.modelo.TipoUsuario;
-import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
+import br.com.senac.concessionaria.servico.TipoUsuarioServico;
+import br.com.senac.concessionaria.servico.UsuarioServico;
 
 public class Testes {
 
@@ -29,7 +29,7 @@ public class Testes {
 		List<Contato> listaContatos = new ArrayList<Contato>();
 		
 		
-		TipoUsuario cliente = new TipoUsuario(1, "cliente");
+		TipoUsuarioServico cliente = new TipoUsuarioServico(1, "cliente");
 		
 		Contato contato1 = new Contato(1, "(21) 98299-7212");
 		Contato contato2 = new Contato(1, "(21) 98209-7002");
@@ -59,7 +59,7 @@ public class Testes {
 		
 		Endereco endereco = new Endereco(1, "240000-000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
 		
-		Usuario usuario = new Usuario(1, "carlos", "henrique", "148.923.137-42", "machado@gmail.com", "123456", cliente, endereco, listaContatos);
+		UsuarioServico usuario = new UsuarioServico(1, "carlos", "henrique", "148.923.137-42", "machado@gmail.com", "123456", cliente, endereco, listaContatos);
 		
 		// primeiro item
 		ItemPedido item1 = new ItemPedido(1, 2, veiculo);
@@ -95,7 +95,7 @@ public class Testes {
 		
 	
 		
-		
+		UsuarioServico user = new UsuarioServico();
 		
 		
 	

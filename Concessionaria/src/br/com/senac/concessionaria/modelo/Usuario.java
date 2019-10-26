@@ -2,6 +2,8 @@ package br.com.senac.concessionaria.modelo;
 
 import java.util.List;
 
+import br.com.senac.concessionaria.servico.TipoUsuarioServico;
+
 public class Usuario {
 	
 	private int id_usuario;
@@ -10,7 +12,7 @@ public class Usuario {
 	private String cpf;
 	private String email;
 	private String senha;
-	private TipoUsuario tipo_usuario;
+	private TipoUsuarioServico tipo_usuario;
 	private Endereco endereco;
 	private List<Contato> contatos;
 	
@@ -20,7 +22,7 @@ public class Usuario {
 	
 	
 	public Usuario(int id_usuario, String nome, String sobrenome, String cpf, String email, String senha,
-			TipoUsuario tipo_usuario, Endereco endereco, List<Contato> contatos) {
+			TipoUsuarioServico tipo_usuario, Endereco endereco, List<Contato> contatos) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nome = nome;
@@ -86,13 +88,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
 	
 	
-	public TipoUsuario getTipo_usuario() {
+	
+	public TipoUsuarioServico getTipo_usuario() {
 		return tipo_usuario;
 	}
-	public void setTipo_usuario(TipoUsuario tipo_usuario) {
+	public void setTipo_usuario(TipoUsuarioServico tipo_usuario) {
 		this.tipo_usuario = tipo_usuario;
 	}
 	
