@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.senac.concessionaria.modelo.Estado;
+import br.com.senac.concessionaria.modelo.Contato;
 
-public class EstadoDAO extends DAO {
+public class ContatoDAO extends DAO {
 private Connection conn;
 	
-	public EstadoDAO() {
+	public ContatoDAO() {
 		
 	}
 	
-	public void gravar(Estado es) throws SQLException{
+	public void gravar(Contato contato) throws SQLException{
 		
 		
 		abreConexao();
@@ -24,9 +24,9 @@ private Connection conn;
 		PreparedStatement pstmt = null;
 		
 		try {
-			pstmt = conn.prepareStatement("insert into estado(uf) values(?)");
+			pstmt = conn.prepareStatement("insert into contato(telefone) values(?)");
 			
-			pstmt.setString(1, es.getUF());
+			pstmt.setString(1, contato.getTelefone());
 			
 		} catch (Exception e) {
 			int flag = pstmt.executeUpdate();
@@ -44,21 +44,21 @@ private Connection conn;
 		}
 		}
 	
-	public List<Estado> listar() throws SQLException{
+	public List<Contato> listar() throws SQLException{
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("select * from estado");
+			pstmt = conn.prepareStatement("select * from contato");
 			rs = pstmt.executeQuery();
 			
-			List<Estado> estados = new ArrayList<Estado>();
+			List<Contato> contatos = new ArrayList<Contato>();
 			while(rs.next()) {
-				estados.add(criaEstado(rs));
+				contatos.add(criaContato(rs));
 			}
-			return estados;
+			return contatos;
 			
 		} finally {
 			if(conn != null) {
@@ -74,7 +74,7 @@ private Connection conn;
 		
 	}
 	
-public Estado busca(int id) throws SQLException {
+public Contato busca(int id) throws SQLException {
 		
 		abreConexao();
 		
@@ -82,13 +82,13 @@ public Estado busca(int id) throws SQLException {
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("select * from estado where id_estado = ?");
+			pstmt = conn.prepareStatement("select * from contato where id_contato = ?");
 			pstmt.setInt(1, id);
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				return criaEstado(rs);
+				return criaContato(rs);
 			}
 			
 			return null;
@@ -105,19 +105,19 @@ public Estado busca(int id) throws SQLException {
 		}
 	}
 
-public void deletaEstado(int id) throws SQLException {
+public void deletaContato(int id) throws SQLException {
 	abreConexao();
 	
 	PreparedStatement pstmt = null;
 	
 	try {
-		pstmt = conn.prepareStatement("delete from estado where id_estado = ?");
+		pstmt = conn.prepareStatement("delete from contato where id_contato = ?");
 		pstmt.setInt(1, id);
 		
 		int flag = pstmt.executeUpdate();
 		
 		if(flag == 0) {
-			throw new SQLException("Erro ao excluir o estado: " + id + " do banco!");
+			throw new SQLException("Erro ao excluir o contato: " + id + " do banco!");
 		}
 
 	} finally {
@@ -130,21 +130,21 @@ public void deletaEstado(int id) throws SQLException {
 	}
 }
 
-public void editarEstado(Estado es) throws SQLException {
+public void editarContato(Contato contato) throws SQLException {
 	abreConexao();
 
 	PreparedStatement pstmt = null;
 	
 	try {
-		pstmt = conn.prepareStatement("update estado set uf = ? where id_estado = ?");
+		pstmt = conn.prepareStatement("update contato set telefone = ? where id_contato = ?");
 		
-		pstmt.setString(1, es.getUF());
-		pstmt.setInt(2, es.getId_UF());
+		pstmt.setString(1, contato.getTelefone());
+		pstmt.setInt(2, contato.getId_contato());
 		
 		int flag = pstmt.executeUpdate();
 		
 		if(flag == 0) {				
-			throw new SQLException("Erro ao atualizar o estado: " + es.getId_UF() + " no banco!");
+			throw new SQLException("Erro ao atualizar o contato: " + contato.getId_contato() + " no banco!");
 		}
 		
 	} finally {
@@ -168,12 +168,11 @@ public void editarEstado(Estado es) throws SQLException {
 		}
 	}
 	
-
-	private Estado criaEstado(ResultSet rs) throws SQLException {
-		Estado es;
-		es = new Estado();
-		es.setId_UF(rs.getInt(1));
-		es.setUF(rs.getString(2));
-		return es;
+	private Contato criaContato(ResultSet rs) throws SQLException {
+		Contato contato;
+		contato = new Contato();
+		contato.setId_contato(rs.getInt(1));
+		contato.setTelefone(rs.getString(2));
+		return contato;
 	}
 }

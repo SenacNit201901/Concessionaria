@@ -82,7 +82,7 @@ public Cidade busca(int id) throws SQLException {
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("select * from cidade where id = ?");
+			pstmt = conn.prepareStatement("select * from cidade where id_cidade = ?");
 			pstmt.setInt(1, id);
 			
 			rs = pstmt.executeQuery();
@@ -111,7 +111,7 @@ public void deletaCidade(int id) throws SQLException {
 	PreparedStatement pstmt = null;
 	
 	try {
-		pstmt = conn.prepareStatement("delete from cidade where id = ?");
+		pstmt = conn.prepareStatement("delete from cidade where id_cidade = ?");
 		pstmt.setInt(1, id);
 		
 		int flag = pstmt.executeUpdate();
@@ -136,7 +136,7 @@ public void editarCidade(Cidade c) throws SQLException {
 	PreparedStatement pstmt = null;
 	
 	try {
-		pstmt = conn.prepareStatement("update cidade set nome_cidade = ? where id = ?");
+		pstmt = conn.prepareStatement("update cidade set nome_cidade = ? where id_cidade = ?");
 		
 		pstmt.setString(1, c.getNome_cidade());
 		pstmt.setInt(2, c.getId_cidade());

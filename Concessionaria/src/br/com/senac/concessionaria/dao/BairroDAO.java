@@ -83,7 +83,7 @@ public Bairro busca(int id) throws SQLException {
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("select * from bairro where id = ?");
+			pstmt = conn.prepareStatement("select * from bairro where id_bairro = ?");
 			pstmt.setInt(1, id);
 			
 			rs = pstmt.executeQuery();
@@ -112,7 +112,7 @@ public void deletaBairro(int id) throws SQLException {
 	PreparedStatement pstmt = null;
 	
 	try {
-		pstmt = conn.prepareStatement("delete from bairro where id = ?");
+		pstmt = conn.prepareStatement("delete from bairro where id_bairro = ?");
 		pstmt.setInt(1, id);
 		
 		int flag = pstmt.executeUpdate();
@@ -137,7 +137,7 @@ public void editarBairro(Bairro b) throws SQLException {
 	PreparedStatement pstmt = null;
 	
 	try {
-		pstmt = conn.prepareStatement("update bairro set nome_bairro = ? where id = ?");
+		pstmt = conn.prepareStatement("update bairro set nome_bairro = ? where id_bairro = ?");
 		
 		pstmt.setString(1, b.getNome_Bairro());
 		pstmt.setInt(2, b.getId_bairro());
