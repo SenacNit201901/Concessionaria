@@ -24,121 +24,81 @@ public class Testes {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		List<ItemPedido> lista = new ArrayList<ItemPedido>();
-		Usuario usuario = new Usuario();
-		usuario.setId_usuario(1);
-		usuario.setNome("carlos");
-		usuario.setSobrenome("henrique");
-		usuario.setCpf("148.923.137-42");
-		usuario.setEmail("machado@gmail.com");
-		usuario.setSenha("123456");
-		
-		TipoUsuario tipo_usuario = new TipoUsuario();
-		tipo_usuario.setId_tipo_usuario(1);
-		tipo_usuario.setTipo_usuario("cliente");
-		
-		Endereco endereco = new Endereco();
-		endereco.setId_endereco(1);
-		endereco.setRua("rua nova jersey");
-		endereco.setNumero("25");
-		endereco.setComplemento("casa");
-		endereco.setCep("240000-000");
-		
-		Estado estado = new Estado();
-		estado.setId_UF(1);
-		estado.setUF("RJ");
-		
-		Bairro bairro = new Bairro();
-		bairro.setId_bairro(1);
-		bairro.setNome_Bairro("Boa Vista");
-		
-		Cidade cidade = new Cidade();
-		cidade.setId_cidade(1);
-		cidade.setNome_cidade("Sao Gonçalo");
-		
-		
-		endereco.setBairro(bairro);
-		endereco.setCidade(cidade);
-		endereco.setEstado(estado);
-		
-		Contato contatos = new Contato();
-		contatos.setId_contato(1);
-		contatos.setTelefone("(21) 98299-7212");
+		List<ItemPedido> carrinho = new ArrayList<ItemPedido>();
 		
 		List<Contato> listaContatos = new ArrayList<Contato>();
-		listaContatos.add(contatos);
-		
-		usuario.setTipo_usuario(tipo_usuario);
-		usuario.setEndereco(endereco);
-		usuario.setContatos(listaContatos);
-		
-		Combustivel combustivel = new Combustivel();
-		combustivel.setId_combustivel(1);
-		combustivel.setTipo_combustivel("gasolina");
-		
-		Cor cor = new Cor();
-		cor.setId_cor(1);
-		cor.setNome_cor("amarelo");
-		
-		Marca marca = new Marca();
-		marca.setId_marca(1);
-		marca.setNome_marca("Fiat");
-		
-		Veiculo veiculo = new Veiculo();
-		veiculo.setid_Veiculo(1);
-		veiculo.setModeloVeiculo("Palio");
-		veiculo.setChassiVeiculo("1515145458");
-		veiculo.setAnoVeiculo(2014);
-		veiculo.setCor(cor);
-		veiculo.setMarca(marca);
-		veiculo.setCombustivel(combustivel);
-		veiculo.setValorVeiculo(30000.00);
-		
-		Cor vermelho = new Cor(1, "vermelho");
-		Veiculo veiculo2 = new Veiculo(2, "UNO", 2012, "SJAJSK222", 30000.00, vermelho, combustivel, marca);
 		
 		
-		ItemPedido item = new ItemPedido();
-		item.setId_item(1);
-		item.setQuantidade(2);
-		Double subTotal = veiculo.getValorVeiculo() * item.getQuantidade();
-		item.setSub_Total(subTotal);
-		item.setVeiculo(veiculo);
+		TipoUsuario cliente = new TipoUsuario(1, "cliente");
 		
-		FormaPagamento pagamento = new FormaPagamento();
-		pagamento.setId_forma_pagamento(1);
-		pagamento.setTipo_pagamento("Cartao");
+		Contato contato1 = new Contato(1, "(21) 98299-7212");
+		Contato contato2 = new Contato(1, "(21) 98209-7002");
+		listaContatos.add(contato1);
+		listaContatos.add(contato2);
 		
+		Estado estado = new Estado(1, "RJ");
 		
-		ItemPedido item2 = new ItemPedido(2, 3, veiculo2);
+		Bairro bairro = new Bairro(1, "Boa Vista");
 		
-		lista.add(item);
-		lista.add(item2);
+		Cidade cidade = new Cidade(1, "São Goncalo");
+		
+		Combustivel combustivel = new Combustivel(1, "gasolina");
 
-		Double subtotal2 = veiculo2.getValorVeiculo() * item2.getQuantidade();
-		item2.setSub_Total(subtotal2);
+		Cor vermelho = new Cor(1, "vermelho");
+		Cor preto = new Cor(1, "Preto");
+
+		
+		
+		Marca marca = new Marca(1, "FIAT");
+				
+		Veiculo veiculo = new Veiculo(1, "PALIO", 2015, "22JJH222K22", 40.0, vermelho, combustivel, marca);
+		Veiculo veiculo2 = new Veiculo(1, "UNO", 2010, "2525515SSSAA", 50.0, preto, combustivel, marca);
+
+		
+		FormaPagamento pagamento = new FormaPagamento(1, "Cartao");
+		
+		Endereco endereco = new Endereco(1, "240000-000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
+		
+		Usuario usuario = new Usuario(1, "carlos", "henrique", "148.923.137-42", "machado@gmail.com", "123456", cliente, endereco, listaContatos);
+		
+		// primeiro item
+		ItemPedido item1 = new ItemPedido(1, 2, veiculo);
+		
+		Double subTotal = veiculo.getValorVeiculo() * item1.getQuantidade();
+		item1.setSub_Total(subTotal);
+		
+		// segundo item
+		
+		ItemPedido item2 = new ItemPedido(2, 3, veiculo2 );
+		Double subTotal2 = veiculo2.getValorVeiculo() * item2.getQuantidade();
+		item2.setSub_Total(subTotal2);
+		
+		carrinho.add(item1);
+		carrinho.add(item2);
+		
 		Pedido pedido = new Pedido();
 		
 		pedido.setId_pedido(1);
 		pedido.setData_pedido(new Date());
-		pedido.setItem_pedido(lista);
+		pedido.setItem_pedido(carrinho);
 		pedido.setPagamento(pagamento);
-		
-		Double soma = 0d;
-
-
-		for(ItemPedido i: lista) {
-			soma = soma + i.getSub_Total();
-		}
-		
-		pedido.setValor_total(soma);
 		
 		pedido.setQuantidade_parcelamento(2);
 		pedido.setUsuario(usuario);
 		
-
+		Double soma = 0d;
+		
+		for(ItemPedido p: carrinho) {
+			soma = soma + p.getSub_Total();
+			}
+		pedido.setValor_total(soma);
+		
+	
 		
 		
+		
+		
+	
 		
 		
 	}
