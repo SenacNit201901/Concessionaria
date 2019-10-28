@@ -7,6 +7,8 @@ import br.com.senac.concessionaria.modelo.Usuario;
 
 public class UsuarioServico{
 		
-
+	public Boolean login(String email, String senha) {
+		return true;
+	}
 		
 }
