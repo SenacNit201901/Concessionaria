@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Marca;
+import br.com.senac.concessionaria.util.DAO;
 
 public class MarcaDAO extends DAO {
 private Connection conn;

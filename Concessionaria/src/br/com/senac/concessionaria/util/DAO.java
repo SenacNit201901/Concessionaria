@@ -1,4 +1,4 @@
-package br.com.senac.concessionaria.dao;
+package br.com.senac.concessionaria.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

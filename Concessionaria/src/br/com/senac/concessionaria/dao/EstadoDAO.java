@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Estado;
+import br.com.senac.concessionaria.util.DAO;
 
 public class EstadoDAO extends DAO {
 private Connection conn;

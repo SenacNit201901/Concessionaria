@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Cidade;
+import br.com.senac.concessionaria.util.DAO;
 
 public class CidadeDAO extends DAO {
 private Connection conn;

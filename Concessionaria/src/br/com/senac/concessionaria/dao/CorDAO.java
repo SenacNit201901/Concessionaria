@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Cor;
+import br.com.senac.concessionaria.util.DAO;
 
 public class CorDAO extends DAO {
 private Connection conn;
