@@ -3,8 +3,6 @@ package br.com.senac.concessionaria.servico;
 import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Contato;
-import br.com.senac.concessionaria.modelo.Endereco;
-import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 
 public class UsuarioServico{
@@ -16,7 +14,7 @@ public class UsuarioServico{
 		}
 		
 		public UsuarioServico(int id_usuario, String nome, String sobrenome, String cpf, String email, String senha,
-				TipoUsuarioServico tipo_usuario, Endereco endereco, List<Contato> contatos) {
+				TipoUsuarioServico tipo_usuario, EnderecoServico endereco, List<Contato> contatos) {
 			
 			usuario = new Usuario(id_usuario, nome, sobrenome, cpf, email, senha, tipo_usuario, endereco, contatos );
 			
@@ -51,11 +49,11 @@ public class UsuarioServico{
 		public void setEmail(String email) {
 			usuario.setEmail(email);
 		}
-		public Endereco getEndereco() {
+		public EnderecoServico getEndereco() {
 			return usuario.getEndereco();
 		}
 
-		public void setEndereco(Endereco endereco) {
+		public void setEndereco(EnderecoServico endereco) {
 			usuario.setEndereco(endereco);
 		}
 
