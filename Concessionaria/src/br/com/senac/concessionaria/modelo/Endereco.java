@@ -10,17 +10,17 @@ public class Endereco  {
 	private String rua;
 	private String numero;
 	private String complemento;
-	private CidadeServico cidade;
-	private EstadoServico estado;
-	private BairroServico bairro;
+	private Cidade cidade;
+	private Estado estado;
+	private Bairro bairro;
 	
 	public Endereco() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public Endereco(int id_endereco, String cep, String rua, String numero, String complemento, CidadeServico cidade,
-			EstadoServico estado, BairroServico bairro) {
+	public Endereco(int id_endereco, String cep, String rua, String numero, String complemento, Cidade cidade,
+			Estado estado, Bairro bairro) {
 		super();
 		this.id_endereco = id_endereco;
 		this.cep = cep;
@@ -53,27 +53,27 @@ public class Endereco  {
 	public void setRua(String rua) {
 		this.rua = rua;
 	}
-	public CidadeServico getCidade() {
+	public Cidade getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(CidadeServico cidade) {
+	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
 
-	public EstadoServico getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EstadoServico estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 
-	public BairroServico getBairro() {
+	public Bairro getBairro() {
 		return bairro;
 	}
 
-	public void setBairro(BairroServico	 bairro) {
+	public void setBairro(Bairro	 bairro) {
 		this.bairro = bairro;
 	}
 
