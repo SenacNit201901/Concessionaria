@@ -2,7 +2,7 @@ CREATE DATABASE concessionariaDB;
 
 USE concessionariaDB;
 
----- CRIA√á√ÉO DAS TABELAS -------
+---- CRIA«√O DAS TABELAS -------
 
 CREATE TABLE estado(
 id_estado INT PRIMARY KEY AUTO_INCREMENT,
@@ -133,9 +133,14 @@ REFERENCES pedidos(id_pedido)
 
 
 ----------- INSERT NAS TABELAS USUARIO, ESTADO, BAIRRO, CIDADE, CONTATO, ENDERECO, TIPO_USUARIO 
-INSERT INTO estado VALUES ('RJ');
+------- IMPORTANTE !!!!! ----
+
+--- OS INSERTS NO MYSQL NECESSITAM DO ID PASSADO NO VALUES, PARA A RESOLU«√O DO PROBLEMA PODEMOS PASSAR AS COLUNAS QUE VAO SER ALTERADAS ---
+
+INSERT INTO estado(uf) VALUES ('RJ');
+
 INSERT INTO bairro VALUES ('Centro');
-INSERT INTO cidade VALUES ('S√£o Gon√ßalo');
+INSERT INTO cidade VALUES ('S„o GonÁalo');
 INSERT INTO contato VALUES ('2199999999');
 INSERT INTO endereco VALUES ('123456789', 'Rua Roberto Pimentel', '123', 'Casa', 1, 1, 1);
 
@@ -146,7 +151,7 @@ INSERT INTO estado VALUES ('RJ');
 INSERT INTO bairro VALUES ('Centro');
 INSERT INTO cidade VALUES ('Niteroi');
 INSERT INTO contato VALUES ('21987654321');
-INSERT INTO endereco VALUES ('987654321', 'Rua Almirante tef√©', '321', 'Pr√©dio', 2, 2, 2);
+INSERT INTO endereco VALUES ('987654321', 'Rua Almirante tefÈ', '321', 'PrÈdio', 2, 2, 2);
 
 INSERT INTO tipo_usuario VALUES ('Administrador');
 INSERT INTO usuario VALUES ('Senac', 'Niteroi', '10123456789', 'senac@senac.com', 'senac@123', 2, 2, 2);
@@ -165,14 +170,13 @@ INSERT INTO usuario VALUES ('Senac', 'Niteroi', '10123456789', 'senac@senac.com'
 
  ----------- INSERT NAS TABELAS PEDIDOS, ITEM_PEDIDO, FORMA DE PAGAMENTO
 
- INSERT INTO forma_pagamento VALUES ('Cr√©dito');
+ INSERT INTO forma_pagamento VALUES ('CrÈdito');
  INSERT INTO pedidos VALUES ('24-10-2019', 18.000, 36, 1, 1);
  INSERT INTO item_pedidos VALUES (1, 18.000, 1, 1);
 
-  INSERT INTO forma_pagamento VALUES ('Transferencia Banc√°ria');
+  INSERT INTO forma_pagamento VALUES ('Transferencia Banc·ria');
  INSERT INTO pedidos VALUES ('23-10-2019', 60.000, 36, 2, 2);
  INSERT INTO item_pedidos VALUES (1, 60.000, 2, 2);
-
 
 
 
