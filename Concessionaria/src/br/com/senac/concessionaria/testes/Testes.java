@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.com.senac.concessionaria.dao.BairroDAO;
+import br.com.senac.concessionaria.dao.CidadeDAO;
+import br.com.senac.concessionaria.dao.EnderecoDAO;
+import br.com.senac.concessionaria.dao.EstadoDAO;
+import br.com.senac.concessionaria.dao.TipoUsuarioDAO;
 import br.com.senac.concessionaria.dao.UsuarioDAO;
 import br.com.senac.concessionaria.modelo.Bairro;
 import br.com.senac.concessionaria.modelo.Cidade;
@@ -32,7 +37,8 @@ public class Testes {
 
 		
 		
-		TipoUsuario cliente = new TipoUsuario(1, "cliente");
+		TipoUsuario cliente = new TipoUsuario( "cliente");
+		TipoUsuario funcionario = new TipoUsuario( "funcionario");
 		
 
 		
@@ -43,14 +49,26 @@ public class Testes {
 		
 		Cidade cidade = new Cidade(1, "São Goncalo");
 		
+		BairroDAO b = new BairroDAO();
+		CidadeDAO c = new CidadeDAO();
+		EstadoDAO e = new EstadoDAO();
+		
+		b.gravar(bairro);
+		c.gravar(cidade);
+		e.gravar(estado);
+		
+		Endereco endereco = new Endereco(1, "240000000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
+		EnderecoDAO en = new EnderecoDAO();
+		en.gravar(endereco);
+		
+		Usuario usuario = new Usuario(1, "carlos", "henrique", "55555", "mdo@gmail.com", "6656", funcionario, endereco);
+		UsuarioDAO usuarioda = new UsuarioDAO();
+		TipoUsuarioDAO tipoda = new TipoUsuarioDAO();
+		
 
-		
-		Endereco endereco = new Endereco(1, "240000-000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
-		
-		Usuario usuario = new Usuario(1, "carlos", "henrique", "14892313742", "machado@gmail.com", "123456", cliente, endereco);
-		UsuarioDAO usuariodao = new UsuarioDAO();
-		
-		usuariodao.gravar(usuario);
+
+		System.out.println(usuario.getId_usuario());
+		System.out.println(funcionario.getId_tipo_usuario());
 		
 		Contato contato1 = new Contato(1, usuario, "(21) 98299-7212");
 		Contato contato2 = new Contato(1, usuario, "(21) 98209-7002");

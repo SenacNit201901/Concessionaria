@@ -24,17 +24,22 @@ public class BairroDAO extends DAO {
 		abreConexao();
 
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("insert into bairro(nome_bairro) values(?)");
+			pstmt = conn.prepareStatement("insert into bairro(nome_bairro) values(?)", PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, b.getNome_Bairro());
 			
-		} catch (Exception e) {
+		
 			int flag = pstmt.executeUpdate();
 
 			if(flag == 0) {
 				throw new SQLException("Erro ao gravar no banco!");
+			}else {
+				rs = pstmt.getGeneratedKeys();
+				rs.next();
+				b.setId_bairro(rs.getInt(1));
 			}
 		} finally {
 			if(conn != null) {
@@ -42,6 +47,9 @@ public class BairroDAO extends DAO {
 			}
 			if(pstmt != null) {
 				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
 			}
 		}
 		}

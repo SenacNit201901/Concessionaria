@@ -23,17 +23,23 @@ private Connection conn;
 		abreConexao();
 
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("insert into cidade(nome_cidade) values(?)");
+			pstmt = conn.prepareStatement("insert into cidade(nome_cidade) values(?)", PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, c.getNome_cidade());
 			
-		} catch (Exception e) {
+	
 			int flag = pstmt.executeUpdate();
 
 			if(flag == 0) {
 				throw new SQLException("Erro ao gravar no banco!");
+			}else {
+				
+				rs = pstmt.getGeneratedKeys();
+				rs.next();
+				c.setId_cidade(rs.getInt(1));
 			}
 		} finally {
 			if(conn != null) {
@@ -41,6 +47,9 @@ private Connection conn;
 			}
 			if(pstmt != null) {
 				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
 			}
 		}
 		}

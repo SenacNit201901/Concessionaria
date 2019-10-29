@@ -12,7 +12,7 @@ public class UsuarioDAO extends DAO{
 	private Connection conn;
 
 	
-	public Integer gravar(Usuario u) throws SQLException{
+	public void gravar(Usuario u) throws SQLException{
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
@@ -37,8 +37,10 @@ public class UsuarioDAO extends DAO{
 				rs = pstmt.getGeneratedKeys();
 				rs.next();
 				u.setId_usuario(rs.getInt(1));
+			} else {
+				throw new SQLException("Erro ao gravar no banco!");
 			}
-			return u.getId_usuario();
+			
 			
 		} finally {
 			
