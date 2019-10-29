@@ -55,9 +55,51 @@ public class UsuarioDAO extends DAO{
 		}
 	}
 	
+	public Usuario login(Usuario u) throws SQLException{
+		abreConexao();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try {
+			pstmt = conn.prepareStatement("select * from usuario where email = ? and senha = ?");
+			pstmt.setString(1, u.getEmail());
+			pstmt.setString(2, u.getSenha());
+
+
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				u.setId_usuario(rs.getInt(1));
+				u.setNome(rs.getString(2));
+				u.setSobrenome(rs.getString(3));
+				u.setCpf(rs.getString(4));
+				u.setEmail(rs.getString(5));
+				u.setSenha(rs.getString(6));
+			}
+			return u;
+			
+
+			
+			
+		} finally {
+			
+			if(conn != null) {
+				conn.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
+			}
+		}
+	}
 	
 	
-	
+
 	
 	
 	private void abreConexao() {

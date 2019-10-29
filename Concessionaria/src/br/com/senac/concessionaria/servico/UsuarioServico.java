@@ -57,6 +57,24 @@ public class UsuarioServico{
 		
 		
 	}
+	
+	public Boolean login(String email, String senha) throws SQLException {
+		UsuarioDAO u = new UsuarioDAO();
+		
+		usuario = new Usuario();
+		usuario.setEmail(email);
+		usuario.setSenha(senha);
+		u.login(this.usuario);
+		
+		if (this.usuario.getId_usuario() != 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	
 	public void cadastrarContato(String telefone) throws SQLException {
 		ContatoDAO c = new ContatoDAO(); 
 		contato = new ArrayList<>();

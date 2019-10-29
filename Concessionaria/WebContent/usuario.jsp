@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
 
-	<a href="cadastrar.jsp"> cadastrar</a>
-	<br>
-	<a href="login.jsp"> login</a>
+	<h1>SEJA BEM VINDO</h1>
 
 </body>
 </html>
