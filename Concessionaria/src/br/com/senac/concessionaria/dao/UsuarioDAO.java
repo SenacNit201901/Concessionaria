@@ -20,15 +20,15 @@ public class UsuarioDAO extends DAO{
 		
 		
 		try {
-			pstmt = conn.prepareStatement("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
+			pstmt = conn.prepareStatement("INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, u.getNome());
 			pstmt.setString(2, u.getSobrenome());
 			pstmt.setString(3, u.getCpf());
 			pstmt.setString(4, u.getEmail());
 			pstmt.setString(5, u.getSenha());
-			pstmt.setObject(6, u.getTipo_usuario());
-			pstmt.setObject(7, u.getEndereco());
-			pstmt.setObject(8, u.getContatos());
+			pstmt.setObject(6, u.getTipo_usuario().getId_tipo_usuario());
+			pstmt.setObject(7, u.getEndereco().getId_endereco());
+
 			
 			
 			

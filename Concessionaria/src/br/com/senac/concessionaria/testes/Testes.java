@@ -1,9 +1,11 @@
 package br.com.senac.concessionaria.testes;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.com.senac.concessionaria.dao.UsuarioDAO;
 import br.com.senac.concessionaria.modelo.Bairro;
 import br.com.senac.concessionaria.modelo.Cidade;
 import br.com.senac.concessionaria.modelo.Combustivel;
@@ -22,12 +24,12 @@ import br.com.senac.concessionaria.servico.UsuarioServico;
 
 public class Testes {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
 		List<ItemPedido> carrinho = new ArrayList<ItemPedido>();
 		
-		List<Contato> listaContatos = new ArrayList<Contato>();
+
 		
 		
 		TipoUsuario cliente = new TipoUsuario(1, "cliente");
@@ -45,7 +47,11 @@ public class Testes {
 		
 		Endereco endereco = new Endereco(1, "240000-000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
 		
-		Usuario usuario = new Usuario(1, "carlos", "henrique", "148.923.137-42", "machado@gmail.com", "123456", cliente, endereco);
+		Usuario usuario = new Usuario(1, "carlos", "henrique", "14892313742", "machado@gmail.com", "123456", cliente, endereco);
+		UsuarioDAO usuariodao = new UsuarioDAO();
+		
+		usuariodao.gravar(usuario);
+		
 		Contato contato1 = new Contato(1, usuario, "(21) 98299-7212");
 		Contato contato2 = new Contato(1, usuario, "(21) 98209-7002");
 
