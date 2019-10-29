@@ -2,9 +2,6 @@ package br.com.senac.concessionaria.modelo;
 
 import java.util.List;
 
-import br.com.senac.concessionaria.servico.EnderecoServico;
-import br.com.senac.concessionaria.servico.TipoUsuarioServico;
-
 public class Usuario {
 	
 	private int id_usuario;
@@ -15,7 +12,7 @@ public class Usuario {
 	private String senha;
 	private TipoUsuario tipo_usuario;
 	private Endereco endereco;
-	private List<Contato> contatos;
+
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -23,7 +20,7 @@ public class Usuario {
 	
 	
 	public Usuario(int id_usuario, String nome, String sobrenome, String cpf, String email, String senha,
-			TipoUsuario tipo_usuario, Endereco endereco, List<Contato> contatos) {
+			TipoUsuario tipo_usuario, Endereco endereco) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nome = nome;
@@ -33,7 +30,6 @@ public class Usuario {
 		this.senha = senha;
 		this.tipo_usuario = tipo_usuario;
 		this.endereco = endereco;
-		this.contatos = contatos;
 	}
 
 
@@ -72,13 +68,7 @@ public class Usuario {
 		this.endereco = endereco;
 	}
 
-	public List<Contato> getContatos() {
-		return contatos;
-	}
 
-	public void setContatos(List<Contato> contatos) {
-		this.contatos = contatos;
-	}
 
 	public void setEmail(String email) {
 		this.email = email;

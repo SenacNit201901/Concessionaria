@@ -15,8 +15,9 @@ import br.com.senac.concessionaria.modelo.FormaPagamento;
 import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Marca;
 import br.com.senac.concessionaria.modelo.Pedido;
+import br.com.senac.concessionaria.modelo.TipoUsuario;
+import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
-import br.com.senac.concessionaria.servico.TipoUsuarioServico;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
 public class Testes {
@@ -29,18 +30,25 @@ public class Testes {
 		List<Contato> listaContatos = new ArrayList<Contato>();
 		
 		
-		TipoUsuarioServico cliente = new TipoUsuarioServico(1, "cliente");
+		TipoUsuario cliente = new TipoUsuario(1, "cliente");
 		
-		Contato contato1 = new Contato(1, "(21) 98299-7212");
-		Contato contato2 = new Contato(1, "(21) 98209-7002");
-		listaContatos.add(contato1);
-		listaContatos.add(contato2);
+
+		
 		
 		Estado estado = new Estado(1, "RJ");
 		
 		Bairro bairro = new Bairro(1, "Boa Vista");
 		
 		Cidade cidade = new Cidade(1, "São Goncalo");
+		
+
+		
+		Endereco endereco = new Endereco(1, "240000-000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
+		
+		Usuario usuario = new Usuario(1, "carlos", "henrique", "148.923.137-42", "machado@gmail.com", "123456", cliente, endereco);
+		Contato contato1 = new Contato(1, usuario, "(21) 98299-7212");
+		Contato contato2 = new Contato(1, usuario, "(21) 98209-7002");
+
 		
 		Combustivel combustivel = new Combustivel(1, "gasolina");
 
@@ -56,11 +64,6 @@ public class Testes {
 
 		
 		FormaPagamento pagamento = new FormaPagamento(1, "Cartao");
-		
-		Endereco endereco = new Endereco(1, "240000-000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
-		
-		UsuarioServico usuario = new UsuarioServico(1, "carlos", "henrique", "148.923.137-42", "machado@gmail.com", "123456", cliente, endereco, listaContatos);
-		
 		// primeiro item
 		ItemPedido item1 = new ItemPedido(1, 2, veiculo);
 		

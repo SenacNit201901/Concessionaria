@@ -1,8 +1,6 @@
 package br.com.senac.concessionaria.modelo;
 
-import br.com.senac.concessionaria.servico.BairroServico;
-import br.com.senac.concessionaria.servico.CidadeServico;
-import br.com.senac.concessionaria.servico.EstadoServico;
+
 
 public class Endereco  {
 	private int id_endereco;
