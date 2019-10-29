@@ -26,10 +26,9 @@ public class UsuarioDAO extends DAO{
 			pstmt.setString(3, u.getCpf());
 			pstmt.setString(4, u.getEmail());
 			pstmt.setString(5, u.getSenha());
-			pstmt.setObject(6, u.getTipo_usuario().getId_tipo_usuario());
-			pstmt.setObject(7, u.getEndereco().getId_endereco());
+			pstmt.setObject(6, u.getEndereco().getId_endereco());
+			pstmt.setObject(7, u.getTipo_usuario().getId_tipo_usuario());
 
-			
 			
 			
 			int flag = pstmt.executeUpdate();

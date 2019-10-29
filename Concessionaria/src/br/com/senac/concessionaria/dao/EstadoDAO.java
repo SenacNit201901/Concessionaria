@@ -23,17 +23,22 @@ private Connection conn;
 		abreConexao();
 
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("insert into estado(uf) values(?)");
+			pstmt = conn.prepareStatement("insert into estado(uf) values(?)", PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, es.getUF());
 			
-		} catch (Exception e) {
+		
 			int flag = pstmt.executeUpdate();
 
 			if(flag == 0) {
 				throw new SQLException("Erro ao gravar no banco!");
+			} else {
+				rs = pstmt.getGeneratedKeys();
+				rs.next();
+				es.setId_UF(rs.getInt(1));
 			}
 		} finally {
 			if(conn != null) {
@@ -41,6 +46,9 @@ private Connection conn;
 			}
 			if(pstmt != null) {
 				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
 			}
 		}
 		}

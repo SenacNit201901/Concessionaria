@@ -40,8 +40,8 @@ public class Testes {
 		TipoUsuario cliente = new TipoUsuario( "cliente");
 		TipoUsuario funcionario = new TipoUsuario( "funcionario");
 		
-
-		
+		TipoUsuarioDAO t = new TipoUsuarioDAO();
+		t.gravar(cliente);
 		
 		Estado estado = new Estado(1, "RJ");
 		
@@ -61,9 +61,9 @@ public class Testes {
 		EnderecoDAO en = new EnderecoDAO();
 		en.gravar(endereco);
 		
-		Usuario usuario = new Usuario(1, "carlos", "henrique", "55555", "mdo@gmail.com", "6656", funcionario, endereco);
-		UsuarioDAO usuarioda = new UsuarioDAO();
-		TipoUsuarioDAO tipoda = new TipoUsuarioDAO();
+		Usuario usuario = new Usuario(1, "carlos", "henrique", "55555", "mdo@gmail.com", "6656", cliente, endereco);
+		UsuarioDAO u = new UsuarioDAO();
+		u.gravar(usuario);
 		
 
 
