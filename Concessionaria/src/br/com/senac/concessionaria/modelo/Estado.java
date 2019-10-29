@@ -10,9 +10,8 @@ public class Estado {
 	
 
 
-	public Estado(int id_UF, String UF) {
+	public Estado( String UF) {
 		super();
-		this.id_UF = id_UF;
 		this.UF = UF;
 	}
 

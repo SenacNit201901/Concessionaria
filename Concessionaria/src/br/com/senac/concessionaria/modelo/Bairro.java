@@ -9,9 +9,8 @@ public class Bairro {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Bairro(int id_bairro, String nome_Bairro) {
+	public Bairro( String nome_Bairro) {
 		super();
-		this.id_bairro = id_bairro;
 		this.nome_Bairro = nome_Bairro;
 	}
 

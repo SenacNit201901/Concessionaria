@@ -19,10 +19,9 @@ public class Usuario {
 	}
 	
 	
-	public Usuario(int id_usuario, String nome, String sobrenome, String cpf, String email, String senha,
+	public Usuario( String nome, String sobrenome, String cpf, String email, String senha,
 			TipoUsuario tipo_usuario, Endereco endereco) {
 		super();
-		this.id_usuario = id_usuario;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;

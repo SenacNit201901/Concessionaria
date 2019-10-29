@@ -80,12 +80,13 @@
 <br>
 <br>
             <!-- FORMULARIO CADASTRO -->
+            <form action="CadastrarServlet" method="post">
             <div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
                     <div class="form-row">
                       <div id="" class="col-md-6 offset-md-3" >
                         <h3>Crie uma conta para compras na nossa concessionaria</h3>
                         <br>
-
+					
                       <div class="form-group">
                             <label for="exampleFormControlInput1">Nome </label>
                             <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome">
@@ -110,21 +111,17 @@
                             <label for="exampleFormControlInput1"><Table>Telefone</Table></label>
                             <input name="telefone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="(xx)99999-9999">
                         </div>
-                        <div class="form-group">
-                        <label for="exampleFormControlInput1">Endereço</label>
-                        <input name="endereço" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite um endereço">
-                      </div>
                       <div class="form-group">
                         <label for="exampleFormControlInput1">Complemento </label>
                         <input name="complemento" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adicione um complemento">
                       </div>
                       <div class="form-group">
                             <label for="exampleFormControlInput1">CEP </label>
-                            <input name="usuario" type="text" class="form-control" id="exampleFormControlInput1" placeholder="99999-999">
+                            <input name="cep" type="text" class="form-control" id="exampleFormControlInput1" placeholder="99999-999">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Rua</label>
-                            <input name="rua" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            <input name="endereco" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Número </label>
@@ -138,6 +135,10 @@
                             <label for="exampleFormControlInput1">Bairro </label>
                             <input name="bairro" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome do bairro">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Estado </label>
+                            <input name="estado" type="text" class="form-control" id="exampleFormControlInput1" placeholder="exemplo 'RJ'">
+                        </div>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
                           <label class="custom-control-label" for="defaultLoginFormRemember">Declaro que li e aceito os Termos</label>
@@ -145,8 +146,11 @@
                         <button class="btn btn-outline-dark btn-block my-4"  type="submit">Cadastrar</button>
 
                         </div>
+                 
                     </div>
+                           
             </div>
+            </form>
 
             <!-- ###################### FIM DO CONTEUDO #####################################-->
 
