@@ -17,30 +17,41 @@ private Connection conn;
 		
 	}
 	
-	public void gravar(Contato contato) throws SQLException{
+	public Integer gravar(Contato contato) throws SQLException{
 		
 		
 		abreConexao();
 
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("insert into contato(telefone) values(?)");
+			pstmt = conn.prepareStatement("insert into contato(telefone) values(?)",  PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, contato.getTelefone());
 			
-		} catch (Exception e) {
+		
 			int flag = pstmt.executeUpdate();
 
 			if(flag == 0) {
 				throw new SQLException("Erro ao gravar no banco!");
+				
+			}else {
+				rs = pstmt.getGeneratedKeys();
+				rs.next();
+				contato.setId_contato(rs.getInt(1));
+				
 			}
+			return contato.getId_contato();
 		} finally {
 			if(conn != null) {
 				conn.close();
 			}
 			if(pstmt != null) {
 				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
 			}
 		}
 		}
