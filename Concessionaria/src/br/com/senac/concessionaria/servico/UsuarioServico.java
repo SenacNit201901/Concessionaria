@@ -7,6 +7,6 @@ import br.com.senac.concessionaria.modelo.Usuario;
 
 public class UsuarioServico{
 		
-	public void gravar(String )
+	
 		
 }
