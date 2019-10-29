@@ -14,8 +14,7 @@ public class Veiculo {
 		
 	}
 	
-	public Veiculo(int id_Veiculo, String modeloVeiculo, int anoVeiculo, String chassiVeiculo, Double valorVeiculo, Cor cor, Combustivel combustivel,Marca marca) {
-		this.id_Veiculo = id_Veiculo;
+	public Veiculo(String modeloVeiculo, int anoVeiculo, String chassiVeiculo, Double valorVeiculo, Cor cor, Combustivel combustivel,Marca marca) {
 		this.modeloVeiculo = modeloVeiculo;
 		this.anoVeiculo = anoVeiculo;
 		this.chassiVeiculo = chassiVeiculo;

@@ -20,6 +20,7 @@ import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.servico.UsuarioServico;
+import br.com.senac.concessionaria.servico.VeiculoServico;
 
 public class Testes {
 
@@ -64,18 +65,23 @@ public class Testes {
 		user.cadastrarContato(contato2.getTelefone());
 
 		
-		Combustivel combustivel = new Combustivel(1, "gasolina");
+		Combustivel combustivel = new Combustivel( "gasolina");
 
-		Cor vermelho = new Cor(1, "vermelho");
-		Cor preto = new Cor(1, "Preto");
+		Cor vermelho = new Cor( "vermelho");
+		Cor preto = new Cor( "Preto");
 
 		
 		
-		Marca marca = new Marca(1, "FIAT");
+		Marca marca = new Marca("FIAT");
 				
-		Veiculo veiculo = new Veiculo(1, "PALIO", 2015, "22JJH222K22", 40.0, vermelho, combustivel, marca);
-		Veiculo veiculo2 = new Veiculo(1, "UNO", 2010, "2525515SSSAA", 50.0, preto, combustivel, marca);
-
+		Veiculo veiculo = new Veiculo("PALIO", 2015, "22JJH222K22", 40.0, vermelho, combustivel, marca);
+		Veiculo veiculo2 = new Veiculo( "UNO", 2010, "2525515SSSAA", 50.0, preto, combustivel, marca);
+		
+		VeiculoServico vS = new VeiculoServico();
+		vS.cadastrarCor(vermelho.getNome_cor());
+		vS.cadastrarCombustivel(combustivel.getTipo_combustivel());
+		vS.cadastrarMarca(marca.getNome_marca());
+		vS.cadastrarVeiculo(veiculo.getModeloVeiculo(), veiculo.getAnoVeiculo(), veiculo.getChassiVeiculo(), veiculo.getValorVeiculo());
 		
 		FormaPagamento pagamento = new FormaPagamento(1, "Cartao");
 		// primeiro item

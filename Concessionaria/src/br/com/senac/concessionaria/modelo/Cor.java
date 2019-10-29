@@ -6,8 +6,7 @@ public class Cor {
 	
 	public Cor() {}
 	
-	public Cor(int id_cor, String nome_cor) {
-		this.id_cor = id_cor;
+	public Cor(String nome_cor) {
 		this.nome_cor = nome_cor;
 	}
 

@@ -133,8 +133,18 @@ REFERENCES pedidos(id_pedido)
 
 drop database concessionariadb;
 
+ INSERT INTO cor VALUES (null, 'Branco');
+ INSERT INTO marca VALUES (null, 'Fiat');
+ INSERT INTO combustivel VALUES (null, 'Gasolina');
+ INSERT INTO veiculos VALUES (null, 'Palio', '2011', '123abc789dhj785bv', 18.000, 1, 1, 1);
+
 select c.id_contato, u.id_usuario, u.nome, u.sobrenome, c.telefone  from usuario as u inner join contato as c on u.id_usuario = c.id_usuario;
 select * from tipo_usuario;
 select * from endereco;
 select * from estado;
 select * from cidade;
+
+select * from cor;
+select * from marca;
+select * from combustivel;
+select * from veiculos;

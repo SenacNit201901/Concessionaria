@@ -7,8 +7,7 @@ public class Combustivel {
 	
 	public Combustivel() {}
 	
-	public Combustivel(int id_combustivel,String tipo_combustivel) {
-		this.id_combustivel = id_combustivel;
+	public Combustivel(String tipo_combustivel) {
 		this.tipo_combustivel = tipo_combustivel;
 	}
 
