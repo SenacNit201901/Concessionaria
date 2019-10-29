@@ -24,10 +24,6 @@ id_tipo_usuario INT AUTO_INCREMENT PRIMARY KEY,
 tipo_usuario VARCHAR(50) UNIQUE NOT NULL
 );
 
-CREATE TABLE contato(
-id_contato INT AUTO_INCREMENT PRIMARY KEY,
-telefone VARCHAR (20) NOT NULL
-);
 
 CREATE TABLE cor(
 id_cor INT AUTO_INCREMENT PRIMARY KEY,
@@ -93,15 +89,19 @@ CREATE TABLE usuario(
 	id_endereco INT NOT NULL,
 	CONSTRAINT fk_endereco FOREIGN KEY(id_endereco)
 	REFERENCES endereco(id_endereco),
-	id_contato INT NOT NULL,
-	CONSTRAINT fk_contato FOREIGN KEY(id_contato)
-	REFERENCES contato(id_contato),
 	id_tipo_usuario INT NOT NULL,
 	CONSTRAINT fk_tipo_usuario FOREIGN KEY(id_tipo_usuario)
 	REFERENCES tipo_usuario(id_tipo_usuario)
 
 );
 
+CREATE TABLE contato(
+id_contato INT AUTO_INCREMENT PRIMARY KEY,
+telefone VARCHAR (20) NOT NULL,
+id_usuario INT NOT NULL,
+CONSTRAINT fk_usuario_contato FOREIGN KEY(id_usuario)
+REFERENCES usuario(id_usuario)
+);
 
 CREATE TABLE pedidos(
   id_pedido INT AUTO_INCREMENT PRIMARY KEY,
@@ -110,7 +110,7 @@ CREATE TABLE pedidos(
   quantidade_parcelamento INT,
   id_usuario INT NOT NULL,
   id_forma_pagamento INT NOT NULL,
-  CONSTRAINT fk_usuario FOREIGN KEY(id_usuario)
+  CONSTRAINT fk_usuario_pedido FOREIGN KEY(id_usuario)
    REFERENCES usuario(id_usuario),
    CONSTRAINT fk_forma_pagamento FOREIGN KEY(id_forma_pagamento)
    REFERENCES forma_pagamento(id_forma_pagamento)
@@ -132,47 +132,116 @@ REFERENCES pedidos(id_pedido)
 );
 
 
+-- INSERT 15 BAIRRO;
 
--- INSERT NAS TABELAS USUARIO, ESTADO, BAIRRO, CIDADE, CONTATO, ENDERECO, TIPO_USUARIO 
+INSERT INTO bairro VALUES (null, 'Centro');
+INSERT INTO bairro VALUES (null, 'Icarai');
+INSERT INTO bairro VALUES (null, 'Inga');
+INSERT INTO bairro VALUES (null, 'São Francisco');
+INSERT INTO bairro VALUES (null, 'Piratininga');
+INSERT INTO bairro VALUES (null, 'Columbande');
+INSERT INTO bairro VALUES (null, 'Itauna');
+INSERT INTO bairro VALUES (null, 'Galo Branco');
+INSERT INTO bairro VALUES (null, 'Santa Isabel');
+INSERT INTO bairro VALUES (null, 'Itacoatiara');
+INSERT INTO bairro VALUES (null, 'Camboinhas');
+INSERT INTO bairro VALUES (null, 'Engenho do Mato');
+INSERT INTO bairro VALUES (null, 'Fonseca');
+INSERT INTO bairro VALUES (null, 'Itaipu');
+INSERT INTO bairro VALUES (null, 'Itaipuaçu');
 
-INSERT INTO estado(uf) VALUES ('RJ');
+-- INSERT 5 CIDADES
 
-INSERT INTO bairro (nome_bairro) VALUES ('Centro');
-INSERT INTO cidade (nome_cidade) VALUES ('São Gonçalo');
-INSERT INTO contato (telefone) VALUES ('2199999999');
-INSERT INTO endereco (cep, rua, numero, complemento, id_estado, id_bairro, id_cidade) VALUES ('123456789', 'Rua Roberto Pimentel', '123', 'Casa', 1, 1, 1);
+INSERT INTO cidade VALUES (null, 'Niterói');
+INSERT INTO cidade VALUES (null, 'Sao Gonçalo');
+INSERT INTO cidade VALUES (null, 'Rio de Janeiro');
+INSERT INTO cidade VALUES (null, 'Maricá');
+INSERT INTO cidade VALUES (null, 'Itaboraí');
 
-INSERT INTO tipo_usuario (tipo_usuario) VALUES ('Cliente');
-INSERT INTO usuario (nome, sobrenome, cpf, email, senha, id_endereco, id_contato, id_tipo_usuario) VALUES ('Anderson', 'Camelo', '12345678910', 'anderson@anderson.com', 'senha@123', 1, 1, 1);
+-- INSERT 4 Combustivel
 
-INSERT INTO bairro(nome_bairro) VALUES ('Centro'); /* unique? */
-INSERT INTO cidade(nome_cidade) VALUES ('Niteroi');
-INSERT INTO contato(telefone) VALUES ('21987654321');
-INSERT INTO endereco (cep, rua, numero, complemento, id_estado, id_bairro, id_cidade) VALUES ('987654321', 'Rua Almirante tefé', '321', 'Prédio', 1, 2, 2);
 
-INSERT INTO tipo_usuario (tipo_usuario) VALUES ('Administrador');
-INSERT INTO usuario (nome, sobrenome, cpf, email, senha, id_endereco, id_contato, id_tipo_usuario) VALUES ('Senac', 'Niteroi', '10123456789', 'senac@senac.com', 'senac@123', 2, 2, 2);
+INSERT INTO combustivel VALUES (null, 'Flex');
+INSERT INTO combustivel VALUES (null, 'Diesel');
 
--- INSERT NAS TABELAS VEICULO, COR, MARCA, COMBUSTIVEL
+-- INSERT CONTATO *** JAVA
 
- INSERT INTO cor (nome_cor) VALUES ('Branco');
- INSERT INTO marca (nome_marca) VALUES ('Fiat');
- INSERT INTO combustivel (tipo_combustivel) VALUES ('Gasolina');
- INSERT INTO veiculos (modelo, ano, chassi, valor_unitario, id_cor, id_marca, id_combustivel) VALUES ('Palio', '2011', '123abc789dhj785bv', 18.000, 1, 1, 1);
+-- INSERT endereco *** JAVA
 
- INSERT INTO cor (nome_cor) VALUES ('Preto');
- INSERT INTO marca (nome_marca) VALUES ('Hyundai');
- INSERT INTO combustivel (tipo_combustivel) VALUES ('Flex');
- INSERT INTO veiculos (modelo, ano, chassi, valor_unitario, id_cor, id_marca, id_combustivel) VALUES ('Tucson', '2016', '312dhf531jki785cb', 60.000, 2, 2, 2);
+-- INSERT 3 estado
 
- -- INSERT NAS TABELAS PEDIDOS, ITEM_PEDIDO, FORMA DE PAGAMENTO
+INSERT INTO estado VALUES (null, 'RJ');
+INSERT INTO estado VALUES (null, 'SP');
+INSERT INTO estado VALUES (null, 'MG');
 
- INSERT INTO forma_pagamento (tipo_pagamento) VALUES ('Crédito');
- INSERT INTO pedidos (data_pedido, valor_total, quantidade_parcelamento, id_usuario, id_forma_pagamento) VALUES ('2019-10-28', 18.000, 36, 1, 1);
- INSERT INTO item_pedidos (quantidade, subtotal, id_veiculos_pedido, id_pedido) VALUES (1, 18.000, 1, 1);
+-- INSERT 3 forma_pagamento
 
- INSERT INTO forma_pagamento (tipo_pagamento) VALUES ('Transferencia Bancária');
- INSERT INTO pedidos (data_pedido, valor_total, quantidade_parcelamento, id_usuario, id_forma_pagamento) VALUES ('2019-10-28', 60.000, 36, 2, 2);
- INSERT INTO item_pedidos (quantidade, subtotal, id_veiculos_pedido, id_pedido) VALUES (1, 60.000, 2, 2);
+INSERT INTO forma_pagamento VALUES (null, 'Crédito');
+INSERT INTO forma_pagamento VALUES (null, 'Débito');
+INSERT INTO forma_pagamento VALUES (null, 'Boleto');
+
+-- INSERT item_pedidos *** JAVA
+
+
+-- INSERT 2 tipo_usuario
+
+INSERT INTO tipo_usuario VALUES (null, 'Funcionário');
+INSERT INTO tipo_usuario VALUES (null, 'Cliente');
+
+-- INSERT 7 CORES
+ 
+INSERT INTO cor VALUES (null, 'Branco'); -- 1 
+INSERT INTO cor VALUES (null, 'Prata'); -- 2
+INSERT INTO cor VALUES (null, 'Cinza'); -- 3
+INSERT INTO cor VALUES (null, 'Azul'); -- 4
+INSERT INTO cor VALUES (null, 'Laranja'); -- 5
+INSERT INTO cor VALUES (null, 'Preto'); -- 6
+INSERT INTO cor VALUES (null, 'Vermelho'); -- 7
+
+-- INSERT 6 MARCA
+
+INSERT INTO marca VALUES (null, 'Volkswagen'); -- 1
+INSERT INTO marca VALUES (null, 'Fiat'); -- 2
+INSERT INTO marca VALUES (null, 'Chevrolet'); -- 3
+INSERT INTO marca VALUES (null, 'Ford'); -- 4
+INSERT INTO marca VALUES (null, 'Honda'); -- 5 
+INSERT INTO marca VALUES (null, 'Renault'); -- 6
+
+
+-- INSERT USUARIO *** JAVA
+
+-- INSERT VEICULOS
+
+INSERT INTO veiculos VALUES (null, 'Accord', 2020, 'abc123456qwerty00', 204900.00, 2, 5, 1);
+INSERT INTO veiculos VALUES (null, 'Civic', 2020, 'abc123456qwerty01', 97900.0, 2, 5, 1);
+INSERT INTO veiculos VALUES (null, 'Toro', 2020, 'abc123456qwerty02', 125502.00, 4, 2, 2);
+INSERT INTO veiculos VALUES (null, 'Tracker', 2020, 'abc123456qwerty03', 93990.00, 6, 3, 1);
+INSERT INTO veiculos VALUES (null, 'Uno Attractive', 2020, 'abc123456qwerty04', 46490.00, 7, 2, 1);
+INSERT INTO veiculos VALUES (null, 'Virtus', 2020, 'abc123456qwerty05', 60990.00, 6, 1, 1);
+INSERT INTO veiculos VALUES (null, 'WRV', 2020, 'abc123456qwerty06', 87900.00, 6, 5, 1);
+INSERT INTO veiculos VALUES (null, 'T-Cross', 2020, 'abc123456qwerty07', 94990.00, 6, 1, 1);
+INSERT INTO veiculos VALUES (null, 'KA Sedan', 2020, 'abc123456qwerty08', 57990.00, 7, 4, 1);
+INSERT INTO veiculos VALUES (null, 'Sandero Life 1.0', 2020, 'abc123456qwerty09', 42990.00, 7, 6, 1);
+INSERT INTO veiculos VALUES (null, 'S10 LTZ', 2020, 'abc123456qwerty10', 130990.00, 4, 3, 1);
+INSERT INTO veiculos VALUES (null, 'City', 2020, 'abc123456qwerty11', 85800.00, 2, 5, 1);
+INSERT INTO veiculos VALUES (null, 'Ranger', 2020, 'abc123456qwerty12', 124900.00, 4, 4, 2);
+INSERT INTO veiculos VALUES (null, 'Prisma', 2020, 'abc123456qwerty13', 93990.00, 1, 3, 2);
+INSERT INTO veiculos VALUES (null, 'Polo', 2020, 'abc123456qwerty14', 57390.00, 6, 1, 1);
+INSERT INTO veiculos VALUES (null, 'Onix', 2020, 'abc123456qwerty15', 44990.00, 6, 3, 1);
+INSERT INTO veiculos VALUES (null, 'Logan', 2020, 'abc123456qwerty16', 45490.00, 3, 6, 1);
+INSERT INTO veiculos VALUES (null, 'Kwid', 2020, 'abc123456qwerty17', 36900.00, 5, 6, 1);
+INSERT INTO veiculos VALUES (null, 'KA', 2020, 'abc123456qwerty18', 42490.00, 3, 4, 1);
+INSERT INTO veiculos VALUES (null, 'Jetta', 2020, 'abc123456qwerty19', 93990.00, 1, 1, 1);
+INSERT INTO veiculos VALUES (null, 'HRV', 2020, 'abc123456qwerty20', 139900.00, 1, 5, 1);
+INSERT INTO veiculos VALUES (null, 'Grand Siena', 2020, 'abc123456qwerty21', 44490.00, 6, 2, 1);
+INSERT INTO veiculos VALUES (null, 'Gol', 2020, 'abc123456qwerty22', 43690.00, 1, 1, 1);
+INSERT INTO veiculos VALUES (null, 'New Fiesta', 2020, 'abc123456qwerty23', 50990.00, 2, 4, 1);
+INSERT INTO veiculos VALUES (null, 'Ecosport', 2020, 'abc123456qwerty24', 68990.00, 7, 4, 1);
+INSERT INTO veiculos VALUES (null, 'Duster', 2020, 'abc123456qwerty25', 72990.00, 5, 6, 1);
+INSERT INTO veiculos VALUES (null, 'Cruze', 2020, 'abc123456qwerty26', 96490.00, 1, 3, 1);
+INSERT INTO veiculos VALUES (null, 'Cronos', 2020, 'abc123456qwerty27', 53266.00, 2, 2, 1);
+INSERT INTO veiculos VALUES (null, 'Captur', 2020, 'abc123456qwerty28', 88867.00, 1, 6, 1);
+INSERT INTO veiculos VALUES (null, 'Argo', 2020, 'abc123456qwerty29', 49590.00, 1, 2, 1);
+
 
 
