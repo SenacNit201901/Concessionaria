@@ -11,9 +11,8 @@ public class Contato {
 	}
 	
 
-	public Contato(int id_contato, Usuario usuario, String telefone) {
+	public Contato(Usuario usuario, String telefone) {
 		super();
-		this.id_contato = id_contato;
 		this.usuario = usuario;
 		this.telefone = telefone;
 	}

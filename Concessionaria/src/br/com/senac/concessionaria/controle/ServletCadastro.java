@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
 /**
- * Servlet implementation class CadastrarServlet
+ * Servlet implementation class ServletCadastro
  */
-@WebServlet("/CadastrarServlet")
-public class CadastrarServlet extends HttpServlet {
+@WebServlet("/ServletCadastro")
+public class ServletCadastro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastrarServlet() {
+    public ServletCadastro() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,6 +52,7 @@ public class CadastrarServlet extends HttpServlet {
 		try {
 			u.cadastrarEndereco(endereco, complemento, cep, numResidencial, bairro, cidade, estado);
 			u.cadastrarUsuario(nome, sobrenome, cpf, email, senha);
+			u.cadastrarContato(telefone);
 			response.sendRedirect("cadastrar.jsp");
 			
 		} catch (SQLException e) {
@@ -61,6 +62,5 @@ public class CadastrarServlet extends HttpServlet {
 		
 		
 	}
-	
 
 }

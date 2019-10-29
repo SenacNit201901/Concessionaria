@@ -17,7 +17,7 @@ private Connection conn;
 		
 	}
 	
-	public Integer gravar(Contato contato) throws SQLException{
+	public void gravar(List<Contato> contato) throws SQLException{
 		
 		
 		abreConexao();
@@ -26,9 +26,13 @@ private Connection conn;
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("insert into contato(telefone) values(?)",  PreparedStatement.RETURN_GENERATED_KEYS);
 			
-			pstmt.setString(1, contato.getTelefone());
+			
+			for(Contato c : contato) {
+				pstmt = conn.prepareStatement("insert into contato values(null, ?, ?)",  PreparedStatement.RETURN_GENERATED_KEYS);
+				pstmt.setString(1, c.getTelefone());
+				pstmt.setObject(2, c.getUsuario().getId_usuario());
+				
 			
 		
 			int flag = pstmt.executeUpdate();
@@ -39,10 +43,10 @@ private Connection conn;
 			}else {
 				rs = pstmt.getGeneratedKeys();
 				rs.next();
-				contato.setId_contato(rs.getInt(1));
+				c.setId_contato(rs.getInt(1));
 				
 			}
-			return contato.getId_contato();
+		  }
 		} finally {
 			if(conn != null) {
 				conn.close();

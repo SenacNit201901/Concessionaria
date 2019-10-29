@@ -5,12 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.com.senac.concessionaria.dao.BairroDAO;
-import br.com.senac.concessionaria.dao.CidadeDAO;
-import br.com.senac.concessionaria.dao.EnderecoDAO;
-import br.com.senac.concessionaria.dao.EstadoDAO;
-import br.com.senac.concessionaria.dao.TipoUsuarioDAO;
-import br.com.senac.concessionaria.dao.UsuarioDAO;
 import br.com.senac.concessionaria.modelo.Bairro;
 import br.com.senac.concessionaria.modelo.Cidade;
 import br.com.senac.concessionaria.modelo.Combustivel;
@@ -34,44 +28,40 @@ public class Testes {
 		
 		List<ItemPedido> carrinho = new ArrayList<ItemPedido>();
 		
-
+		UsuarioServico user = new UsuarioServico();
 		
 		
 		TipoUsuario cliente = new TipoUsuario( "cliente");
 		TipoUsuario funcionario = new TipoUsuario( "funcionario");
 		
-		TipoUsuarioDAO t = new TipoUsuarioDAO();
-		t.gravar(cliente);
 		
-		Estado estado = new Estado(1, "RJ");
+	
+		Estado estado = new Estado("RJ");
 		
-		Bairro bairro = new Bairro(1, "Boa Vista");
+		Bairro bairro = new Bairro( "Boa Vista");
 		
-		Cidade cidade = new Cidade(1, "São Goncalo");
+		Cidade cidade = new Cidade("São Goncalo");
 		
-		BairroDAO b = new BairroDAO();
-		CidadeDAO c = new CidadeDAO();
-		EstadoDAO e = new EstadoDAO();
+
 		
-		b.gravar(bairro);
-		c.gravar(cidade);
-		e.gravar(estado);
+		Endereco endereco = new Endereco("240000000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
 		
-		Endereco endereco = new Endereco(1, "240000000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
-		EnderecoDAO en = new EnderecoDAO();
-		en.gravar(endereco);
 		
-		Usuario usuario = new Usuario(1, "carlos", "henrique", "55555", "mdo@gmail.com", "6656", cliente, endereco);
-		UsuarioDAO u = new UsuarioDAO();
-		u.gravar(usuario);
+		Usuario usuario = new Usuario("joao", "kleber", "55555", "mdo@gmail.com", "6656", cliente, endereco);
+		
 		
 
 
 		System.out.println(usuario.getId_usuario());
 		System.out.println(funcionario.getId_tipo_usuario());
 		
-		Contato contato1 = new Contato(1, usuario, "(21) 98299-7212");
-		Contato contato2 = new Contato(1, usuario, "(21) 98209-7002");
+		Contato contato1 = new Contato(usuario, "(21) 98299-7212");
+		Contato contato2 = new Contato(usuario, "(21) 98209-7002");
+		
+		user.cadastrarEndereco(endereco.getRua(), endereco.getComplemento(), endereco.getCep(), endereco.getNumero(), endereco.getBairro().getNome_Bairro(), endereco.getCidade().getNome_cidade(),	 endereco.getEstado().getUF());
+		user.cadastrarUsuario(usuario.getNome(), usuario.getSobrenome(), usuario.getCpf(), usuario.getEmail(), usuario.getSenha());
+		user.cadastrarContato(contato1.getTelefone());
+		user.cadastrarContato(contato2.getTelefone());
 
 		
 		Combustivel combustivel = new Combustivel(1, "gasolina");
@@ -122,7 +112,7 @@ public class Testes {
 		
 	
 		
-		UsuarioServico user = new UsuarioServico();
+
 		
 		
 	

@@ -80,7 +80,7 @@
 <br>
 <br>
             <!-- FORMULARIO CADASTRO -->
-            <form action="CadastrarServlet" method="post">
+            <form action="ServletCadastro" method="post">
             <div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
                     <div class="form-row">
                       <div id="" class="col-md-6 offset-md-3" >

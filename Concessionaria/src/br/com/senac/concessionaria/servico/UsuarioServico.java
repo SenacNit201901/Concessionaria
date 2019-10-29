@@ -1,10 +1,12 @@
 package br.com.senac.concessionaria.servico;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senac.concessionaria.dao.BairroDAO;
 import br.com.senac.concessionaria.dao.CidadeDAO;
+import br.com.senac.concessionaria.dao.ContatoDAO;
 import br.com.senac.concessionaria.dao.EnderecoDAO;
 import br.com.senac.concessionaria.dao.EstadoDAO;
 import br.com.senac.concessionaria.dao.TipoUsuarioDAO;
@@ -55,7 +57,11 @@ public class UsuarioServico{
 		
 		
 	}
-	public void cadastrarContato(String telefone) {
+	public void cadastrarContato(String telefone) throws SQLException {
+		ContatoDAO c = new ContatoDAO(); 
+		contato = new ArrayList<>();
+		contato.add(new Contato(this.usuario, telefone));
+		c.gravar(this.contato);
 		
 	}
 		
