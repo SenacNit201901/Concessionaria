@@ -11,15 +11,30 @@ public class ItemPedido {
 	private int quantidade;
 	private Veiculo veiculo;
 	private Double sub_Total;
+	private Pedido pedido;
 	
 	
-	
+
+
 	public ItemPedido() {}
 	
-	public ItemPedido(int id_item, int quantidade, Veiculo veiculo) {
-		this.id_item = id_item;
+
+	
+	public ItemPedido( int quantidade, Veiculo veiculo, Pedido pedido) {
+		super();
 		this.quantidade = quantidade;
 		this.veiculo = veiculo;
+		this.pedido = pedido;
+	}
+
+
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 	public int getId_item() {

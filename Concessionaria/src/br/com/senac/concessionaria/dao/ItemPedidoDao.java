@@ -22,7 +22,7 @@ public class ItemPedidoDao extends DAO {
 		}
 	}
 	
-	private void gravar(ItemPedido i, int id_Pedido) throws SQLException {
+	public void gravar(ItemPedido i) throws SQLException {
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
@@ -34,7 +34,7 @@ public class ItemPedidoDao extends DAO {
 			pstmt.setInt(1, i.getQuantidade());
 			pstmt.setDouble(2, i.getSub_Total());
 			pstmt.setInt(3, i.getVeiculo().getId_Veiculo());
-			pstmt.setInt(4, i.get);
+			pstmt.setInt(4, i.getPedido().getId_pedido());
 			
 			
 			int flag = pstmt.executeUpdate();
@@ -61,7 +61,7 @@ public class ItemPedidoDao extends DAO {
 		}			
 	}
 	
-	private void deletar (int id_pedido) throws SQLException {
+	public void deletar (int id_pedido) throws SQLException {
 		abreConexao();	
 		PreparedStatement pstmt = null;
 		try {

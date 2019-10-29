@@ -8,7 +8,7 @@ public class Pedido {
 	@Override
 	public String toString() {
 		return "Pedido [id_pedido=" + id_pedido + ", data_pedido=" + data_pedido + ", valor_total=" + valor_total
-				+ ", item_pedido=" + item_pedido + ", quantidade_parcelamento=" + quantidade_parcelamento
+				+ ", item_pedido="  + ", quantidade_parcelamento=" + quantidade_parcelamento
 				+ ", pagamento=" + pagamento + "]";
 	}
 
@@ -16,7 +16,6 @@ public class Pedido {
 	private int id_pedido;
 	private Date data_pedido;
 	private double valor_total;
-	private List<ItemPedido> item_pedido;
 	private int quantidade_parcelamento;
 	private FormaPagamento pagamento;
 	private Usuario usuario;
@@ -31,7 +30,6 @@ public class Pedido {
 		this.id_pedido = id_pedido;
 		this.data_pedido = data_pedido;
 		this.valor_total = valor_total;
-		this.item_pedido = item_pedido;
 		this.quantidade_parcelamento = quantidade_parcelamento;
 		this.pagamento = pagamento;
 		this.usuario = usuario;
@@ -49,13 +47,6 @@ public class Pedido {
 
 	
 	
-	public List<ItemPedido> getItem_pedido() {
-		return item_pedido;
-	}
-
-	public void setItem_pedido(List<ItemPedido> item_pedido) {
-		this.item_pedido = item_pedido;
-	}
 
 	public int getQuantidade_parcelamento() {
 		return quantidade_parcelamento;

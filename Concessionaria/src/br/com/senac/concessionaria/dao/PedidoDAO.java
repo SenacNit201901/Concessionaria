@@ -21,12 +21,11 @@ public class PedidoDAO extends DAO{
 		
 		try {
 			pstmt = conn.prepareStatement("INSERT INTO pedidos VALUES (null, ?, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
-			pstmt.setObject(1, p.getUsuario());
-			pstmt.setDate(2, (Date) p.getData_pedido());
-			pstmt.setDouble(3, p.getValor_total());
-			pstmt.setObject(4, p.getItem_pedido());
-			pstmt.setLong(5, p.getQuantidade_parcelamento());
-			pstmt.setObject(5, p.getPagamento());
+			pstmt.setObject(1, p.getData_pedido());
+			pstmt.setDouble(2, p.getValor_total());
+			pstmt.setObject(3, p.getQuantidade_parcelamento());
+			pstmt.setLong(4, p.getUsuario().getId_usuario());
+			pstmt.setObject(5, p.getPagamento().getId_forma_pagamento());
 			
 			int flag = pstmt.executeUpdate();
 			if(flag != 0) {
