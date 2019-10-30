@@ -65,12 +65,14 @@ xmlns="http://primefaces.org/ui"
 				<c:forEach items="${veiculo}" var="v">
 				<!-- EL - Expression Language -->
 					<tr>
-						<td>${v.id_veiculo}</td>
-						<td>${v.modelo}</td>
-						<td>${v.ano}</td>
+						<td>${v.id_Veiculo}</td>
+						<td>${v.modeloVeiculo}</td>
+						<td>${v.anoVeiculo}</td>
 						
-						<td>${v.chassi}</td>
-						<td>${v.valor_unitario}</td>
+						<td>${v.chassiVeiculo}</td>
+						<td>${v.valorVeiculo}</td>
+						<td><a href="editar?id=${cliente.id_usuario}">Editar</a></td>
+						
 
 					</tr>
 				</c:forEach>

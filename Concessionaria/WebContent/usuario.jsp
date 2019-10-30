@@ -72,7 +72,6 @@ xmlns="http://primefaces.org/ui"
 						<td>${cliente.cpf}</td>
 						<td>${cliente.email}</td>
 						<td><a href="editar?id=${cliente.id_usuario}">Editar</a></td>
-						<td><a href="remover?id=${cliente.id_usuario}">Excluir</a></td>
 					</tr>
 				</c:forEach>
 				
