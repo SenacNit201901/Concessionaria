@@ -54,6 +54,10 @@ public class PedidoServico {
 
 		
 	}
+	
+	public List<ItemPedido> listarCarrinho(){
+		return this.carrinho;
+	}
 
 
 
@@ -105,7 +109,7 @@ public class PedidoServico {
 		this.veiculo.setId_Veiculo(id_Veiculo);
 		
 		VeiculoDAO v = new VeiculoDAO();
-		v.listarVeiculo(this.veiculo);
+		v.listarVeiculoId(this.veiculo);
 		
 		
 	}

@@ -11,7 +11,7 @@ xmlns="http://primefaces.org/ui"
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>Usuario</title>
+<title>Veiculos</title>
 </head>
 <body >
 	
@@ -49,30 +49,29 @@ xmlns="http://primefaces.org/ui"
 	
     <div class="container">
 		<table class="table table-striped">
-			<caption>Lista de Clientes </caption>
+			<caption>Lista de Veiculos </caption>
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>Nome</th>
-					<th>SobreNome</th>					
-					<th>CPF</th>
-					<th>E-mail</th>
+					<th>modelo</th>
+					<th>ano</th>					
+					<th>chassi</th>
+					<th>valor unitario</th>
 					<th colspan="2">Gerenciar</th>
 				</tr>
 			</thead>
 			<tbody>
 				<!-- Tag responsavel por fazer repetições no HTML c:foreach -->
-				<c:forEach items="${user}" var="cliente">
+				<c:forEach items="${veiculo}" var="v">
 				<!-- EL - Expression Language -->
 					<tr>
-						<td>${cliente.id_usuario}</td>
-						<td>${cliente.nome}</td>
-						<td>${cliente.sobrenome}</td>
+						<td>${v.id_veiculo}</td>
+						<td>${v.modelo}</td>
+						<td>${v.ano}</td>
 						
-						<td>${cliente.cpf}</td>
-						<td>${cliente.email}</td>
-						<td><a href="editar?id=${cliente.id_usuario}">Editar</a></td>
-						<td><a href="remover?id=${cliente.id_usuario}">Excluir</a></td>
+						<td>${v.chassi}</td>
+						<td>${v.valor_unitario}</td>
+
 					</tr>
 				</c:forEach>
 				

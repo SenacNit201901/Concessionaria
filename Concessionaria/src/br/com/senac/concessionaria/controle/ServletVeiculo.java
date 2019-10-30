@@ -1,17 +1,21 @@
 package br.com.senac.concessionaria.controle;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.senac.concessionaria.servico.VeiculoServico;
+
 
 @WebServlet({ "/veiculo/adicionar", "/veiculo/remover", "/veiculo/listar", "/veiculo/localizar", "/veiculo/editar", "/veiculo/atualizar" })
 public class ServletVeiculo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private VeiculoServico vs;   
     
     public ServletVeiculo() {
         super();
@@ -51,7 +55,14 @@ public class ServletVeiculo extends HttpServlet {
 	}
 	
 	protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		vs = new VeiculoServico();
+		try {
+			request.setAttribute("veiculo", vs.listar());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	protected void localizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

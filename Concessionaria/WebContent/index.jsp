@@ -21,7 +21,9 @@
 			<div class="dropdown-menu text-center">
 				<a>${nome}</a>
 				<a class="dropdown-item">Perfil</a>
-				<a  class="dropdown-item" href="usuario/listar"> Listar</a>
+				<a  class="dropdown-item" href="/Concessionaria/usuario/listar"> Usuarios</a>
+				<a class="dropdown-item" href="/Concessionaria/veiculo/listar">Veiculos</a>
+				
 				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" style="cursor: pointer;">sair</a>
 

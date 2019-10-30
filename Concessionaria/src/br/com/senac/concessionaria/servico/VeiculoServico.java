@@ -1,6 +1,7 @@
 package br.com.senac.concessionaria.servico;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import br.com.senac.concessionaria.dao.CombustivelDAO;
 import br.com.senac.concessionaria.dao.CorDAO;
@@ -17,6 +18,7 @@ public class VeiculoServico {
 	Cor cor;
 	Marca marca;
 	Combustivel combustivel;
+	VeiculoDAO v;
 	
 	
 	public void cadastrarVeiculo(String modelo, int ano, String chassi, Double valor) throws SQLException{
@@ -41,5 +43,11 @@ public class VeiculoServico {
 		CombustivelDAO co = new CombustivelDAO();
 		co.gravar(this.combustivel);
 	}
+	
+	public List<Veiculo> listar() throws SQLException{
+		v = new VeiculoDAO();
+		return v.listarVeiculo();
+	}
+	
 
 }
