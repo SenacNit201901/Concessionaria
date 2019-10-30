@@ -15,7 +15,7 @@ import br.com.senac.concessionaria.servico.VeiculoServico;
 @WebServlet({ "/veiculo/adicionar", "/veiculo/remover", "/veiculo/listar", "/veiculo/localizar", "/veiculo/editar", "/veiculo/atualizar" })
 public class ServletVeiculo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private VeiculoServico vs;   
+    VeiculoServico vs;   
     
     public ServletVeiculo() {
         super();
@@ -58,6 +58,7 @@ public class ServletVeiculo extends HttpServlet {
 		vs = new VeiculoServico();
 		try {
 			request.setAttribute("veiculo", vs.listar());
+			request.getRequestDispatcher("/veiculo.jsp").forward(request, response);;
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
