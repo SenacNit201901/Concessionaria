@@ -148,3 +148,14 @@ select * from cor;
 select * from marca;
 select * from combustivel;
 select * from veiculos;
+
+--------------------------------------------------------
+
+-- Query do carrinho de compras
+
+select ip.quantidade, ip.subtotal, v.modelo from
+item_pedidos ip  inner join 
+veiculos v 
+on ip.id_veiculos_pedido = v.id_veiculo;
+
+select p.id_pedido,p.data_pedido,p.valor_total ,p.quantidade_parcelamento from pedidos p;
