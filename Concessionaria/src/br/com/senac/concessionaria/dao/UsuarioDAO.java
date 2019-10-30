@@ -98,6 +98,42 @@ public class UsuarioDAO extends DAO{
 		}
 	}
 	
+	public Usuario selUsuario(Usuario u) throws SQLException{
+		abreConexao();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try {
+			pstmt = conn.prepareStatement("select * from usuario where id_usuario = ?");
+			pstmt.setInt(1, u.getId_usuario());
+
+
+
+			rs = pstmt.executeQuery();
+			
+			if(rs != null) {
+				u.setId_usuario(rs.getInt(1));
+			}
+			return u;
+			
+
+			
+			
+		} finally {
+			
+			if(conn != null) {
+				conn.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
+			}
+		}
+	}
 	
 
 	

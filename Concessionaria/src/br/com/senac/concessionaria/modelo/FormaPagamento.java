@@ -8,8 +8,7 @@ public class FormaPagamento {
 		
 	}
 	
-	public FormaPagamento(int id_forma_pagamento, String tipo_pagamento) {
-		this.id_forma_pagamento = id_forma_pagamento;
+	public FormaPagamento(String tipo_pagamento) {
 		this.tipo_pagamento = tipo_pagamento;
 	}
 

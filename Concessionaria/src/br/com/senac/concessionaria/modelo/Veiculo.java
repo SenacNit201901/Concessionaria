@@ -58,13 +58,6 @@ public class Veiculo {
 		this.marca = marca;
 	}
 
-	public int getid_Veiculo(){
-		return id_Veiculo;
-	}
-	
-	public void setid_Veiculo(int id_Veiculo){
-		this.id_Veiculo = id_Veiculo;
-	}
 	
 	public String getModeloVeiculo(){
 		return modeloVeiculo;

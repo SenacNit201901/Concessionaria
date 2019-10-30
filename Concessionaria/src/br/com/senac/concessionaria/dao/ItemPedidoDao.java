@@ -22,29 +22,34 @@ public class ItemPedidoDao extends DAO {
 		}
 	}
 	
-	public void gravar(ItemPedido i) throws SQLException {
+	public void gravar(List<ItemPedido> i) throws SQLException {
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		
+	
 		try {
-			pstmt = conn.prepareStatement("INSERT INTO item_pedidos VALUES (null, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
-			pstmt.setInt(1, i.getQuantidade());
-			pstmt.setDouble(2, i.getSub_Total());
-			pstmt.setInt(3, i.getVeiculo().getId_Veiculo());
-			pstmt.setInt(4, i.getPedido().getId_pedido());
 			
-			
-			int flag = pstmt.executeUpdate();
-			if(flag != 0) {
-				rs = pstmt.getGeneratedKeys();
-				rs.next();
-				i.setId_item(rs.getInt(1));
-			} else {
-				throw new SQLException("Erro ao gravar no banco!");
+			for(ItemPedido p: i) {
+				pstmt = conn.prepareStatement("INSERT INTO item_pedidos VALUES (null, ?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
+				pstmt.setInt(1, p.getQuantidade());
+				pstmt.setDouble(2, p.getSub_Total());
+				pstmt.setInt(3, p.getVeiculo().getId_Veiculo());
+				pstmt.setInt(4, p.getPedido().getId_pedido());
+				
+				
+				int flag = pstmt.executeUpdate();
+				if(flag != 0) {
+					rs = pstmt.getGeneratedKeys();
+					rs.next();
+					p.setId_item(rs.getInt(1));
+				} else {
+					throw new SQLException("Erro ao gravar no banco!");
+				}
+				
 			}
+
 			
 			
 		} finally {
