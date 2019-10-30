@@ -143,6 +143,12 @@ select * from tipo_usuario;
 select * from endereco;
 select * from estado;
 select * from cidade;
+select * from usuario;
+select * from contato
+
+
+delete from contato as c inner join usuario as u on c.id_usuario = u.id_usuario;
+update usuario set nome = 'carlos 8', sobrenome = 'rabelo', cpf = 55555, email = 'igor@gmail.com' where id_usuario = 2;
 
 select * from cor;
 select * from marca;
@@ -150,7 +156,9 @@ select * from combustivel;
 select * from veiculos;
 
 --------------------------------------------------------
-
+select * from pedidos;
+select * from item_pedidos;
+select * from forma_pagamento;
 -- Query do carrinho de compras
 
 select ip.quantidade, ip.subtotal, v.modelo from

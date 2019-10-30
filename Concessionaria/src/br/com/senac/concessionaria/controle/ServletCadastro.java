@@ -14,7 +14,7 @@ import br.com.senac.concessionaria.servico.UsuarioServico;
 /**
  * Servlet implementation class ServletCadastro
  */
-@WebServlet("/ServletCadastro")
+@WebServlet({"/cadastrar", "/cadastro"})
 public class ServletCadastro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,6 +33,17 @@ public class ServletCadastro extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		if(request.getServletPath().equals("/cadastro")) {
+			request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
+		} else if(request.getServletPath().equals("/cadastrar")) {
+			cadastrar(request, response);
+		}
+		
+		
+	}
+	protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf").replace(".", "").replace("-", "");
@@ -59,8 +70,7 @@ public class ServletCadastro extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
+
 
 }

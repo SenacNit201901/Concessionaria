@@ -27,6 +27,7 @@ public class UsuarioServico{
 		Usuario usuario;
 		TipoUsuario tipo_usuario;
 		List<Contato> contato;
+		UsuarioDAO u;
 		
 		
 	public void cadastrarUsuario(String nome, String sobrenome, String cpf, String email, String senha) throws SQLException {
@@ -58,7 +59,7 @@ public class UsuarioServico{
 		
 	}
 	
-	public Boolean login(String email, String senha) throws SQLException {
+	public Usuario login(String email, String senha) throws SQLException {
 		UsuarioDAO u = new UsuarioDAO();
 		
 		usuario = new Usuario();
@@ -66,11 +67,7 @@ public class UsuarioServico{
 		usuario.setSenha(senha);
 		u.login(this.usuario);
 		
-		if (this.usuario.getId_usuario() != 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return usuario;
 	}
 	
 	
@@ -81,6 +78,16 @@ public class UsuarioServico{
 		contato.add(new Contato(this.usuario, telefone));
 		c.gravar(this.contato);
 		
+	}
+	
+	public List<Usuario> listarUser() throws SQLException{
+		
+		this.u = new UsuarioDAO();
+		return u.listar();
+	}
+	public void deletarUsuario(int id) throws SQLException {
+		this.u = new UsuarioDAO();
+		u.deletaUsuario(id);
 	}
 		
 }

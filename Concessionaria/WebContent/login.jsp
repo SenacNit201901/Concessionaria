@@ -78,7 +78,7 @@
       <div class="row">
           <div id="" class="col-md-6 offset-md-3" >
       <!-- Default form login -->
-      <form class="text-center border border-light p-5" action="ServletLogin" method="post">
+      <form class="text-center border border-light p-5" action="logar" method="post">
 
           <p class="h4 mb-4">Entre com o seu usuário e senha</p>
           <br>

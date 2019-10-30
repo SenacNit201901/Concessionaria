@@ -1,20 +1,25 @@
 package br.com.senac.concessionaria.controle;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.senac.concessionaria.servico.UsuarioServico;
+
 
 @WebServlet({ "/usuario/adicionar", "/usuario/remover", "/usuario/listar", "/usuario/localizar", "/usuario/editar", "/usuario/atualizar" })
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private UsuarioServico u;
     
     public ServletUsuario() {
         super();
+        this.u = new UsuarioServico();
         
     }
 
@@ -25,6 +30,7 @@ public class ServletUsuario extends HttpServlet {
 			editar(request, response);
 		} else if(request.getServletPath().equals("/usuario/listar")) { 
 			listar(request, response);
+			
 		} else if(request.getServletPath().equals("/usuario/localizar")) { 
 			localizar(request, response);
 		} else {
@@ -47,11 +53,28 @@ public class ServletUsuario extends HttpServlet {
 	}
 	
 	protected void remover(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+	
+		try {
+			u.deletarUsuario(id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		
+		try {
+			request.setAttribute("user", u.listarUser());
+			request.getRequestDispatcher("/usuario.jsp").forward(request, response);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	protected void localizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
-@WebServlet("/ServletLogin")
+@WebServlet({"/login", "/logout", "/logar"})
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -20,29 +22,46 @@ public class ServletLogin extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
-		doPost(request,response);
+		doPost(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		if(request.getServletPath().equals("/logar")) {
+			logar(request, response);
+		} else if (request.getServletPath().equals("/logout")) {
+			logout(request, response);
+		} else if(request.getServletPath().equals("/login")) {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+		
+	}
+	protected void logar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		UsuarioServico u = new UsuarioServico();
 		try {
-			Boolean log = u.login(email, senha);
-			if (log) {
-				
-				response.sendRedirect("usuario.jsp");
+			Usuario log = new Usuario();
+			 log = u.login(email, senha);
+			if (log != null) {
+				request.getSession().setAttribute("nome", log.getNome());
+				request.getSession().setAttribute("id", log.getId_usuario());
+
+				response.sendRedirect("home");
 				
 			} else {
-				response.sendRedirect("cadastrar.jsp");
+				response.sendRedirect("cadastro");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
+	protected void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
+		doPost(request, response);
+	}
+	
+	
 
 }
