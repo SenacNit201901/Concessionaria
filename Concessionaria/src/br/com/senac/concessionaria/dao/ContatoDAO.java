@@ -145,30 +145,7 @@ public void deletaContato(int id) throws SQLException {
 		}
 	}
 }
-public void deletaContatoUser(int id) throws SQLException {
-	abreConexao();
-	
-	PreparedStatement pstmt = null;
-	
-	try {
-		pstmt = conn.prepareStatement("delete from contato where id_usuario = ?");
-		pstmt.setInt(1, id);
-		
-		int flag = pstmt.executeUpdate();
-		
-		if(flag == 0) {
-			throw new SQLException("Erro ao excluir o contato: " + id + " do banco!");
-		}
 
-	} finally {
-		if(conn != null) {
-			conn.close();
-		}
-		if(pstmt != null) {
-			pstmt.close();
-		}
-	}
-}
 
 public void editarContato(Contato contato) throws SQLException {
 	abreConexao();

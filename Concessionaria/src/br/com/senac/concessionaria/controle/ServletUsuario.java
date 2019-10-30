@@ -58,6 +58,7 @@ public class ServletUsuario extends HttpServlet {
 	
 		try {
 			u.deletarUsuario(id);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

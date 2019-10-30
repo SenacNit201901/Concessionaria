@@ -54,13 +54,13 @@ CREATE TABLE veiculos(
   valor_unitario DECIMAL(10,2),
   id_cor INT NOT NULL,
   CONSTRAINT fk_cor FOREIGN KEY(id_cor)
-  REFERENCES cor (id_cor),
+  REFERENCES cor (id_cor) on delete cascade,
   id_marca INT NOT NULL,
   CONSTRAINT fk_marca FOREIGN KEY(id_marca)
-  REFERENCES marca(id_marca),
+  REFERENCES marca(id_marca) on delete cascade,
   id_combustivel INT NOT NULL,
   CONSTRAINT fk_combustivel FOREIGN KEY(id_combustivel)
-  REFERENCES combustivel(id_combustivel)
+  REFERENCES combustivel(id_combustivel) on delete cascade
 );
 
 CREATE TABLE endereco(
@@ -71,13 +71,13 @@ CREATE TABLE endereco(
 	complemento VARCHAR (50),
 	id_estado INT NOT NULL,	
 	CONSTRAINT fk_estado FOREIGN KEY(id_estado)
-	REFERENCES estado(id_estado),
+	REFERENCES estado(id_estado) on delete cascade,
 	id_bairro INT NOT NULL,
 	CONSTRAINT fk_bairro FOREIGN KEY(id_bairro)
-	REFERENCES bairro(id_bairro),
+	REFERENCES bairro(id_bairro) on delete cascade,
 	id_cidade INT NOT NULL,
 	CONSTRAINT fk_cidade FOREIGN KEY(id_cidade)
-	REFERENCES cidade(id_cidade)
+	REFERENCES cidade(id_cidade) on delete cascade
 );
 
 CREATE TABLE usuario(
@@ -89,10 +89,10 @@ CREATE TABLE usuario(
 	senha VARCHAR (12) NOT NULL,
 	id_endereco INT NOT NULL,
 	CONSTRAINT fk_endereco FOREIGN KEY(id_endereco)
-	REFERENCES endereco(id_endereco),
+	REFERENCES endereco(id_endereco) on delete cascade,
 	id_tipo_usuario INT NOT NULL,
 	CONSTRAINT fk_tipo_usuario FOREIGN KEY(id_tipo_usuario)
-	REFERENCES tipo_usuario(id_tipo_usuario)
+	REFERENCES tipo_usuario(id_tipo_usuario) on delete cascade
 
 );
 CREATE TABLE contato(
@@ -100,7 +100,7 @@ id_contato INT AUTO_INCREMENT PRIMARY KEY,
 telefone VARCHAR (20) NOT NULL,
 id_usuario INT NOT NULL,
 CONSTRAINT fk_usuario FOREIGN KEY(id_usuario)
-REFERENCES usuario(id_usuario)
+REFERENCES usuario(id_usuario) on delete cascade
 );
 
 CREATE TABLE pedidos(
@@ -111,9 +111,9 @@ CREATE TABLE pedidos(
   id_usuario INT NOT NULL,
   id_forma_pagamento INT NOT NULL,
   CONSTRAINT fk_usuarioPedido FOREIGN KEY(id_usuario)
-   REFERENCES usuario(id_usuario),
+   REFERENCES usuario(id_usuario) on delete cascade,
    CONSTRAINT fk_forma_pagamento FOREIGN KEY(id_forma_pagamento)
-   REFERENCES forma_pagamento(id_forma_pagamento)
+   REFERENCES forma_pagamento(id_forma_pagamento) on delete cascade
 );
 
 
@@ -125,10 +125,10 @@ quantidade INT NOT NULL,
 subtotal DECIMAL(10,2) NOT NULL,
 id_veiculos_pedido INT NOT NULL,
 CONSTRAINT fk_veiculos FOREIGN KEY(id_veiculos_pedido)
-REFERENCES veiculos(id_veiculo),
+REFERENCES veiculos(id_veiculo) on delete cascade,
 id_pedido INT NOT NULL,
 CONSTRAINT fk_pedido FOREIGN KEY(id_pedido)
-REFERENCES pedidos(id_pedido)
+REFERENCES pedidos(id_pedido) on delete cascade
 );
 
 drop database concessionariadb;
@@ -146,8 +146,9 @@ select * from cidade;
 select * from usuario;
 select * from contato
 
-
-delete from contato as c inner join usuario as u on c.id_usuario = u.id_usuario;
+delete from item_pedidos where id_pedido = 1;
+delete from pedidos where id_usuario = 1;
+delete from usuario  where id_usuario = 1;
 update usuario set nome = 'carlos 8', sobrenome = 'rabelo', cpf = 55555, email = 'igor@gmail.com' where id_usuario = 2;
 
 select * from cor;

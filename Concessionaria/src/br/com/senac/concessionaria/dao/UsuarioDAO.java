@@ -187,9 +187,9 @@ public class UsuarioDAO extends DAO{
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
-		ContatoDAO c = new ContatoDAO();
+	
 		try {
-			c.deletaContatoUser(id);
+			
 			pstmt = conn.prepareStatement("delete from usuario where id_usuario = ?");
 			pstmt.setInt(1, id); // bind
 			

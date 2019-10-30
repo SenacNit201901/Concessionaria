@@ -85,12 +85,10 @@ public class Testes {
 		
 
 		ps.cadastrarPagamento("cartao");
-		ps.cadastrarPedido(new Date(), 2, 1);
+		ps.cadastrarPedido(new Date(), 2, 4);
 		ps.cadastrarItem(5, 2);
 		ps.cadastrarItem(4, 1);
-		ps.cadastrarItem(4, 1);
-		ps.cadastrarItem(4, 1);
-		ps.cadastrarItem(4, 1);
+	
 
 		ps.finalizarPedido();
 
