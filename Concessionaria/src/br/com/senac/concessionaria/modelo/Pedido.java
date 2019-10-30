@@ -1,7 +1,6 @@
 package br.com.senac.concessionaria.modelo;
 
 import java.util.Date;
-import java.util.List;
 
 
 public class Pedido {
@@ -24,11 +23,19 @@ public class Pedido {
 	
 	
 	
-	public Pedido(Date data_pedido, double valor_total, List<ItemPedido> item_pedido,
+	public Pedido(Date data_pedido, double valor_total,
 			int quantidade_parcelamento, FormaPagamento pagamento, Usuario usuario) {
 		super();
 		this.data_pedido = data_pedido;
 		this.valor_total = valor_total;
+		this.quantidade_parcelamento = quantidade_parcelamento;
+		this.pagamento = pagamento;
+		this.usuario = usuario;
+	}
+	public Pedido(Date data_pedido,
+			int quantidade_parcelamento, FormaPagamento pagamento, Usuario usuario) {
+		super();
+		this.data_pedido = data_pedido;
 		this.quantidade_parcelamento = quantidade_parcelamento;
 		this.pagamento = pagamento;
 		this.usuario = usuario;

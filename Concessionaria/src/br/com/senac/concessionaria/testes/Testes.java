@@ -19,6 +19,7 @@ import br.com.senac.concessionaria.modelo.Pedido;
 import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
+import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 import br.com.senac.concessionaria.servico.VeiculoServico;
 
@@ -27,13 +28,11 @@ public class Testes {
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
-		List<ItemPedido> carrinho = new ArrayList<ItemPedido>();
 		
 		UsuarioServico user = new UsuarioServico();
 		
 		
 		TipoUsuario cliente = new TipoUsuario( "cliente");
-		TipoUsuario funcionario = new TipoUsuario( "funcionario");
 		
 		
 	
@@ -41,29 +40,25 @@ public class Testes {
 		
 		Bairro bairro = new Bairro( "Boa Vista");
 		
-		Cidade cidade = new Cidade("São Goncalo");
+		Cidade cidade = new Cidade("niteroi");
 		
 
 		
-		Endereco endereco = new Endereco("240000000", "rua nova jersey",  "25", "casa", cidade, estado, bairro);
+		Endereco endereco = new Endereco("240000000", " jersey",  "25", "casa", cidade, estado, bairro);
 		
 		
-		Usuario usuario = new Usuario("joao", "kleber", "55555", "mdo@gmail.com", "6656", cliente, endereco);
-		
-		
+		Usuario usuario = new Usuario("igor", "rabelo", "55555", "igor@gmail.com", "6656", cliente, endereco);
 
-
-		System.out.println(usuario.getId_usuario());
-		System.out.println(funcionario.getId_tipo_usuario());
 		
-		Contato contato1 = new Contato(usuario, "(21) 98299-7212");
-		Contato contato2 = new Contato(usuario, "(21) 98209-7002");
-		
+		Contato contato1 = new Contato(usuario, "(21) 77777-7212");
+		Contato contato2 = new Contato(usuario, "(21) 88888-7002");
+		/**
 		user.cadastrarEndereco(endereco.getRua(), endereco.getComplemento(), endereco.getCep(), endereco.getNumero(), endereco.getBairro().getNome_Bairro(), endereco.getCidade().getNome_cidade(),	 endereco.getEstado().getUF());
 		user.cadastrarUsuario(usuario.getNome(), usuario.getSobrenome(), usuario.getCpf(), usuario.getEmail(), usuario.getSenha());
 		user.cadastrarContato(contato1.getTelefone());
 		user.cadastrarContato(contato2.getTelefone());
 
+		*/
 		
 		Combustivel combustivel = new Combustivel( "gasolina");
 
@@ -72,58 +67,33 @@ public class Testes {
 
 		
 		
-		Marca marca = new Marca("FIAT");
+		Marca marca = new Marca("ferrari");
 				
 		Veiculo veiculo = new Veiculo("PALIO", 2015, "22JJH222K22", 40.0, vermelho, combustivel, marca);
-		Veiculo veiculo2 = new Veiculo( "UNO", 2010, "2525515SSSAA", 50.0, preto, combustivel, marca);
+		Veiculo veiculo2 = new Veiculo( "f200", 2018, "2525515SSSAA", 4000.0, preto, combustivel, marca);
 		
+		/**
 		VeiculoServico vS = new VeiculoServico();
-		vS.cadastrarCor(vermelho.getNome_cor());
 		vS.cadastrarCombustivel(combustivel.getTipo_combustivel());
 		vS.cadastrarMarca(marca.getNome_marca());
-		vS.cadastrarVeiculo(veiculo.getModeloVeiculo(), veiculo.getAnoVeiculo(), veiculo.getChassiVeiculo(), veiculo.getValorVeiculo());
-		
-		FormaPagamento pagamento = new FormaPagamento("Cartao");
-		// primeiro item
-	
+		vS.cadastrarCor(preto.getNome_cor());
+		vS.cadastrarVeiculo(veiculo2.getModeloVeiculo(), veiculo2.getAnoVeiculo(), veiculo2.getChassiVeiculo(), veiculo2.getValorVeiculo());
+		*/
 		
 		
-		
-		// segundo item
-		
-		
-	
+		PedidoServico ps = new PedidoServico();
 		
 
-		
-		Pedido pedido = new Pedido();
-		
-		pedido.setId_pedido(1);
-		pedido.setData_pedido(new Date());
-		pedido.setPagamento(pagamento);
-		
-		pedido.setQuantidade_parcelamento(2);
-		pedido.setUsuario(usuario);
-		
-		
-		ItemPedido item2 = new ItemPedido(3, veiculo2, pedido);
-		ItemPedido item1 = new ItemPedido(2, veiculo, pedido);
-		
-		
-		Double subTotal = veiculo.getValorVeiculo() * item1.getQuantidade();
-		item1.setSub_Total(subTotal);
-		
-		
-		Double subTotal2 = veiculo2.getValorVeiculo() * item2.getQuantidade();
-		item2.setSub_Total(subTotal2);
-		
-		
-		Double soma = 0d;
-		
-		for(ItemPedido p: carrinho) {
-			soma = soma + p.getSub_Total();
-			}
-		pedido.setValor_total(soma);
+		ps.cadastrarPagamento("cartao");
+		ps.cadastrarPedido(new Date(), 2, 1);
+		ps.cadastrarItem(5, 2);
+		ps.cadastrarItem(4, 1);
+		ps.cadastrarItem(4, 1);
+		ps.cadastrarItem(4, 1);
+		ps.cadastrarItem(4, 1);
+
+		ps.finalizarPedido();
+
 		
 		
 		

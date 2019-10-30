@@ -83,6 +83,48 @@ private Connection conn;
 		
 	}
 	
+	public FormaPagamento listarPagamentoId(FormaPagamento f) throws SQLException{
+		abreConexao();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try {
+			pstmt = conn.prepareStatement("select * from forma_pagamento where id_forma_pagamento = ?");
+			pstmt.setInt(1, f.getId_forma_pagamento());
+
+
+
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				f.setId_forma_pagamento(rs.getInt(1));
+				f.setTipo_pagamento(rs.getString(2));
+				
+
+			}
+			return f;
+			
+
+			
+			
+		} finally {
+			
+			if(conn != null) {
+				conn.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
+			}
+		}
+	}
+	
+
+	
 public FormaPagamento busca(int id) throws SQLException {
 		
 		abreConexao();

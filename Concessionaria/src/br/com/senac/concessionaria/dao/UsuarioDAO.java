@@ -98,7 +98,7 @@ public class UsuarioDAO extends DAO{
 		}
 	}
 	
-	public Usuario selUsuario(Usuario u) throws SQLException{
+	public Usuario listarUsuarioId(Usuario u) throws SQLException{
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
@@ -113,8 +113,14 @@ public class UsuarioDAO extends DAO{
 
 			rs = pstmt.executeQuery();
 			
-			if(rs != null) {
+			while(rs.next()) {
 				u.setId_usuario(rs.getInt(1));
+				u.setNome(rs.getString(2));
+				u.setSobrenome(rs.getString(3));
+				u.setCpf(rs.getString(4));
+				u.setEmail(rs.getString(5));
+				u.setSenha(rs.getString(6));
+
 			}
 			return u;
 			

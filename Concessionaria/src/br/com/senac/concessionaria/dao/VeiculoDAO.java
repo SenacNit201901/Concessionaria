@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.util.DAO;
 
@@ -56,7 +55,7 @@ public class VeiculoDAO extends DAO {
 		}
 		
 	}
-	public Veiculo selVeiculo(Veiculo v) throws SQLException{
+	public Veiculo listarVeiculo(Veiculo v) throws SQLException{
 		abrirConexao();
 		
 		PreparedStatement pstmt = null;
@@ -71,8 +70,15 @@ public class VeiculoDAO extends DAO {
 
 			rs = pstmt.executeQuery();
 			
-			if(rs != null) {
+			while(rs.next()) {
 				v.setId_Veiculo(rs.getInt(1));
+				v.setModeloVeiculo(rs.getString(2));
+				v.setAnoVeiculo(rs.getInt(3));
+				v.setChassiVeiculo(rs.getString(4));
+				v.setValorVeiculo(rs.getDouble(5));
+
+			
+				
 			}
 			return v;
 			
