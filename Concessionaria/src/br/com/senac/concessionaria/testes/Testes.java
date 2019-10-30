@@ -83,31 +83,40 @@ public class Testes {
 		vS.cadastrarMarca(marca.getNome_marca());
 		vS.cadastrarVeiculo(veiculo.getModeloVeiculo(), veiculo.getAnoVeiculo(), veiculo.getChassiVeiculo(), veiculo.getValorVeiculo());
 		
-		FormaPagamento pagamento = new FormaPagamento(1, "Cartao");
+		FormaPagamento pagamento = new FormaPagamento("Cartao");
 		// primeiro item
-		ItemPedido item1 = new ItemPedido(1, 2, veiculo);
+	
 		
-		Double subTotal = veiculo.getValorVeiculo() * item1.getQuantidade();
-		item1.setSub_Total(subTotal);
+		
 		
 		// segundo item
 		
-		ItemPedido item2 = new ItemPedido(2, 3, veiculo2 );
-		Double subTotal2 = veiculo2.getValorVeiculo() * item2.getQuantidade();
-		item2.setSub_Total(subTotal2);
 		
-		carrinho.add(item1);
-		carrinho.add(item2);
+	
+		
+
 		
 		Pedido pedido = new Pedido();
 		
 		pedido.setId_pedido(1);
 		pedido.setData_pedido(new Date());
-		pedido.setItem_pedido(carrinho);
 		pedido.setPagamento(pagamento);
 		
 		pedido.setQuantidade_parcelamento(2);
 		pedido.setUsuario(usuario);
+		
+		
+		ItemPedido item2 = new ItemPedido(3, veiculo2, pedido);
+		ItemPedido item1 = new ItemPedido(2, veiculo, pedido);
+		
+		
+		Double subTotal = veiculo.getValorVeiculo() * item1.getQuantidade();
+		item1.setSub_Total(subTotal);
+		
+		
+		Double subTotal2 = veiculo2.getValorVeiculo() * item2.getQuantidade();
+		item2.setSub_Total(subTotal2);
+		
 		
 		Double soma = 0d;
 		
@@ -115,6 +124,8 @@ public class Testes {
 			soma = soma + p.getSub_Total();
 			}
 		pedido.setValor_total(soma);
+		
+		
 		
 	
 		
