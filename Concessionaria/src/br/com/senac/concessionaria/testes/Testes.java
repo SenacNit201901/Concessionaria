@@ -88,7 +88,7 @@ public class Testes {
 		ps.cadastrarPedido(new Date(), 2, 2);
 		int c = ps.listarCarrinho().size();
 		
-		ps.cadastrarItem(2, 1, c);
+
 
 		
 		

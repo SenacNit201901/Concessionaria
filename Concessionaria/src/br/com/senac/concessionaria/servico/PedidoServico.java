@@ -34,17 +34,21 @@ public class PedidoServico {
 	
 	
 	
-	public void cadastrarItem(int quantidade, int idVeiculo, int i)  throws SQLException{
+	public void cadastrarItem(int quantidade, int idVeiculo)  throws SQLException{
 		
 		selVeiculo(idVeiculo);
 		
 		
 		Double sub_Total = this.veiculo.getValorVeiculo() * quantidade;
 		
-			
-			this.carrinho.add( i, new ItemPedido(quantidade,sub_Total, this.veiculo, this.pedido));
+		if(this.carrinho.size() != 0) {
+			int i = this.carrinho.size();
+			this.carrinho.add(i, new ItemPedido(quantidade,sub_Total, this.veiculo, this.pedido));
 
-		
+		} else {
+			this.carrinho.add(new ItemPedido(quantidade,sub_Total, this.veiculo, this.pedido));
+
+		}
 		
 		
 

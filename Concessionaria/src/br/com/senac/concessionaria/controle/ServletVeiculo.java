@@ -19,7 +19,7 @@ import br.com.senac.concessionaria.servico.VeiculoServico;
 public class ServletVeiculo extends HttpServlet implements Serializable {
 	private static final long serialVersionUID = 1L;
     VeiculoServico vs;
-    PedidoServico pd;
+
     
     public ServletVeiculo() {
         super();
@@ -67,13 +67,9 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 		vs = new VeiculoServico();
 		
 		try {
-			
-			if(request.getParameter("id") == null) {
 				request.setAttribute("veiculo", vs.listar());
 				request.getRequestDispatcher("/veiculo.jsp").forward(request, response);
-			} else {
-				carrinho(request, response);
-			}
+		
 			
 			
 			
@@ -97,25 +93,7 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 	protected void atualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		response.getWriter().append("Método: " + request.getMethod());
 	}
-	protected void carrinho(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		int id = Integer.parseInt(request.getParameter("id"));
-		pd = new PedidoServico();
-		try {
-			
-			request.setAttribute("id", id);
-			pd.cadastrarPagamento("cartao");
-			pd.cadastrarPedido(new Date(), 2, 2);
-			pd.cadastrarItem(1, id, 0);
-			
-			request.setAttribute("carrinho", pd.listarCarrinho());
-			request.setAttribute("veiculo", vs.listar());
-			request.getRequestDispatcher("/veiculo.jsp").forward(request, response);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
+
 
 
 }

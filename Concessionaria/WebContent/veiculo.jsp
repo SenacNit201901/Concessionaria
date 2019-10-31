@@ -67,7 +67,7 @@ xmlns="http://primefaces.org/ui"
 				<c:forEach items="${veiculo}" var="v">
 				<!-- EL - Expression Language -->
 					<tr>
-						<form action="listar" method="get" >
+						<form action="/Concessionaria/pedido/adicionar" method="post" >
 					
 						<input type="hidden" value="${v.id_Veiculo}" name="id"/> 
 						<td >${v.modeloVeiculo}</td>
