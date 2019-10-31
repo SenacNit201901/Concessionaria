@@ -42,7 +42,7 @@ public class PedidoServico {
 		Double sub_Total = this.veiculo.getValorVeiculo() * quantidade;
 		
 			
-			this.carrinho.add( i , new ItemPedido(quantidade,sub_Total, this.veiculo, this.pedido));
+			this.carrinho.add( i, new ItemPedido(quantidade,sub_Total, this.veiculo, this.pedido));
 
 		
 		

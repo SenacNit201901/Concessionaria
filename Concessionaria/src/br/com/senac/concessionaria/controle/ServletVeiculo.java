@@ -1,6 +1,7 @@
 package br.com.senac.concessionaria.controle;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -15,11 +16,10 @@ import br.com.senac.concessionaria.servico.VeiculoServico;
 
 
 @WebServlet({ "/veiculo/adicionar", "/veiculo/remover", "/veiculo/listar", "/veiculo/localizar", "/veiculo/editar", "/veiculo/atualizar" })
-public class ServletVeiculo extends HttpServlet {
+public class ServletVeiculo extends HttpServlet implements Serializable {
 	private static final long serialVersionUID = 1L;
     VeiculoServico vs;
     PedidoServico pd;
-    private Integer indice = 1;
     
     public ServletVeiculo() {
         super();
@@ -101,11 +101,11 @@ public class ServletVeiculo extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		pd = new PedidoServico();
 		try {
+			
 			request.setAttribute("id", id);
 			pd.cadastrarPagamento("cartao");
 			pd.cadastrarPedido(new Date(), 2, 2);
-			indice += pd.listarCarrinho().size();
-			pd.cadastrarItem(1, id, indice);
+			pd.cadastrarItem(1, id, 0);
 			
 			request.setAttribute("carrinho", pd.listarCarrinho());
 			request.setAttribute("veiculo", vs.listar());
