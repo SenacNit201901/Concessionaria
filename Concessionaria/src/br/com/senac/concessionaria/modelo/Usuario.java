@@ -4,6 +4,12 @@ import java.util.List;
 
 public class Usuario {
 	
+	@Override
+	public String toString() {
+		return "Usuario [id_usuario=" + id_usuario + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf
+				+ ", email=" + email + ", senha=" + senha + ", tipo_usuario=" + tipo_usuario + ", endereco=" + endereco
+				+ "]";
+	}
 	private int id_usuario;
 	private String nome;
 	private String sobrenome;

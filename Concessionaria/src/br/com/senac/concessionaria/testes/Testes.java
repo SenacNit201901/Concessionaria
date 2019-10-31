@@ -86,18 +86,21 @@ public class Testes {
 
 		ps.cadastrarPagamento("cartao");
 		ps.cadastrarPedido(new Date(), 2, 2);
-		ps.cadastrarItem(5, 2);
-		ps.cadastrarItem(4, 1);
-		ps.cadastrarItem(5, 2);
-		ps.cadastrarItem(4, 1);
-		ps.cadastrarItem(5, 2);
-		ps.cadastrarItem(4, 1);
+		int c = ps.listarCarrinho().size();
+		
+		ps.cadastrarItem(2, 1, c);
+
+		
+		
+		
+		
+		
 	
 		
+	
+		System.out.println(ps.listarCarrinho().size());
+
 		
-		for( ItemPedido p: ps.listarCarrinho()) {
-			System.out.println(p.getQuantidade() + p.getVeiculo().getModeloVeiculo());
-		}
 		
 
 		

@@ -1,6 +1,13 @@
 package br.com.senac.concessionaria.modelo;
 
 public class Veiculo {
+	@Override
+	public String toString() {
+		return "Veiculo [id_Veiculo=" + id_Veiculo + ", modeloVeiculo=" + modeloVeiculo + ", anoVeiculo=" + anoVeiculo
+				+ ", chassiVeiculo=" + chassiVeiculo + ", valorVeiculo=" + valorVeiculo + ", cor=" + cor
+				+ ", combustivel=" + combustivel + ", marca=" + marca + "]";
+	}
+
 	private int id_Veiculo;
 	private String modeloVeiculo;
 	private int anoVeiculo;
