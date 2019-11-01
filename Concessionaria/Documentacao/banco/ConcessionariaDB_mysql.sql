@@ -2,11 +2,11 @@ CREATE DATABASE concessionariaDB;
 
 USE concessionariaDB;
 
----- CRIA«√O DAS TABELAS -------
+---- CRIA√É‚Ä°√É∆íO DAS TABELAS -------
 
 CREATE TABLE estado(
 id_estado INT PRIMARY KEY AUTO_INCREMENT,
-uf CHAR(2) NOT NULL UNIQUE
+uf CHAR(2) NOT NULL
 );
 
 CREATE TABLE cidade(
@@ -21,45 +21,46 @@ nome_bairro VARCHAR(50) NOT NULL
 
 CREATE TABLE tipo_usuario(
 id_tipo_usuario INT AUTO_INCREMENT PRIMARY KEY,
-tipo_usuario VARCHAR(50) UNIQUE NOT NULL
+tipo_usuario VARCHAR(50)
 );
+
 
 
 CREATE TABLE cor(
 id_cor INT AUTO_INCREMENT PRIMARY KEY,
-nome_cor VARCHAR(20) NOT NULL UNIQUE
+nome_cor VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE marca(
 id_marca INT AUTO_INCREMENT PRIMARY KEY,
-nome_marca VARCHAR (50) NOT NULL UNIQUE
+nome_marca VARCHAR (50) NOT NULL
 );
 
 CREATE TABLE combustivel(
 id_combustivel INT AUTO_INCREMENT PRIMARY KEY,
-tipo_combustivel VARCHAR (50) NOT NULL UNIQUE
+tipo_combustivel VARCHAR (50) NOT NULL
 );
 
 CREATE TABLE forma_pagamento(
 id_forma_pagamento INT AUTO_INCREMENT PRIMARY KEY,
-tipo_pagamento VARCHAR (50) NOT NULL UNIQUE
+tipo_pagamento VARCHAR (50) NOT NULL
 );
 
 CREATE TABLE veiculos(
   id_veiculo INT AUTO_INCREMENT PRIMARY KEY,
   modelo VARCHAR(30) NOT NULL,
   ano INT NOT NULL,
-  chassi VARCHAR(25) UNIQUE NOT NULL, 
+  chassi VARCHAR (25) NOT NULL, 
   valor_unitario DECIMAL(10,2),
   id_cor INT NOT NULL,
   CONSTRAINT fk_cor FOREIGN KEY(id_cor)
-  REFERENCES cor (id_cor),
+  REFERENCES cor (id_cor) on delete cascade,
   id_marca INT NOT NULL,
   CONSTRAINT fk_marca FOREIGN KEY(id_marca)
-  REFERENCES marca(id_marca),
+  REFERENCES marca(id_marca) on delete cascade,
   id_combustivel INT NOT NULL,
   CONSTRAINT fk_combustivel FOREIGN KEY(id_combustivel)
-  REFERENCES combustivel(id_combustivel)
+  REFERENCES combustivel(id_combustivel) on delete cascade
 );
 
 CREATE TABLE endereco(
@@ -70,37 +71,36 @@ CREATE TABLE endereco(
 	complemento VARCHAR (50),
 	id_estado INT NOT NULL,	
 	CONSTRAINT fk_estado FOREIGN KEY(id_estado)
-	REFERENCES estado(id_estado),
+	REFERENCES estado(id_estado) on delete cascade,
 	id_bairro INT NOT NULL,
 	CONSTRAINT fk_bairro FOREIGN KEY(id_bairro)
-	REFERENCES bairro(id_bairro),
+	REFERENCES bairro(id_bairro) on delete cascade,
 	id_cidade INT NOT NULL,
 	CONSTRAINT fk_cidade FOREIGN KEY(id_cidade)
-	REFERENCES cidade(id_cidade)
+	REFERENCES cidade(id_cidade) on delete cascade
 );
 
 CREATE TABLE usuario(
 	id_usuario INT AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR (40) NOT NULL,
 	sobrenome VARCHAR (40) NOT NULL,
-	cpf VARCHAR (11) UNIQUE NOT NULL,
-	email VARCHAR (45) UNIQUE NOT NULL,
+	cpf VARCHAR (11) NOT NULL,
+	email VARCHAR (45) NOT NULL,
 	senha VARCHAR (12) NOT NULL,
 	id_endereco INT NOT NULL,
 	CONSTRAINT fk_endereco FOREIGN KEY(id_endereco)
-	REFERENCES endereco(id_endereco),
+	REFERENCES endereco(id_endereco) on delete cascade,
 	id_tipo_usuario INT NOT NULL,
 	CONSTRAINT fk_tipo_usuario FOREIGN KEY(id_tipo_usuario)
-	REFERENCES tipo_usuario(id_tipo_usuario)
+	REFERENCES tipo_usuario(id_tipo_usuario) on delete cascade
 
 );
-
 CREATE TABLE contato(
 id_contato INT AUTO_INCREMENT PRIMARY KEY,
 telefone VARCHAR (20) NOT NULL,
 id_usuario INT NOT NULL,
-CONSTRAINT fk_usuario_contato FOREIGN KEY(id_usuario)
-REFERENCES usuario(id_usuario)
+CONSTRAINT fk_usuario FOREIGN KEY(id_usuario)
+REFERENCES usuario(id_usuario) on delete cascade
 );
 
 CREATE TABLE pedidos(
@@ -110,10 +110,10 @@ CREATE TABLE pedidos(
   quantidade_parcelamento INT,
   id_usuario INT NOT NULL,
   id_forma_pagamento INT NOT NULL,
-  CONSTRAINT fk_usuario_pedido FOREIGN KEY(id_usuario)
-   REFERENCES usuario(id_usuario),
+  CONSTRAINT fk_usuarioPedido FOREIGN KEY(id_usuario)
+   REFERENCES usuario(id_usuario) on delete cascade,
    CONSTRAINT fk_forma_pagamento FOREIGN KEY(id_forma_pagamento)
-   REFERENCES forma_pagamento(id_forma_pagamento)
+   REFERENCES forma_pagamento(id_forma_pagamento) on delete cascade
 );
 
 
@@ -125,10 +125,10 @@ quantidade INT NOT NULL,
 subtotal DECIMAL(10,2) NOT NULL,
 id_veiculos_pedido INT NOT NULL,
 CONSTRAINT fk_veiculos FOREIGN KEY(id_veiculos_pedido)
-REFERENCES veiculos(id_veiculo),
+REFERENCES veiculos(id_veiculo) on delete cascade,
 id_pedido INT NOT NULL,
 CONSTRAINT fk_pedido FOREIGN KEY(id_pedido)
-REFERENCES pedidos(id_pedido)
+REFERENCES pedidos(id_pedido) on delete cascade
 );
 
 
@@ -137,7 +137,7 @@ REFERENCES pedidos(id_pedido)
 INSERT INTO bairro VALUES (null, 'Centro');
 INSERT INTO bairro VALUES (null, 'Icarai');
 INSERT INTO bairro VALUES (null, 'Inga');
-INSERT INTO bairro VALUES (null, 'S„o Francisco');
+INSERT INTO bairro VALUES (null, 'S√£o Francisco');
 INSERT INTO bairro VALUES (null, 'Piratininga');
 INSERT INTO bairro VALUES (null, 'Columbande');
 INSERT INTO bairro VALUES (null, 'Itauna');
@@ -148,15 +148,15 @@ INSERT INTO bairro VALUES (null, 'Camboinhas');
 INSERT INTO bairro VALUES (null, 'Engenho do Mato');
 INSERT INTO bairro VALUES (null, 'Fonseca');
 INSERT INTO bairro VALUES (null, 'Itaipu');
-INSERT INTO bairro VALUES (null, 'ItaipuaÁu');
+INSERT INTO bairro VALUES (null, 'Itaipua√ßu');
 
 -- INSERT 5 CIDADES
 
-INSERT INTO cidade VALUES (null, 'NiterÛi');
-INSERT INTO cidade VALUES (null, 'Sao GonÁalo');
+INSERT INTO cidade VALUES (null, 'Niter√≥i');
+INSERT INTO cidade VALUES (null, 'Sao Gon√ßalo');
 INSERT INTO cidade VALUES (null, 'Rio de Janeiro');
-INSERT INTO cidade VALUES (null, 'Maric·');
-INSERT INTO cidade VALUES (null, 'ItaboraÌ');
+INSERT INTO cidade VALUES (null, 'Maric√°');
+INSERT INTO cidade VALUES (null, 'Itabora√≠');
 
 -- INSERT 4 Combustivel
 
@@ -176,8 +176,8 @@ INSERT INTO estado VALUES (null, 'MG');
 
 -- INSERT 3 forma_pagamento
 
-INSERT INTO forma_pagamento VALUES (null, 'CrÈdito');
-INSERT INTO forma_pagamento VALUES (null, 'DÈbito');
+INSERT INTO forma_pagamento VALUES (null, 'Cr√©dito');
+INSERT INTO forma_pagamento VALUES (null, 'D√©bito');
 INSERT INTO forma_pagamento VALUES (null, 'Boleto');
 
 -- INSERT item_pedidos *** JAVA
@@ -185,7 +185,7 @@ INSERT INTO forma_pagamento VALUES (null, 'Boleto');
 
 -- INSERT 2 tipo_usuario
 
-INSERT INTO tipo_usuario VALUES (null, 'Funcion·rio');
+INSERT INTO tipo_usuario VALUES (null, 'Funcion√°rio');
 INSERT INTO tipo_usuario VALUES (null, 'Cliente');
 
 -- INSERT 7 CORES
@@ -245,3 +245,4 @@ INSERT INTO veiculos VALUES (null, 'Argo', 2020, 'abc123456qwerty29', 49590.00, 
 
 
 
+-- drop database concessionariadb;
