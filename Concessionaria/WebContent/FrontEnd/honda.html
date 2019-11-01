@@ -13,50 +13,81 @@
                     
           <script src="https://kit.fontawesome.com/c766cb3ea7.js"></script>
 
-          <title>HONDA</title>
+          <title>Honda | SM</title>
 
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
-      <a class="navbar-brand" href="index.html">
-          <img id="logo" src="./imagens/logo.png"  alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+ <!--################### NAV BAR ##########################-->
+
+
+ <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
+
+  <main class="container">
+
+    <a class="navbar-brand" href="index.html">
+      <img id="logo" src="./imagens/logo.png"  alt="">
+    </a>
+
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navega��o">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
+
+
       <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">HOME <span class="sr-only">(página atual)</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              VEÍCULOS
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="chevrolet.html">CHEVROLET</a>
-              <a class="dropdown-item" href="fiat.html">FIAT</a>
-              <a class="dropdown-item" href="ford.html">FORD</a>
-              <a class="dropdown-item" href="honda.html">HONDA</a>
-              <a class="dropdown-item" href="renault.html">RENAULT</a>
-              <a class="dropdown-item" href="volks.html">VOLKSWAGEN</a>
-              <div class="dropdown-divider"></div>
-            </div>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="cadastro.html"><i class=""></i>CADASTRO</span></a>
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><i class=""></i>HOME</span></a>
             </li>
-            <ul class="navbar-nav mr-">
-                <li class="nav-item " style="float:right" >
-                  <a class="nav-link" href="login.html" data-toggle="" id="login"><span><i class="fas fa-sign-in-alt"></i></span> FAZER LOGIN</a>
-                </li>
-              </ul>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                VEICULOS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="chevrolet.html">CHEVROLET</a>
+                <a class="dropdown-item" href="fiat.html">FIAT</a>
+                <a class="dropdown-item" href="ford.html">FORD</a>
+                <a class="dropdown-item" href="honda.html">HONDA</a>
+                <a class="dropdown-item" href="renault.html">RENAULT</a>
+                <a class="dropdown-item" href="volks.html">VOLKSWAGEN</a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro.html"><i class=""></i>CADASTRO</span></a>
+          </li>
+      </ul>
+      <ul class="navbar-nav mr-">
+        <li class="nav-item active" style="float:right">
+          <a class="nav-link" href="login.html" data-toggle="" style="font-size: 1.2em; font-weight: bold;" ><span><i class="fas fa-sign-in-alt"></i></span> FAZER LOGIN</a>
+        </li>
         </ul>
         
+      <ul class="navbar-nav mr-">
+        <li class="nav-item active">
+          <a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i></span></a>
+        </li>
+      </ul>
       </div>
-    </nav>
+
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="font-size: 1.2em; font-weight: bold;">
+          LOGOUT
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: black;">
+          <a class="dropdown-item" href="" >Nome</a>
+          <a class="dropdown-item" href="perfil.html">Perfil</a>
+          <a class="dropdown-item" href="index.html">Sair</a>
+        </div>
+      </div>
+</nav>
 
     <br>
     <br>
@@ -65,12 +96,12 @@
     
     <div class="container">
       <div class="title">
-        <h1 class="titulo">HONDA</h1>
+        <center><img src="./imagens/honda-logo.png" width="10%"></center>
       </div>
     </div>
             <!--HONDA-->
           <br>
-
+        <div class="container">
           <div class="card-deck">
               <div class="card">
                   <h5 class="titulo" id="title">WR-V EXL</h5>
@@ -81,27 +112,13 @@
                   <hr>
                   <img class="card-img-top" src="./imagens/carros/wrv.png" alt="Imagem de capa do card">
                   <div class="card-body">
+                    <br><br>
                       <p class="desc3">* TAXA ZERO</p>
-                      <hr>
-                      <ul class="cartao">
-                        <li>
-                          <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                          <p class="sub">FREIOS ABS E EBD</p>
-                        </li>
-                        <li>
-                          <img class="drive" src="imagens/carros/logos/ar.jpg" width="25px">
-                          <p class="sub">AR-CONDICIONADO</p>
-                        </li>
-                        <li>
-                          <img class="drive" src="imagens/carros/logos/air.jpg">
-                          <p class="sub">AIRBAGS FRONTAIS E LATERAIS</p>
-                        </li>
-                      </ul>
                   </div>
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-wrv.html">COMPRE ONLINE</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-wrv.html">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -115,68 +132,41 @@
                     <hr>
                     <img class="card-img-top" src="./imagens/carros/civic.png" alt="Imagem de capa do card">
                     <div class="card-body">
+                        <br>
                         <p class="desc3">* TAXA ZERO</p>
-                        <hr>
-                        <ul class="cartao">
-                          <li>
-                            <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                            <p class="sub">VIDROS ELÉTRICOS DIANTEIROS</p>
-                          </li>
-                          <li>
-                            <img class="drive" src="imagens/carros/logos/ar.jpg" width="25px">
-                            <p class="sub">AR-CONDICIONADO</p>
-                          </li>
-                          <li>
-                            <img class="drive" src="imagens/carros/logos/drive.jpg">
-                            <p class="sub">CÂMERA DE RÉ MULTIVISÃO</p>
-                          </li>
-                        </ul>
                     </div>
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-civic.html">COMPRE ONLINE</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-civic.html">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
       
                   <div class="card">
                       <h5 class="titulo" id="title">HR-V TOURING</h5>
-                      <p class="desc">Motor 1.5L Turbo 16V DOHC Duplo VTC com Injeção Direta</p>
+                      <p class="desc">Motor 1.5L Turbo 16V DOHC Duplo VTC</p>
                       <p class="desc2">2020</p>
                       <hr>
                       <p class="preco">R$ 139.900,00</p>
                       <hr>
                       <img class="card-img-top" src="./imagens/carros/hrv.png" alt="Imagem de capa do card">
                       <div class="card-body">
-                          <p class="desc3">* Entrada + Taxa Zero em 36x</p>
-                          <hr>
-                          <ul class="cartao">
-                            <li>
-                              <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                              <p class="sub">ALARME ANTI-FURTO</p>
-                            </li>
-                            <li>
-                              <img class="drive" src="imagens/carros/logos/air.jpg" width="25px">
-                              <p class="sub">AIRBAGS FRONTAIS</p>
-                            </li>
-                            <li>
-                              <img class="drive" src="imagens/carros/logos/ar.jpg">
-                              <p class="sub">AR-CONDICIONADO</p>
-                            </li>
-                          </ul>
+                          <p class="desc3">* ENTRADA + TAXA ZERO EM 36X</p>
+                        
                       </div>
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-hrv.html">COMPRE ONLINE</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-hrv.html">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
                 </div>
+              </div>
 
                 <br>
-
+              <div class="container">
                 <div class="card-deck">
                     <div class="card">
                         <h5 class="titulo" id="title">HONDA ACCORD</h5>
@@ -187,27 +177,13 @@
                         <hr>
                         <img class="card-img-top" src="./imagens/carros/accord.png" alt="Imagem de capa do card">
                         <div class="card-body">
+                          <br><br><br><br>
                             <p class="desc3">* TAXA ZERO</p>
-                            <hr>
-                            <ul class="cartao">
-                              <li>
-                                <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                                <p class="sub">DIREÇÃO ELÉTRICA PROGRESSIVA</p>
-                              </li>
-                              <li>
-                                <img class="drive" src="imagens/carros/logos/ar.jpg" width="25px">
-                                <p class="sub">AR-CONDICIONADO</p>
-                              </li>
-                              <li>
-                                  <img class="drive" src="imagens/carros/logos/air.jpg  ">
-                                  <p class="sub">AIRBAGS FRONTAIS, LATERAIS, DE CORTINA E PARA JOELHOS</p>
-                                </li>
-                            </ul>
                         </div>
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="comprar-accord.html">COMPRE ONLINE</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="comprar-accord.html">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -222,30 +198,16 @@
                             <img class="card-img-top" src="./imagens/carros/city.png" alt="Imagem de capa do card">
                             <div class="card-body">
                                 <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
-                                <hr>
-                                <ul class="cartao">
-                                  <li>
-                                    <img class="drive" src="imagens/carros/logos/ar.jpg" width="25px">
-                                    <p class="sub">AR-CONDICIONADO</p>
-                                  </li>
-                                  <li>
-                                    <img class="drive" src="imagens/carros/logos/sensor.jpg" width="25px">
-                                    <p class="sub">FAROL DE NEBLINA</p>
-                                  </li>
-                                  <li>
-                                    <img class="drive" src="imagens/carros/logos/drive.jpg">
-                                    <p class="sub">DIREÇÃO ELÉTRICA PROGRESSIVA</p>
-                                  </li>
-                                </ul>
                             </div>
                     
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="comprar-city.html">COMPRE ONLINE</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="comprar-city.html">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
                       </div>
+                    </div>
   
 
     <!-- JavaScript (Opcional) -->
@@ -280,18 +242,6 @@
       <li class="list-inline-item">
         <a class="btn-floating btn-gplus mx-1">
           <i class="fab fa-google-plus-g" style="color: white;"> </i>
-        </a>
-      </li>
-
-      <li class="list-inline-item">
-        <a class="btn-floating btn-li mx-1">
-          <i class="fab fa-linkedin-in" style="color: white;"> </i>
-        </a>
-      </li>
-
-      <li class="list-inline-item">
-        <a class="btn-floating btn-dribbble mx-1">
-          <i class="fab fa-dribbble" style="color: white;"> </i>
         </a>
       </li>
     </ul>

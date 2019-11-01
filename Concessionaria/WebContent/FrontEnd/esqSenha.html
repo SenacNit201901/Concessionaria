@@ -14,7 +14,7 @@
 
 
 
-          <title>Login | SM</title>
+          <title>Esqueceu a senha | SM</title>
 
   </head>
   <body>
@@ -85,67 +85,45 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: black;">
           <a class="dropdown-item" href="" >Nome</a>
           <a class="dropdown-item" href="perfil.html">Perfil</a>
-          <a class="dropdown-item" href="index.html">Sair</a>
+          <a class="dropdown-item" href="">Sair</a>
         </div>
       </div>
 </nav>
+ 
  <br>
  <br>
 
-      <!--################### LOGIN  ##########################-->
-      <hr><hr>
-<div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
+   <!--################### LOGIN  ##########################-->
+   <hr><hr>
+   <div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
+   
+   
+         <div class="row">
+             <div id="" class="col-md-6 offset-md-3" >
+         <!-- Default form login -->
+         <form class="text-center border border-light p-5" id="form" action="">
+   
+             <p class="h4 mb-4">Digite o email de recuperação</p>
+             <br>
+   
+             <!-- Email -->
+
+             <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Email de recuperação" required>
+
+             <button class="btn btn-dark btn-block my-4"  form="form" type="submit">Recuperar senha</button>
+
+             
 
 
-      <div class="row">
-          <div id="" class="col-md-6 offset-md-3" >
-      <!-- Default form login -->
-      <form class="text-center border border-light p-5" action="#!">
-
-          <p class="h4 mb-4">Entre com o seu usuário e senha</p>
-          <br>
-
-          <!-- Email -->
-          <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Usuario">
-
-          <!-- Password -->
-          <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Senha">
-
-          <div class="d-flex justify-content-around">
-              <div>
-                  <!-- Remember me -->
-                  <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                      <label class="custom-control-label" for="defaultLoginFormRemember">Lembre-me</label>
-                  </div>
-              </div>
-              <div>
-                  <!-- Forgot password -->
-                  <a href="esqSenha.html" style="color: black; font-size: 1em;">Esqueceu a sua senha?</a>
-                  
-              </div>
-          </div>
-
-          <!-- Sign in button -->
-          <button class="btn btn-dark btn-block my-4"  type="submit">Entrar</button>
-
-          <!-- Register -->
-          <p>Ainda não tem um cadastro?
-              <a href="cadastro.html"style="color: black; font-size: 1em;" >Cadastre-se!</a>
-          </p>
-
-          <!-- Social login -->
-
-      </form>
-      <!-- Default form login -->
-
-
-</div>
-</div>
-
-</div>
-
-
+         </form>
+         <!-- Default form login -->
+   
+   
+   </div>
+   </div>
+   
+   </div>
+   
 
 <!-- ###################### FIM DO CONTEUDO #####################################-->
 
@@ -155,7 +133,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-
+  <script>
+    $('#form').submit(function(){
+      alert('E-mail enviado com sucesso!');
+    });
+    </script>
 <!-- ######################FOOTER #####################################-->
 
 <br>
@@ -173,25 +155,23 @@
 <hr>
 
 <hr>
-<!-- Social buttons -->
+    <!-- Social buttons -->
     <ul class="list-unstyled list-inline text-center">
-        <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1">
-              <i class="fab fa-facebook-f" style="color: white;"> </i>
-            </a>
-          </li>
-
-          <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1">
-            <i class="fab fa-twitter" style="color: white;"> </i>
-          </a>
-        </li>
-
-        <li class="list-inline-item">
-          <a class="btn-floating btn-gplus mx-1">
-            <i class="fab fa-google-plus-g" style="color: white;"> </i>
-          </a>
-        </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f" style="color: white;"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter" style="color: white;"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g" style="color: white;"> </i>
+        </a>
+      </li>
     </ul>
 
         <br><br>

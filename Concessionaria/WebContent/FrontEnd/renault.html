@@ -13,50 +13,81 @@
                     
           <script src="https://kit.fontawesome.com/c766cb3ea7.js"></script>
 
-          <title>RENAULT</title>
+          <title>Renault | SM</title>
 
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
-      <a class="navbar-brand" href="index.html">
-          <img id="logo" src="./imagens/logo.png"  alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+ <!--################### NAV BAR ##########################-->
+
+
+ <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
+
+  <main class="container">
+
+    <a class="navbar-brand" href="index.html">
+      <img id="logo" src="./imagens/logo.png"  alt="">
+    </a>
+
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navega��o">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
+
+
       <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">HOME <span class="sr-only">(página atual)</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              VEÍCULOS
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="chevrolet.html">CHEVROLET</a>
-              <a class="dropdown-item" href="fiat.html">FIAT</a>
-              <a class="dropdown-item" href="ford.html">FORD</a>
-              <a class="dropdown-item" href="honda.html">HONDA</a>
-              <a class="dropdown-item" href="renault.html">RENAULT</a>
-              <a class="dropdown-item" href="volks.html">VOLKSWAGEN</a>
-              <div class="dropdown-divider"></div>
-            </div>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="cadastro.html"><i class=""></i>CADASTRO</span></a>
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"><i class=""></i>HOME</span></a>
             </li>
-            <ul class="navbar-nav mr-">
-                <li class="nav-item " style="float:right" >
-                  <a class="nav-link" href="login.html" data-toggle="" id="login"><span><i class="fas fa-sign-in-alt"></i></span> FAZER LOGIN</a>
-                </li>
-              </ul>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                VEICULOS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="chevrolet.html">CHEVROLET</a>
+                <a class="dropdown-item" href="fiat.html">FIAT</a>
+                <a class="dropdown-item" href="ford.html">FORD</a>
+                <a class="dropdown-item" href="honda.html">HONDA</a>
+                <a class="dropdown-item" href="renault.html">RENAULT</a>
+                <a class="dropdown-item" href="volks.html">VOLKSWAGEN</a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="cadastro.html"><i class=""></i>CADASTRO</span></a>
+          </li>
+      </ul>
+      <ul class="navbar-nav mr-">
+        <li class="nav-item active" style="float:right">
+          <a class="nav-link" href="login.html" data-toggle="" style="font-size: 1.2em; font-weight: bold;" ><span><i class="fas fa-sign-in-alt"></i></span> FAZER LOGIN</a>
+        </li>
         </ul>
         
+      <ul class="navbar-nav mr-">
+        <li class="nav-item active">
+          <a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i></span></a>
+        </li>
+      </ul>
       </div>
-    </nav>
+
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="font-size: 1.2em; font-weight: bold;">
+          LOGOUT
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: black;">
+          <a class="dropdown-item" href="" >Nome</a>
+          <a class="dropdown-item" href="perfil.html">Perfil</a>
+          <a class="dropdown-item" href="index.html">Sair</a>
+        </div>
+      </div>
+</nav>
 
     <br>
     <br>
@@ -65,7 +96,8 @@
     
     <div class="container">
       <div class="title">
-        <h1 class="titulo"><img src="./imagens/logos/renault.png" width="6%">RENAULT</h1>
+        <center><img src="./imagens/renault-logo.png" width="20%"></center>
+        <br>
       </div>
     </div>
    
@@ -73,6 +105,7 @@
 <!-- CARDS - VEÍCULOS-->
 
     <!--REANULT-->
+  <div class="container">
     <div class="card-deck">
       <div class="card">
           <h5 class="titulo" id="title">KWID</h5>
@@ -83,27 +116,12 @@
           <hr>
         <img class="card-img-top" src="./imagens/carros/kwid.png" alt="Imagem de capa do card">
         <div class="card-body">
-          <p class="desc3">* 50% de Entrada + 48x R$399 e parcela final de R$10.263,95</p>
-          <hr>
-          <ul class="cartao">
-            <li>
-              <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-              <p class="sub">RADIO CD/MP3 COM CONEXÃO USB E AUXILIAR</p>
-            </li>
-            <li>
-              <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-              <p class="sub">DIREÇÃO ELÉTRICA</p>
-            </li>
-            <li>
-              <img class="drive" src="imagens/carros/logos/ar.jpg">
-              <p class="sub">AR-CONDICIONADO</p>
-            </li>
-          </ul>
+          <p class="desc3">* 50% DE ENTRADA + 48X R$399 E PARCELA FINAL DE R$10.263,95</p>
         </div>
 
         <div class="card-footer">
             <center>
-              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.html">COMPRE ONLINE</a>
+              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-kwid.html">FICHA TÉCNICA</a>
             </center>
         </div>
       </div>
@@ -118,26 +136,11 @@
         <img class="card-img-top" src="./imagens/carros/sandero.png" alt="Imagem de capa do card">
         <div class="card-body">
             <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
-            <hr>
-            <ul class="cartao">
-              <li>
-                <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                <p class="sub">VIDROS DIANTEIROS ELÉTRICOS</p>
-              </li>
-              <li>
-                <img class="drive" src="imagens/carros/logos/ar.jpg" width="25px">
-                <p class="sub">AR-CONDICIONADO</p>
-              </li>
-              <li>
-                <img class="drive" src="imagens/carros/logos/air.jpg">
-                <p class="sub">4 AIRBAGS</p>
-              </li>
-            </ul>
         </div>
 
         <div class="card-footer">
               <center>
-                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.html">COMPRE ONLINE</a>
+                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-sandero.html">FICHA TÉCNICA</a>
               </center>
         </div>
       </div>
@@ -151,34 +154,20 @@
         <hr>
         <img class="card-img-top" src="./imagens/carros/logan.png" alt="Imagem de capa do card">
         <div class="card-body">
-            <p class="desc3">* 47% de Entrada + 48x R$499 e parcela final de R$12.851,26</p>
-            <hr>
-            <ul class="cartao">
-              <li>
-                <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                <p class="sub">VIDROS DIANTEIROS ELÉTRICOS</p>
-              </li>
-              <li>
-                <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                <p class="sub">FREIOS ABS</p>
-              </li>
-              <li>
-                <img class="drive" src="imagens/carros/logos/air.jpg">
-                <p class="sub">4 AIRBAGS</p>
-              </li>
-            </ul>
+            <p class="desc3">* 47% DE ENTRADA + 48X R$499 E PARCELA FINAL DE R$ 12.851,26</p>
         </div>
 
         <div class="card-footer">
               <center>
-                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.html">COMPRE ONLINE</a>
+                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-logan.html">FICHA TÉCNICA</a>
               </center>
         </div>
       </div>
     </div>
+  </div>
 
     <br>
-
+  <div class="container">
     <div class="card-deck">
         <div class="card">
             <h5 class="titulo" id="title">DUSTER</h5>
@@ -190,30 +179,11 @@
             <img class="card-img-top" src="./imagens/carros/duster.png" alt="Imagem de capa do card">
             <div class="card-body">
                 <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
-                <hr>
-                <ul class="cartao">
-                  <li>
-                    <img class="drive" src="imagens/carros/logos/copo.jpg" width="25px">
-                    <p class="sub">PORTA-MALAS COM 475L</p>
-                  </li>
-                  <li>
-                    <img class="drive" src="imagens/carros/logos/drive.jpg" width="25px">
-                    <p class="sub">PORTA COPO NO CONSOLE CENTRAL</p>
-                  </li>
-                  <li>
-                    <img class="drive" src="imagens/carros/logos/marcha.jpg">
-                    <p class="sub">INDICADOR DE MARCHA (GSI)</p>
-                  </li>
-                  <li>
-                      <img class="drive" src="imagens/carros/logos/eco.jpg  ">
-                      <p class="sub">FUNÇÃO ECO MODE</p>
-                    </li>
-                </ul>
             </div>
     
             <div class="card-footer">
                   <center>
-                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.html">COMPRE ONLINE</a>
+                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-duster.html">FICHA TÉCNICA</a>
                   </center>
             </div>
           </div>
@@ -227,31 +197,18 @@
               <hr>
               <img class="card-img-top" src="./imagens/carros/captur.png" alt="Imagem de capa do card">
               <div class="card-body">
-                  <p class="desc3">* 51% de Entrada + 48x R$799 e parcela final de R$22.233,01</p>
-                  <hr>
-                  <ul class="cartao">
-                    <li>
-                      <img class="drive" src="imagens/carros/logos/sensor.jpg" width="25px">
-                      <p class="sub">SENSORES DE CHUVA E LUMINOSIDADE</p>
-                    </li>
-                    <li>
-                      <img class="drive" src="imagens/carros/logos/media.jpg" width="25px">
-                      <p class="sub">MEDIA NAV EVOLUTION</p>
-                    </li>
-                    <li>
-                      <img class="drive" src="imagens/carros/logos/cartap.jpg">
-                      <p class="sub">CHAVE-CARTÃO HANDSFREE WALK AWAY CLOSING</p>
-                    </li>
-                  </ul>
+                  <br>
+                  <p class="desc3">* 51% DE ENTRADA + 48X R$799 E PARCELA FINAL DE R$ 22.233,01</p>
               </div>
       
               <div class="card-footer">
                     <center>
-                      <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.html">COMPRE ONLINE</a>
+                      <a type="button" class="btn btn-secondary" id="veiculos" href="compra-captur.html">FICHA TÉCNICA</a>
                     </center>
               </div>
             </div>
         </div>
+      </div>
 
         <!-- ###################### FIM DO CONTEUDO #####################################-->
 
@@ -288,18 +245,6 @@
       <li class="list-inline-item">
         <a class="btn-floating btn-gplus mx-1">
           <i class="fab fa-google-plus-g" style="color: white;"> </i>
-        </a>
-      </li>
-
-      <li class="list-inline-item">
-        <a class="btn-floating btn-li mx-1">
-          <i class="fab fa-linkedin-in" style="color: white;"> </i>
-        </a>
-      </li>
-
-      <li class="list-inline-item">
-        <a class="btn-floating btn-dribbble mx-1">
-          <i class="fab fa-dribbble" style="color: white;"> </i>
         </a>
       </li>
     </ul>
