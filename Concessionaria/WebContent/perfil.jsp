@@ -52,26 +52,23 @@
             
             <form action="" method = POST>
               <div class="form-group">
-                    <label for="exampleFormControlInput1">Nome: ${u.nome}</label>
+                    <label for="exampleFormControlInput1">Nome: ${nome}</label>
                     
               </div>
               </c:forEach>
               <hr>
               <div class="form-group">
-                    <label for="exampleFormControlInput1">Sobrenome:</label>
+                    <label for="exampleFormControlInput1">Sobrenome: ${sobrenome} </label>
               </div>
               <hr>
               <div class="form-group">
-                    <label for="exampleFormControlInput1">CPF:</label>
+                    <label for="exampleFormControlInput1">CPF: ${cpf}</label>
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Email:</label>
+                    <label for="exampleFormControlInput1">Email: ${email}</label>
                 </div>
                 <hr>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Senha:</label>
-                </div>
                 <hr>
                 <div class="form-group">
                     <label for="exampleFormControlInput1"><Table>Telefone:</Table></label>
@@ -82,27 +79,27 @@
               </div>
               <hr>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Complemento:</label>
+                <label for="exampleFormControlInput1">Complemento:{$complemento}</label>
               </div>
               <hr>
               <div class="form-group">
-                    <label for="exampleFormControlInput1">CEP:</label>
+                    <label for="exampleFormControlInput1">CEP:${cep}</label>
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Rua:</label>
+                    <label for="exampleFormControlInput1">Rua:${rua}</label>
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Número:</label>
+                    <label for="exampleFormControlInput1">Número: ${numero}</label>
                 </div>
                 <hr>
                 <div class="form-group">
-                        <label for="exampleFormControlInput1">Cidade:</label>
+                        <label for="exampleFormControlInput1">Cidade: ${cidade}</label>
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Bairro:</label>
+                    <label for="exampleFormControlInput1">Bairro:${bairro}</label>
                 </div>
           
                 <button class="btn btn-dark btn-block my-4"  type="submit">Atualizar</button>
