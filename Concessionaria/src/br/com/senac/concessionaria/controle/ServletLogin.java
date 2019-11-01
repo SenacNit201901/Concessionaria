@@ -52,6 +52,7 @@ public class ServletLogin extends HttpServlet {
 			if (log != null) {
 				request.getSession().setAttribute("nome", log.getNome());
 				request.getSession().setAttribute("id", log.getId_usuario());
+				/**
 				request.getSession().setAttribute("sobrenome", log.getSobrenome());
 				request.getSession().setAttribute("cpf", log.getCpf());
 				request.getSession().setAttribute("email", log.getEmail());
@@ -62,13 +63,17 @@ public class ServletLogin extends HttpServlet {
 				request.getSession().setAttribute("estado", log.getEndereco().getEstado());
 				request.getSession().setAttribute("numero", log.getEndereco().getNumero());
 				request.getSession().setAttribute("complemento", log.getEndereco().getComplemento());
+				*/
 
-
+				
 				
 				HttpSession sessao = request.getSession(true);
 				List<ItemPedido> carrinho = new ArrayList<>();
-				
+				Double valor = 0.0;
 				sessao.setAttribute("carrinho", carrinho);
+				sessao.setAttribute("valor", valor);
+
+				
 				
 				
 

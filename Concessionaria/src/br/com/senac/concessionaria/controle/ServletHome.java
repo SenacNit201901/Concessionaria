@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletHome
  */
-@WebServlet("/home")
+@WebServlet({"/home", "/"})
 public class ServletHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,7 +22,7 @@ public class ServletHome extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getServletPath().equals("/home")) {
+		if(request.getServletPath().equals("/home") || request.getServletPath().equals("/")) {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}

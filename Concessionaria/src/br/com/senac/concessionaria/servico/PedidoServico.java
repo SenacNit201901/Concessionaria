@@ -61,9 +61,9 @@ public class PedidoServico {
 
 
 
-	private void gravarPedido() throws SQLException {
-		PedidoDAO p = new PedidoDAO();
-		p.gravar(this.pedido);
+	private void gravarPedido(Pedido p) throws SQLException {
+		PedidoDAO pedido = new PedidoDAO();
+		pedido.gravar(p);
 	}
 	
 	
@@ -74,7 +74,7 @@ public class PedidoServico {
 		fm.gravar(this.formPag);
 	}
 	
-	
+/*	
 	public void finalizarPedido() throws SQLException {
 		Double valorTotal = 0d;
 		for(ItemPedido i : this.carrinho) {
@@ -93,7 +93,7 @@ public class PedidoServico {
 		ItemPedidoDao i = new ItemPedidoDao();
 		i.gravar(this.carrinho);
 	}
-	
+	*/
 	
 	private void selUsuario(int id_Usuario) throws SQLException{
 		this.usuario = new Usuario();

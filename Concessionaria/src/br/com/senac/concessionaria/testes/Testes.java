@@ -3,6 +3,7 @@ package br.com.senac.concessionaria.testes;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Bairro;
@@ -12,16 +13,12 @@ import br.com.senac.concessionaria.modelo.Contato;
 import br.com.senac.concessionaria.modelo.Cor;
 import br.com.senac.concessionaria.modelo.Endereco;
 import br.com.senac.concessionaria.modelo.Estado;
-import br.com.senac.concessionaria.modelo.FormaPagamento;
-import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Marca;
-import br.com.senac.concessionaria.modelo.Pedido;
 import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.UsuarioServico;
-import br.com.senac.concessionaria.servico.VeiculoServico;
 
 public class Testes {
 
@@ -47,7 +44,8 @@ public class Testes {
 		Endereco endereco = new Endereco("240000000", " jersey",  "25", "casa", cidade, estado, bairro);
 		
 		
-		Usuario usuario = new Usuario("igor", "rabelo", "55555", "igor@gmail.com", "6656", cliente, endereco);
+		Usuario usuario = new Usuario("igor", "rabelo", "55555", "igor@gmail.com", "5555", cliente, endereco);
+		Usuario usuario3 = new Usuario("igor", "rabelo", "55555", "igor@gmail.com", "5555", cliente, endereco);
 
 		
 		Contato contato1 = new Contato(usuario, "(21) 77777-7212");
@@ -86,19 +84,28 @@ public class Testes {
 
 		ps.cadastrarPagamento("cartao");
 		ps.cadastrarPedido(new Date(), 2, 2);
-		int c = ps.listarCarrinho().size();
+		
+		Veiculo v = new Veiculo();
+		v = ps.retornoVeiculo();
+		
+		ps.cadastrarItem(2, 1);
+	
+		
+		
+		List<Usuario> us = new ArrayList<>();
+		us.add(usuario);
 		
 
-
-		
-		
-		
 		
 		
 	
 		
+		System.out.println(us.get(0));
+			
 	
-		System.out.println(ps.listarCarrinho().size());
+		
+	
+		
 
 		
 		

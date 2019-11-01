@@ -58,6 +58,7 @@ xmlns="http://primefaces.org/ui"
 					<th>ano</th>					
 					<th>chassi</th>
 					<th>valor unitario</th>
+					<th>quantidade</th>
 					<th colspan="2">Selecionar</th>
 				</tr>
 			</thead>
@@ -75,6 +76,7 @@ xmlns="http://primefaces.org/ui"
 						
 						<td>${v.chassiVeiculo}</td>
 						<td>${v.valorVeiculo}</td>
+						<td><input type="number" value="1" min="1" name="quantidade"/></td>	
 						<td><input type="submit" value="selecionar"/></td>
 					
 					</form>
@@ -84,6 +86,7 @@ xmlns="http://primefaces.org/ui"
 				
 				
 			</tbody>
+			<% int i = 1; %>
 		</table>
 		
 		
@@ -91,7 +94,7 @@ xmlns="http://primefaces.org/ui"
 			<caption>Carrinho de compra </caption>
 			<thead>
 				<tr>
-					
+					<th>item</th>
 					<th>quantidade</th>
 					<th>veiculo</th>					
 					<th>valor(R$)</th>
@@ -100,29 +103,38 @@ xmlns="http://primefaces.org/ui"
 				</tr>
 			</thead>	
 			<tbody>
-			${carrinho}
-			${indice}
+			
 				<!-- Tag responsavel por fazer repetições no HTML c:foreach -->
 				<c:forEach items="${carrinho}" var="c">
 				<!-- EL - Expression Language -->
 					<tr>
-						<form action="" method="get" >
+						<form action="/Concessionaria/pedido/remover" method="post" >
 					
-						<input type="hidden" value="${c.veiculo.id_Veiculo}" name="id"/> 
-						
+						<input type="hidden" value="${c.id_item}" name="id_item"/> 
+						<td>  <% out.print(i); %>  </td>
 						<td >${c.quantidade}</td>
 						<td >${c.veiculo.modeloVeiculo}</td>
 						<td >${c.veiculo.valorVeiculo}</td>
 						<td >${c.sub_Total}</td>
 
-						<td><input type="submit" value="selecionar"/></td>
+						<td><input class="btn btn-danger" type="submit" value="retirar"/></td>
 					
 					</form>
-									</tr>
+									</tr> <% i++; %>
 				</c:forEach>
 				
+					<tr>
 				
+						<td colspan="6">
+							<center>
+					<h3 style="color:red;" >Valor Total R$:${valor}</h3>
+					
 				
+					<input class="btn btn-primary" type="submit" value="Finalizar compra" />	</center>
+					
+					
+					</td>
+					</tr>			
 			</tbody>
 		</table>
 	</div>

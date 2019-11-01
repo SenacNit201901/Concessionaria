@@ -15,7 +15,8 @@ import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.VeiculoServico;
 
 
-@WebServlet({ "/veiculo/adicionar", "/veiculo/remover", "/veiculo/listar", "/veiculo/localizar", "/veiculo/editar", "/veiculo/atualizar" })
+@WebServlet({ "/veiculo/adicionar", "/veiculo/remover", "/veiculo/listar", "/veiculo/localizar", "/veiculo/editar", "/veiculo/atualizar", "/veiculos/ford", "/veiculos/chevrolet", "/veiculos/fiat",
+	"/veiculos/honda", "/veiculos/renault", "/veiculos/volkswagen"})
 public class ServletVeiculo extends HttpServlet implements Serializable {
 	private static final long serialVersionUID = 1L;
     VeiculoServico vs;
