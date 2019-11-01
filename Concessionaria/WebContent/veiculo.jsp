@@ -100,7 +100,7 @@ xmlns="http://primefaces.org/ui"
 				</tr>
 			</thead>	
 			<tbody>
-			${local}
+			${carrinho}
 			${indice}
 				<!-- Tag responsavel por fazer repetições no HTML c:foreach -->
 				<c:forEach items="${carrinho}" var="c">

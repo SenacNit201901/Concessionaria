@@ -104,14 +104,18 @@ public class PedidoServico {
 		
 	}
 	
-	private void selVeiculo(int id_Veiculo) throws SQLException{
+	public void selVeiculo(int id_Veiculo) throws SQLException{
 		this.veiculo = new Veiculo();
 		this.veiculo.setId_Veiculo(id_Veiculo);
 		
 		VeiculoDAO v = new VeiculoDAO();
 		v.listarVeiculoId(this.veiculo);
+	
 		
 		
+	}
+	public Veiculo retornoVeiculo() {
+		return this.veiculo;
 	}
 	
 }

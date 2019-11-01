@@ -34,6 +34,11 @@ public class ItemPedido {
 		this.veiculo = veiculo;
 		this.pedido = pedido;
 	}
+	public ItemPedido( int quantidade, Veiculo veiculo) {
+		super();
+		this.quantidade = quantidade;
+		this.veiculo = veiculo;
+	}
 
 
 

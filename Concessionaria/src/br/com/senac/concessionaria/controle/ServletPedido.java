@@ -2,23 +2,28 @@ package br.com.senac.concessionaria.controle;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import br.com.senac.concessionaria.modelo.ItemPedido;
+import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.servico.PedidoServico;
-import br.com.senac.concessionaria.servico.VeiculoServico;
 
 
 @WebServlet({ "/pedido/adicionar", "/pedido/remover", "/pedido/listar", "/pedido/localizar", "/pedido/editar", "/pedido/atualizar" })
 public class ServletPedido extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    PedidoServico pd;   
-    VeiculoServico vs;
+	private ItemPedido p;
+	private Veiculo v;
+	private PedidoServico ps;
 
     public ServletPedido() {
         super();
@@ -50,17 +55,38 @@ public class ServletPedido extends HttpServlet {
 	}
 	
 	protected void adicionar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		pd = new PedidoServico();
-		vs = new VeiculoServico();
+		
 		int id = Integer.parseInt(request.getParameter("id"));
+		
 		try {
-			pd.cadastrarPagamento("cartao");
-			pd.cadastrarPedido(new Date(), 2, 2);
-			pd.cadastrarItem(1, id);
+			List<ItemPedido> carrinho = new ArrayList<>();
+			carrinho = (List<ItemPedido>) request.getSession().getAttribute("carrinho");
 			
-			request.setAttribute("carrinho", pd.listarCarrinho());
-			request.setAttribute("veiculo", vs.listar());
-			request.getRequestDispatcher("/veiculo.jsp").forward(request, response);
+			if(carrinho.size() == 0) {
+				ps = new PedidoServico();
+				ps.selVeiculo(id);
+				
+				p = new ItemPedido(2, ps.retornoVeiculo());
+				Double subTotal = ps.retornoVeiculo().getValorVeiculo() * p.getQuantidade();	
+				p.setSub_Total(subTotal);	
+				carrinho.add(p);
+			} else {
+				ps = new PedidoServico();
+				ps.selVeiculo(id);
+				
+				p = new ItemPedido(2, ps.retornoVeiculo());
+				Double subTotal = ps.retornoVeiculo().getValorVeiculo() * p.getQuantidade();	
+				p.setSub_Total(subTotal);
+				carrinho.add(p);
+				request.getSession().setAttribute("carrinho", carrinho);
+			}
+			HttpSession sessao = request.getSession(true);
+			sessao.setAttribute("carrinho", carrinho);
+			response.sendRedirect("listar");
+				
+			
+	
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
