@@ -69,7 +69,7 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 		
 		try {
 				request.setAttribute("veiculo", vs.listar());
-				request.getRequestDispatcher("/veiculo.jsp").forward(request, response);
+				request.getRequestDispatcher("/views/veiculo.jsp").forward(request, response);
 		
 			
 			

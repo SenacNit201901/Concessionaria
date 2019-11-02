@@ -35,7 +35,7 @@ public class ServletCadastro extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		if(request.getServletPath().equals("/cadastro")) {
-			request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
+			request.getRequestDispatcher("views/cadastrar.jsp").forward(request, response);
 		} else if(request.getServletPath().equals("/cadastrar")) {
 			cadastrar(request, response);
 		}
@@ -64,7 +64,7 @@ public class ServletCadastro extends HttpServlet {
 			u.cadastrarEndereco(endereco, complemento, cep, numResidencial, bairro, cidade, estado);
 			u.cadastrarUsuario(nome, sobrenome, cpf, email, senha);
 			u.cadastrarContato(telefone);
-			response.sendRedirect("cadastrar.jsp");
+			response.sendRedirect("login");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

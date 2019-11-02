@@ -37,7 +37,7 @@ public class ServletLogin extends HttpServlet {
 		} else if (request.getServletPath().equals("/logout")) {
 			logout(request, response);
 		} else if(request.getServletPath().equals("/login")) {
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/login.jsp").forward(request, response);
 		}
 		
 	}
@@ -50,8 +50,9 @@ public class ServletLogin extends HttpServlet {
 			Usuario log = new Usuario();
 			 log = u.login(email, senha);
 			if (log != null) {
-				request.getSession().setAttribute("nome", log.getNome());
-				request.getSession().setAttribute("id", log.getId_usuario());
+				HttpSession sessao = request.getSession(true);
+				sessao.setAttribute("nome", log.getNome());
+				sessao.setAttribute("id", log.getId_usuario());
 				/**
 				request.getSession().setAttribute("sobrenome", log.getSobrenome());
 				request.getSession().setAttribute("cpf", log.getCpf());
@@ -67,7 +68,6 @@ public class ServletLogin extends HttpServlet {
 
 				
 				
-				HttpSession sessao = request.getSession(true);
 				List<ItemPedido> carrinho = new ArrayList<>();
 				Double valor = 0.0;
 				sessao.setAttribute("carrinho", carrinho);

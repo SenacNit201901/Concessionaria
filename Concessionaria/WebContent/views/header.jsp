@@ -11,7 +11,7 @@
           <!-- Bootstrap CSS -->
           <link rel="stylesheet" href="http://localhost/css/index.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
-          <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-png"/>
+          <link rel="shortcut icon" href="http://localhost/imagens/favicon.png" type="image/x-png"/>
 
           <script src="https://kit.fontawesome.com/c766cb3ea7.js"></script>
 
@@ -51,16 +51,17 @@
                             VEÍCULOS
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="chevrolet.html">CHEVROLET</a>
-                            <a class="dropdown-item" href="fiat.html">FIAT</a>
-                            <a class="dropdown-item" href="ford.html">FORD</a>
-                            <a class="dropdown-item" href="honda.html">HONDA</a>
-                            <a class="dropdown-item" href="renault.html">RENAULT</a>
-                            <a class="dropdown-item" href="volks.html">VOLKSWAGEN</a>
+                            <a class="dropdown-item" href="Concessionaria/veiculo/chevrolet">CHEVROLET</a>
+                            <a class="dropdown-item" href="Concessionaria/veiculo/fiat">FIAT</a>
+                            <a class="dropdown-item" href="Concessionaria/veiculo/ford">FORD</a>
+                            <a class="dropdown-item" href="Concessionaria/veiculo/honda">HONDA</a>
+                            <a class="dropdown-item" href="Concessionaria/veiculo/renault">RENAULT</a>
+                            <a class="dropdown-item" href="Concessionaria/veiculo/volkswagen">VOLKSWAGEN</a>
                             <div class="dropdown-divider"></div>
                           </div>
                         </li>
-
+	<% if(request.getSession().getAttribute("id") == null){ %>
+	
                       <li class="nav-item">
                         <a class="nav-link" href="/Concessionaria/cadastro"><i class=""></i>CADASTRO</span></a>
                       </li>
@@ -70,24 +71,40 @@
                       <a class="nav-link" href="/Concessionaria/login" data-toggle="" style="font-size: 1.2em; font-weight: bold;" ><span><i class="fas fa-sign-in-alt"></i></span> FAZER LOGIN</a>
                     </li>
                     </ul>
-                    
+                    <%}%>
                   <ul class="navbar-nav mr-">
                     <li class="nav-item active">
-                      <a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
+                      <a class="nav-link" href="/Concessionaria/pedido/carrinho"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                   </ul>
                   </div>
-
+				<% if(request.getSession().getAttribute("id") != null){ %>
+			
                   <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="font-size: 1.2em; font-weight: bold;">
                       LOGOUT
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: black;">
                       <a class="dropdown-item">${nome}</a>
+                     
                       <a class="dropdown-item" href="/Concessionaria/usuario/perfil">Perfil</a>
+                       <% if (request.getSession().getAttribute("nome") != null){ %>
+                      
+                       
+                                              
+                       
+                       
+                      <a class="dropdown-item" href="/Concessionaria/usuario/listar">Usuarios</a>
+                      <a class="dropdown-item" href="/Concessionaria/pedido/listar">Pedidos</a>
+                      
+                    
                       <a class="dropdown-item" href="/Concessionaria/logout">Sair</a>
                     </div>
+                
+                <%} %>
+                   <%} %>
                   </div>
           </nav>
+          
           
           
