@@ -18,10 +18,10 @@
           <br>
 
           <!-- Email -->
-          <input type="email" id="defaultLoginFormEmail"  name="email" class="form-control mb-4" placeholder="Usuario">
+          <input type="email" id="defaultLoginFormEmail"  name="email" class="form-control mb-4" placeholder="Usuario" required>
 
           <!-- Password -->
-          <input type="password" id="defaultLoginFormPassword" name="senha" class="form-control mb-4" placeholder="Senha">
+          <input type="password" id="defaultLoginFormPassword" name="senha" class="form-control mb-4" placeholder="Senha" required>
 
           <div class="d-flex justify-content-around">
               <div>

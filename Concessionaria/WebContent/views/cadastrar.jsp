@@ -13,7 +13,7 @@
 					
                       <div class="form-group">
                             <label for="exampleFormControlInput1">Nome </label>
-                            <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome">
+                            <input name="nome" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome" required>
                       </div>
                       <div class="form-group">
                             <label for="exampleFormControlInput1">Sobrenome</label>
@@ -21,19 +21,19 @@
                       </div>
                       <div class="form-group">
                             <label for="exampleFormControlInput1">CPF </label>
-                            <input name="cpf" type="text" class="form-control" id="exampleFormControlInput1" placeholder=" 999.999.999-99 ">
+                            <input name="cpf" type="text" class="form-control" id="cpf" placeholder=" 999.999.999-99 " required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email </label>
-                            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="exemplo123@gmail.com">
+                            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="exemplo123@gmail.com" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Senha </label>
-                            <input name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Digite sua senha">
+                            <input name="senha" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Digite sua senha" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1"><Table>Telefone</Table></label>
-                            <input name="telefone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="(xx)99999-9999">
+                            <input name="telefone" type="text" class="form-control" id="tel" placeholder="(xx)99999-9999" required>
                         </div>
                       <div class="form-group">
                         <label for="exampleFormControlInput1">Complemento </label>
@@ -41,28 +41,28 @@
                       </div>
                       <div class="form-group">
                             <label for="exampleFormControlInput1">CEP </label>
-                            <input name="cep" type="text" class="form-control" id="exampleFormControlInput1" placeholder="99999-999">
+                            <input name="cep" type="text" class="form-control" id="cep" placeholder="99999-999" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Rua</label>
-                            <input name="endereco" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rua Clemente 13">
+                            <input name="endereco" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rua Clemente 13" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Número </label>
-                            <input name="numResidencia" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o número da residência">
+                            <input name="numResidencia" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o número da residência" required>
                         </div>
                         <div class="form-group">
                                 <label for="exampleFormControlInput1">Cidade </label>
-                                <input name="cidade" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome da sua cidade">
+                                <input name="cidade" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome da sua cidade" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Bairro </label>
-                            <input name="bairro" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome do bairro">
+                            <input name="bairro" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome do bairro" required>
                         </div>
                       
                         <div class="form-group">     
                               <label for="estado">Estado </label>
-					      <select id="estado" name="estado" class="form-control">
+					      <select id="estado" name="estado" class="form-control" required>
 					        <option selected>RJ</option>
 					        <option>SP</option>
 					      </select>
@@ -87,9 +87,10 @@
     });
   </script>
   <!--Script para Mascara -->
-  <script>
-      $('#cpf').mask('000.000.000-00');
-      $("#exampleFormControlInput1").mask("(99) 99999-9999");
-      $("#cep").mask("00000-000");
-  </script>
+		<script>
+       						$('#cpf').mask('000.000.000-00');
+       						$("#tel").mask("(99) 99999-9999");
+       						$("#cep").mask("00000-000");
+    					</script>
+    					
 <c:import url="footer.jsp"></c:import>
