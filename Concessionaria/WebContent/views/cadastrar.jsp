@@ -4,7 +4,7 @@
 <c:import url="header.jsp"></c:import>
 
             <!-- FORMULARIO CADASTRO -->
-            <form action="views/cadastrar.jsp" method="post" id="cadastro">
+            <form action="cadastrar" method="post" id="cadastro">
             <div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
                     <div class="form-row">
                       <div id="" class="col-md-6 offset-md-3" >
