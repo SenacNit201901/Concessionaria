@@ -54,27 +54,27 @@
                         </h4>
                         <div class="container text-center" >
                           <a class="navbar-brand" href="https://www.chevrolet.com/">
-                            <img id="logo" src="./imagens/logos/chevrolet.png"  alt="">
+                            <img id="logo" src="http://localhost/imagens/logos/chevrolet.png"  alt="">
                           </a>
                     
                           <a class="navbar-brand" href="https://www.fiat.com.br/?rede=g&campanha=marca&gclid=Cj0KCQjwl8XtBRDAARIsAKfwtxBuz-voj6W2MEXiAgELX1y9_PrgiRvMR2vS5UiuyXQubzDlKG02KsYaAgeTEALw_wcB&gclsrc=aw.ds">
-                            <img id="logo" src="./imagens/logos/fiat.png"  alt="">
+                            <img id="logo" src="http://localhost/imagens/logos/fiat.png"  alt="">
                           </a>
                     
                           <a class="navbar-brand" href="https://www.ofertasford.com.br/">
-                            <img id="logo" src="./imagens/logos/ford.png"  alt="">
+                            <img id="logo" src="http://localhost/imagens/logos/ford.png"  alt="">
                           </a>
                     
                           <a class="navbar-brand" href="https://www.honda.com.br/">
-                            <img id="logo" src="./imagens/logos/honda.png"  alt="">
+                            <img id="logo" src="http://localhost/imagens/logos/honda.png"  alt="">
                           </a>
                     
                           <a class="navbar-brand" href="https://www.renault.com.br/">
-                            <img id="logo" src="./imagens/logos/renault.png"  alt="">
+                            <img id="logo" src="http://localhost/imagens/logos/renault.png"  alt="">
                           </a>
                     
                           <a class="navbar-brand" href="https://www.vw.com.br/pt.html">
-                            <img id="logo" src="./imagens/logos/volks.png"  alt="">
+                            <img id="logo" src="http://localhost/imagens/logos/volks.png"  alt="">
                           </a>
                         </div>
 

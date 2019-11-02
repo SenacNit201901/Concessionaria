@@ -9,7 +9,7 @@
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
           <!-- Bootstrap CSS -->
-          <link rel="stylesheet" href="http://localhost/index.css">
+          <link rel="stylesheet" href="http://localhost/css/index.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
           <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-png"/>
 
@@ -61,7 +61,6 @@
                           </div>
                         </li>
 
-<% if(session.getAttribute("id") != null){ %>
                       <li class="nav-item">
                         <a class="nav-link" href="/Concessionaria/cadastro"><i class=""></i>CADASTRO</span></a>
                       </li>
@@ -74,11 +73,11 @@
                     
                   <ul class="navbar-nav mr-">
                     <li class="nav-item active">
-                      <a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i></span></a>
+                      <a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                   </ul>
                   </div>
-	<%}  else { %>
+
                   <div class="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  style="font-size: 1.2em; font-weight: bold;">
                       LOGOUT
@@ -91,4 +90,4 @@
                   </div>
           </nav>
           
-          <%} %>
+          
