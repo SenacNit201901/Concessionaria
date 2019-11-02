@@ -91,18 +91,10 @@ public class Testes {
 		ps.cadastrarItem(2, 1);
 	
 		
-		
-		List<Usuario> us = new ArrayList<>();
-		us.add(usuario);
-		
-
-		
-		
-	
-		
-		System.out.println(us.get(0));
+		 
 			
-	
+		Usuario jj = new Usuario();
+		System.out.println(jj);
 		
 	
 		

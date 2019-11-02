@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.senac.concessionaria.modelo.Endereco;
 import br.com.senac.concessionaria.modelo.ItemPedido;
+import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.UsuarioServico;
@@ -47,24 +49,34 @@ public class ServletLogin extends HttpServlet {
 		
 		UsuarioServico u = new UsuarioServico();
 		try {
-			Usuario log = new Usuario();
-			 log = u.login(email, senha);
-			if (log != null) {
+		
+			Boolean login = u.login(email, senha);
+			if (login) {
+				Usuario user = new Usuario();
+				user.setEmail(email);
+				user.setSenha(senha);
+				Endereco e = new Endereco();
+				TipoUsuario tp = new TipoUsuario();
+				
+				user = u.listar(user);
+			
+				tp = u.listarTipoUser(user.getTipo_usuario().getId_tipo_usuario());
+				e = u.listarEndereco(user.getEndereco().getId_endereco());
+				
 				HttpSession sessao = request.getSession(true);
-				sessao.setAttribute("nome", log.getNome());
-				sessao.setAttribute("id", log.getId_usuario());
-				/**
-				request.getSession().setAttribute("sobrenome", log.getSobrenome());
-				request.getSession().setAttribute("cpf", log.getCpf());
-				request.getSession().setAttribute("email", log.getEmail());
-				request.getSession().setAttribute("cep", log.getEndereco().getCep());
-				request.getSession().setAttribute("rua", log.getEndereco().getRua());
-				request.getSession().setAttribute("bairro", log.getEndereco().getBairro());
-				request.getSession().setAttribute("cidade", log.getEndereco().getCidade());
-				request.getSession().setAttribute("estado", log.getEndereco().getEstado());
-				request.getSession().setAttribute("numero", log.getEndereco().getNumero());
-				request.getSession().setAttribute("complemento", log.getEndereco().getComplemento());
-				*/
+				sessao.setAttribute("nome", user.getNome());
+				sessao.setAttribute("id", user.getId_usuario());
+				request.getSession().setAttribute("sobrenome", user.getSobrenome());
+				request.getSession().setAttribute("cpf", user.getCpf());
+				request.getSession().setAttribute("email", user.getEmail());
+				request.getSession().setAttribute("cep", user.getEndereco().getCep());
+				request.getSession().setAttribute("rua", e.getRua());
+				request.getSession().setAttribute("bairro", e.getBairro());
+				request.getSession().setAttribute("cidade", e.getCidade());
+				request.getSession().setAttribute("estado", e.getEstado());
+				request.getSession().setAttribute("numero", e.getNumero());
+				request.getSession().setAttribute("complemento", e.getComplemento());
+				
 
 				
 				
@@ -81,6 +93,7 @@ public class ServletLogin extends HttpServlet {
 				response.sendRedirect("home");
 				
 			} else {
+			
 				response.sendRedirect("cadastro");
 			}
 		} catch (SQLException e) {

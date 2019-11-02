@@ -28,6 +28,11 @@ public class UsuarioServico{
 		TipoUsuario tipo_usuario;
 		List<Contato> contato;
 		UsuarioDAO u;
+		TipoUsuarioDAO tp;
+		EnderecoDAO e;
+		BairroDAO b;
+		CidadeDAO c;
+		EstadoDAO es;
 		
 		
 	public void cadastrarUsuario(String nome, String sobrenome, String cpf, String email, String senha) throws SQLException {
@@ -59,15 +64,15 @@ public class UsuarioServico{
 		
 	}
 	
-	public Usuario login(String email, String senha) throws SQLException {
+	public Boolean login(String email, String senha) throws SQLException {
 		UsuarioDAO u = new UsuarioDAO();
 		
 		usuario = new Usuario();
 		usuario.setEmail(email);
 		usuario.setSenha(senha);
-		u.login(this.usuario);
+		return u.login(this.usuario);
 		
-		return usuario;
+	
 	}
 	
 	
@@ -83,7 +88,41 @@ public class UsuarioServico{
 	public List<Usuario> listarUser() throws SQLException{
 		
 		this.u = new UsuarioDAO();
-		return u.listar();
+		return u.listarUsuarios();
+	}
+	public Usuario listar(Usuario user) throws SQLException{
+		
+		this.u = new UsuarioDAO();
+		return u.listarUsuario(user);
+	}
+	public TipoUsuario listarTipoUser(int id) throws SQLException{
+		
+		this.tp = new TipoUsuarioDAO();
+		return tp.busca(id);
+	}
+	public Endereco listarEndereco(int id) throws SQLException{
+		
+		this.e = new EnderecoDAO();
+		this.bairro = new Bairro();
+		this.cidade = new Cidade();
+		this.estado = new Estado();
+		this.endereco = new Endereco();
+		this.es = new EstadoDAO();
+		this.b = new BairroDAO();
+		this.c = new CidadeDAO();
+		
+		this.endereco = e.busca(id);
+		this.estado = this.es.busca(this.endereco.getEstado().getId_UF());
+		this.bairro = this.b.busca(this.endereco.getBairro().getId_bairro());
+		this.cidade = this.c.busca(this.endereco.getCidade().getId_cidade());
+		
+		 
+		this.endereco.getBairro().setNome_Bairro(this.bairro.getNome_Bairro());
+		this.endereco.getCidade().setNome_cidade(this.cidade.getNome_cidade());
+		this.endereco.getEstado().setUF(this.estado.getUF());
+		return this.endereco;
+		
+		
 	}
 	public void deletarUsuario(int id) throws SQLException {
 		this.u = new UsuarioDAO();

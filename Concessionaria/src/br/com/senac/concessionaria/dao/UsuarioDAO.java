@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.senac.concessionaria.modelo.Endereco;
+import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.util.DAO;
 
@@ -57,7 +59,7 @@ public class UsuarioDAO extends DAO{
 		}
 	}
 	
-	public Usuario login(Usuario u) throws SQLException{
+	public Boolean login(Usuario u) throws SQLException{
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
@@ -71,19 +73,12 @@ public class UsuarioDAO extends DAO{
 
 
 			rs = pstmt.executeQuery();
+			if (rs.next()) {
+			return true;
 			
-			while(rs.next()) {
-				
-				u.setId_usuario(rs.getInt(1));
-				u.setNome(rs.getString(2));
-				u.setSobrenome(rs.getString(3));
-				u.setCpf(rs.getString(4));
-				u.setEmail(rs.getString(5));
-				u.setSenha(rs.getString(6));
+			} else {
+				return false;
 			}
-			return u;
-			
-
 			
 			
 		} finally {
@@ -100,7 +95,7 @@ public class UsuarioDAO extends DAO{
 		}
 	}
 	
-	public Usuario listarUsuarioId(Usuario u) throws SQLException{
+	public Usuario listarUsuario(Usuario u) throws SQLException{
 		abreConexao();
 		
 		PreparedStatement pstmt = null;
@@ -108,12 +103,15 @@ public class UsuarioDAO extends DAO{
 		
 		
 		try {
-			pstmt = conn.prepareStatement("select * from usuario where id_usuario = ?");
-			pstmt.setInt(1, u.getId_usuario());
+			pstmt = conn.prepareStatement("select * from usuario where email = ? and senha = ?");
+			pstmt.setString(1, u.getEmail());
+			pstmt.setString(2, u.getSenha());
 
 
 
 			rs = pstmt.executeQuery();
+			
+			
 			
 			while(rs.next()) {
 				u.setId_usuario(rs.getInt(1));
@@ -122,7 +120,14 @@ public class UsuarioDAO extends DAO{
 				u.setCpf(rs.getString(4));
 				u.setEmail(rs.getString(5));
 				u.setSenha(rs.getString(6));
-
+				Endereco e = new Endereco();
+				e.setId_endereco(rs.getInt(7));
+				TipoUsuario t = new TipoUsuario();
+				t.setId_tipo_usuario(rs.getInt(8));
+			
+				
+				u.setEndereco(e);
+				u.setTipo_usuario(t);
 			}
 			return u;
 			
@@ -144,7 +149,7 @@ public class UsuarioDAO extends DAO{
 	}
 	
 	
-	public List<Usuario> listar() throws SQLException {
+	public List<Usuario> listarUsuarios() throws SQLException {
 		
 		abreConexao();
 		

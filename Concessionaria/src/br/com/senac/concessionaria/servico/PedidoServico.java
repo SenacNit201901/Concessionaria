@@ -100,7 +100,7 @@ public class PedidoServico {
 		this.usuario.setId_usuario(id_Usuario);
 		
 		UsuarioDAO u = new UsuarioDAO();
-		u.listarUsuarioId(this.usuario);
+		u.listarUsuario(this.usuario);
 		
 	}
 	

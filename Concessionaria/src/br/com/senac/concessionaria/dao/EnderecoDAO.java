@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import br.com.senac.concessionaria.modelo.Bairro;
+import br.com.senac.concessionaria.modelo.Cidade;
 import br.com.senac.concessionaria.modelo.Endereco;
+import br.com.senac.concessionaria.modelo.Estado;
 import br.com.senac.concessionaria.util.DAO;
 
 public class EnderecoDAO extends DAO{
@@ -55,7 +58,36 @@ public class EnderecoDAO extends DAO{
 		
 	}
 
-
+	public Endereco busca(int id) throws SQLException {
+		
+		abrirConexao();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement("select * from endereco where id_endereco = ?");
+			pstmt.setInt(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return criaEndereco(rs);
+			}
+			
+			return null;
+		} finally {
+			if(conn != null) {
+				conn.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
+			}
+		}
+	}
 
 	private void abrirConexao() {
 		try {
@@ -67,7 +99,26 @@ public class EnderecoDAO extends DAO{
 		}
 	}
 	
-	
+	private Endereco criaEndereco(ResultSet rs) throws SQLException {
+		Endereco e;
+		e = new Endereco();
+		e.setId_endereco(rs.getInt(1));
+		e.setCep(rs.getString(2));
+		e.setRua(rs.getString(3));
+		e.setNumero(rs.getString(4));
+		e.setComplemento(rs.getString(5));
+		Estado es = new Estado();
+		es.setId_UF(rs.getInt(6));
+		e.setEstado(es);
+		Bairro b = new Bairro();
+		b.setId_bairro(rs.getInt(7));
+		e.setBairro(b);
+		Cidade c = new Cidade();
+		c.setId_cidade(rs.getInt(8));
+		e.setCidade(c);
+		
+		return e;
+	}
 	
 
 }
