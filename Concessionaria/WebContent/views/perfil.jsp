@@ -8,7 +8,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<link rel="stylesheet" href="http://localhost/css/index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Pizzaria Web 402</title>
   </head>
@@ -51,55 +51,59 @@
             
             
             <form action="" method = POST>
-              <div class="form-group">
-                    <label for="exampleFormControlInput1">Nome: ${nome}</label>
-                    
-              </div>
+            <label for="nome">Nome: </label>
+                <input type="text" class="input-form" value="${nome}">
               </c:forEach>
               <hr>
               <div class="form-group">
-                    <label for="exampleFormControlInput1">Sobrenome: ${sobrenome} </label>
+              <label for="sobrenome">Sobrenome: </label>
+                    <input type="text" class="input-form" value="${sobrenome} "> 
               </div>
               <hr>
               <div class="form-group">
-                    <label for="exampleFormControlInput1">CPF: ${cpf}</label>
+                    <label for="cpf">CPF: </label>
+                    <input type="text" class="input-form" value="${cpf}"> 
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Email: ${email}</label>
+                    <label for="email">Email: </label>
+                    <input type="text" class="input-form" value="${email}"> 
                 </div>
                 <hr>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1"><Table>Telefone:</Table></label>
+                    <label for="tel"><Table>Telefone: </Table></label>
+                    <input type="text" class="input-form" value="${telefone}">
                 </div>
-                <hr>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Endereço:</label>
-              </div>
               <hr>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Complemento:{$complemento}</label>
+                    <label for="cep">CEP:</label>
+                    <input type="text" class="input-form" value="${cep}">
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="rua">Rua: </label>
+                    <input type="text" class="input-form" value="${rua}">
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="num">Número: </label>
+                    <input type="text" class="input-form" value="${numero}">
+                </div>
+                <hr>
+              <div class="form-group">
+                <label for="complemento">Complemento: </label>
+                <input type="text" class="input-form" value="${complemento}">
               </div>
               <hr>
-              <div class="form-group">
-                    <label for="exampleFormControlInput1">CEP:${cep}</label>
+                <div class="form-group">
+                        <label for="cidade">Cidade: </label>
+                        <input type="text" class="input-form" value="${cidade}">
                 </div>
                 <hr>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Rua:${rua}</label>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Número: ${numero}</label>
-                </div>
-                <hr>
-                <div class="form-group">
-                        <label for="exampleFormControlInput1">Cidade: ${cidade}</label>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Bairro:${bairro}</label>
+                    <label for="bairro">Bairro: </label>
+                    <input type="text" class="input-form" value="${bairro}">
                 </div>
           
                 <button class="btn btn-dark btn-block my-4"  type="submit">Atualizar</button>

@@ -4,7 +4,7 @@
 <c:import url="header.jsp"></c:import>
 
             <!-- FORMULARIO CADASTRO -->
-            <form action="cadastrar" method="post" id="cadastro">
+            <form action="views/cadastrar.jsp" method="post" id="cadastro">
             <div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
                     <div class="form-row">
                       <div id="" class="col-md-6 offset-md-3" >
@@ -36,35 +36,62 @@
                             <input name="telefone" type="text" class="form-control" id="tel" placeholder="(xx)99999-9999" required>
                         </div>
                       <div class="form-group">
-                        <label for="exampleFormControlInput1">Complemento </label>
-                        <input name="complemento" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adicione um complemento">
-                      </div>
-                      <div class="form-group">
                             <label for="exampleFormControlInput1">CEP </label>
                             <input name="cep" type="text" class="form-control" id="cep" placeholder="99999-999" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Rua</label>
-                            <input name="endereco" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Rua Clemente 13" required>
+                            <input name="endereco" type="text" class="form-control" id="rua" placeholder="Rua Clemente 13" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Número </label>
                             <input name="numResidencia" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o número da residência" required>
                         </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Complemento </label>
+                        <input name="complemento" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Adicione um complemento">
+                      </div>
                         <div class="form-group">
                                 <label for="exampleFormControlInput1">Cidade </label>
-                                <input name="cidade" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome da sua cidade" required>
+                                <input name="cidade" type="text" class="form-control" id="cidade" placeholder="Digite o nome da sua cidade" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Bairro </label>
-                            <input name="bairro" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite o nome do bairro" required>
+                            <input name="bairro" type="text" class="form-control" id="bairro" placeholder="Digite o nome do bairro" required>
                         </div>
                       
                         <div class="form-group">     
                               <label for="estado">Estado </label>
-					      <select id="estado" name="estado" class="form-control" required>
-					        <option selected>RJ</option>
-					        <option>SP</option>
+					      <select id="uf" name="estado" class="form-control" required>
+					     			<option></option>
+                                    <option>AC</option>
+                                    <option>AL</option>
+                                    <option>AP</option>
+                                    <option>AM</option>
+                                    <option>BA</option>
+                                    <option>CE</option>
+                                    <option>DF</option>
+                                    <option>ES</option>
+                                    <option>GO</option>
+                                    <option>MA</option>
+                                    <option>MT</option>
+                                    <option>MS</option>
+                                    <option>MG</option>
+                                    <option>PA</option>
+                                    <option>PB</option>
+                                    <option>PR</option>
+                                    <option>PE</option>
+                                    <option>PI</option>
+                                    <option>RJ</option>
+                                    <option>RN</option>
+                                    <option>RS</option>
+                                    <option>RO</option>
+                                    <option>RR</option>
+                                    <option>SC</option>
+                                    <option>SP</option>
+                                    <option>SE</option>
+                                    <option>TO</option>
+                                    <option>EX</option>
 					      </select>
                         </div>
                         <div class="custom-control custom-checkbox">
@@ -93,4 +120,69 @@
        						$("#cep").mask("00000-000");
     					</script>
     					
+    					<!--Script para auto preenchimento de endereço a partir do CEP -->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+            }
+
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function () {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#uf").val(dados.uf);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+        });
+
+    </script>
 <c:import url="footer.jsp"></c:import>
