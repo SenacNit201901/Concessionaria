@@ -9,8 +9,8 @@
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
           <!-- Bootstrap CSS -->
-          <link rel="stylesheet" href="/Concessionaria/index.css">
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+          <link rel="stylesheet" href="http://localhost/index.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
           <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-png"/>
 
           <script src="https://kit.fontawesome.com/c766cb3ea7.js"></script>
@@ -27,8 +27,8 @@
 
               <main class="container">
 
-                <a class="navbar-brand" href="index.html">
-                  <img id="logo" src="./imagens/logo.png"  alt="">
+                <a class="navbar-brand" href="home">
+                  <img id="logo" src="http://localhost/imagens/logo.png"  alt="">
                 </a>
 
 
