@@ -32,9 +32,9 @@
           <hr>
           <div class="form-group" id="formulario">
             <label for="telefone">
-              <Table id="tel">Telefone: </Table>
+              <Table>Telefone: </Table>
             </label>
-            <input type="text" class="input-form" value="${telefone}">
+            <input type="text"  id="tel" class="input-form" value="${telefone}">
             <button type="button" id="add-campo"> + </button>
           </div>
           <hr>
