@@ -1,6 +1,13 @@
 package br.com.senac.concessionaria.modelo;
 
 public class Estado {
+	
+	@Override
+	public String toString() {
+		return "Estado [id_UF=" + id_UF +", UF=" + UF + "]";
+	}
+	
+	
 	private int id_UF;
 	private String UF;
 	

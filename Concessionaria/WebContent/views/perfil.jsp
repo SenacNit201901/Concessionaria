@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
-    pageEncoding="utf8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="utf-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="header.jsp"></c:import>
 
@@ -70,6 +70,11 @@
             <div class="form-group">
               <label for="bairro">Bairro: </label>
               <input type="text" class="input-form" value="${bairro}">
+            </div>
+            <hr>
+               <div class="form-group">
+              <label for="bairro">Estado: </label>
+              <input type="text" class="input-form" value="${estado}">
             </div>
           </div>
           <button class="btn btn-dark btn-block my-4" type="submit">Atualizar</button>

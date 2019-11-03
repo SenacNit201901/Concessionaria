@@ -73,7 +73,7 @@ public class ServletLogin extends HttpServlet {
 				request.getSession().setAttribute("rua", e.getRua());
 				request.getSession().setAttribute("bairro", e.getBairro().getNome_Bairro());
 				request.getSession().setAttribute("cidade", e.getCidade().getNome_cidade());
-				request.getSession().setAttribute("estado", e.getEstado());
+				request.getSession().setAttribute("estado", e.getEstado().getUF());
 				request.getSession().setAttribute("numero", e.getNumero());
 				request.getSession().setAttribute("complemento", e.getComplemento());
 				
