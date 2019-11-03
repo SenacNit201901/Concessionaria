@@ -18,7 +18,7 @@ import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.servico.PedidoServico;
 
 
-@WebServlet({ "/pedido/adicionar", "/pedido/remover", "/pedido/listar", "/pedido/localizar", "/pedido/editar", "/pedido/atualizar", "/pedido/comprar" })
+@WebServlet({ "/pedido/adicionar", "/pedido/remover", "/pedido/listar", "/pedido/localizar", "/pedido/editar", "/pedido/atualizar", "/pedido/comprar", "/pedido/carrinho" })
 public class ServletPedido extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ItemPedido p;
@@ -34,6 +34,8 @@ public class ServletPedido extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if(request.getServletPath().equals("/pedido/listar")) { 
 			listar(request, response);
+		} else	if(request.getServletPath().equals("/pedido/carrinho")) { 
+			request.getRequestDispatcher("/views/pagamento.jsp").forward(request, response);
 		} else if(request.getServletPath().equals("/pedido/localizar")) { 
 			localizar(request, response);
 		} else {
