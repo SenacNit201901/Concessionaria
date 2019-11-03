@@ -16,7 +16,7 @@
                   <hr>
                   <p class="preco">R$ 96.490,00</p>
                   <hr>
-                  <img class="card-img-top" src="./imagens/carros/cruze.png" alt="Imagem de capa do card">
+                  <img class="card-img-top" src="http://localhost/imagens/carros/cruze.png" alt="Imagem de capa do card">
                   <div class="card-body">
                       <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
                       
@@ -24,7 +24,7 @@
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-cruze.html">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-cruze.jsp">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                     <hr>
                     <p class="preco">R$ 44.990,00*</p>
                     <hr>
-                    <img class="card-img-top" src="./imagens/carros/onix.png" alt="Imagem de capa do card">
+                    <img class="card-img-top" src="http://localhost/imagens/carros/onix.png" alt="Imagem de capa do card">
                     <div class="card-body">
                         <p class="desc3">* ENTRADA DE R$ 28.000,00 + 24X DE R$ 785,93</p>
                         
@@ -44,7 +44,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-onix.html">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-onix.jsp">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -56,7 +56,7 @@
                       <hr>
                       <p class="preco">R$ 93.990,00</p>
                       <hr>
-                      <img class="card-img-top" src="./imagens/carros/prisma.png" alt="Imagem de capa do card">
+                      <img class="card-img-top" src="http://localhost/imagens/carros/prisma.png" alt="Imagem de capa do card">
                       <div class="card-body">
                           <p class="desc3">* ENTRADA DE R$ 34.500,00 + 24X DE R$ 954,86</p>
                           
@@ -64,7 +64,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-prisma.html">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-prisma.jsp">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -81,14 +81,14 @@
                         <hr>
                         <p class="preco">R$ 130.990,00</p>
                         <hr>
-                        <img class="card-img-top" src="./imagens/carros/s10.png" alt="Imagem de capa do card">
+                        <img class="card-img-top" src="http://localhost/imagens/carros/s10.png" alt="Imagem de capa do card">
                         <div class="card-body">
                             <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
                         </div>
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-s10.html">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-s10.jsp">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -100,13 +100,13 @@
                             <hr>
                             <p class="preco">R$ 93.990,00</p>
                             <hr>
-                            <img class="card-img-top" src="./imagens/carros/tracker.png" alt="Imagem de capa do card">
+                            <img class="card-img-top" src="http://localhost/imagens/carros/tracker.png" alt="Imagem de capa do card">
                             <div class="card-body">
                                 <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
                             </div>
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-tracker.html">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-tracker.jsp">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  

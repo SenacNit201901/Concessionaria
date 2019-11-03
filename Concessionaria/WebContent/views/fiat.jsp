@@ -37,7 +37,7 @@
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-grandsiena.html">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-grandsiena.jsp">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.html">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-toro.jsp">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -76,7 +76,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-cronos.html">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-cronos.jsp">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -100,7 +100,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-uno.html">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-uno.jsp">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -120,7 +120,7 @@
                     
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-argo.html">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-argo.jsp">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
