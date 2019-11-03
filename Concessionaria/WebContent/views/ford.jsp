@@ -14,66 +14,67 @@
       </div>
     </div>
 
+   
+            <!--FORD-->
 
-		<br>
+          <br>
         <div class="container">
           <div class="card-deck">
               <div class="card">
-                  <h5 class="titulo" id="title">CRUZE LTZ</h5>
-                  <p class="desc">MOTOR 1.4 TURBO ECOTEC</p>
-                  <p class="desc2">2019/2020</p>
+                  <h5 class="titulo" id="title">KA</h5>
+                  <p class="desc">S 1.0 MT</p>
+                  <p class="desc2">2020</p>
                   <hr>
-                  <p class="preco">R$ 96.490,00</p>
+                  <p class="preco"> A PARTIR DE: R$ 42.490,00</p>
                   <hr>
-                  <img class="card-img-top" src="http://localhost/imagens/carros/cruze.png" alt="Imagem de capa do card">
+                  <img class="card-img-top" src="http://localhost/imagens/carros/ka.png" alt="Imagem de capa do card">
                   <div class="card-body">
-                      <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
-                      
+                      <br>
+                      <p class="desc3">* ENTRADA DE R$26.471,27 E SALDO EM 48X DE R$449,00 COM TAXA0,89% A.M</p>
                   </div>
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-cruze.jsp">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-ka.jsp">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
       
                 <div class="card">
-                    <h5 class="titulo" id="title">ONIX</h5>
-                    <p class="desc">MOTOR 1.0L</p>
-                    <p class="desc2">2019/2020</p>
+                    <h5 class="titulo" id="title">KA SEDAN</h5>
+                    <p class="desc">SE 1.5 AT</p>
+                    <p class="desc2">2020</p>
                     <hr>
-                    <p class="preco">R$ 44.990,00*</p>
+                    <p class="preco">R$ 57.990,00</p>
                     <hr>
-                    <img class="card-img-top" src="http://localhost/imagens/carros/onix.png" alt="Imagem de capa do card">
+                    <img class="card-img-top" src="http://localhost/imagens/carros/sedan.png" alt="Imagem de capa do card">
                     <div class="card-body">
-                        <p class="desc3">* ENTRADA DE R$ 28.000,00 + 24X DE R$ 785,93</p>
-                        
+                        <br>
+                        <p class="desc3">* ENTRADE DE R$17.397,00 E SALDO EM 35X DE R$1.010,00 COM TAXA 0,89% A.M</p>
                     </div>
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-onix.jsp">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-sedan.jsp">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
       
                   <div class="card">
-                      <h5 class="titulo" id="title">PRISMA LT</h5>
-                      <p class="desc">MOTOR 1.4L</p>
-                      <p class="desc2">2019/2020</p>
+                      <h5 class="titulo" id="title">NEW FIESTA</h5>
+                      <p class="desc">SE 1.6 MT</p>
+                      <p class="desc2">2019</p>
                       <hr>
-                      <p class="preco">R$ 93.990,00</p>
+                      <p class="preco">R$ 50.990,00</p>
                       <hr>
-                      <img class="card-img-top" src="http://localhost/imagens/carros/prisma.png" alt="Imagem de capa do card">
+                      <img class="card-img-top" src="http://localhost/imagens/carros/fiesta.png" alt="Imagem de capa do card">
                       <div class="card-body">
-                          <p class="desc3">* ENTRADA DE R$ 34.500,00 + 24X DE R$ 954,86</p>
-                          
+                          <p class="desc3">* ENTRADA + TAXA ZERO EM 36X</p>
                       </div>
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-prisma.jsp">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-fiesta.jsp">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -84,43 +85,46 @@
               <div class="container">
                 <div class="card-deck">
                     <div class="card">
-                        <h5 class="titulo" id="title">S10 LTZ</h5>
-                        <p class="desc">MOTOR 2.5L ECOTEC</p>
-                        <p class="desc2">2019/2020</p>
+                        <h5 class="titulo" id="title">ECOSPORT</h5>
+                        <p class="desc">SE DIRECT 1.5 AT</p>
+                        <p class="desc2">2020</p>
                         <hr>
-                        <p class="preco">R$ 130.990,00</p>
+                        <p class="preco">R$ 68.990,00</p>
                         <hr>
-                        <img class="card-img-top" src="http://localhost/imagens/carros/s10.png" alt="Imagem de capa do card">
+                        <img class="card-img-top" src="http://localhost/imagens/carros/ecosport.png" alt="Imagem de capa do card">
                         <div class="card-body">
-                            <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
+                            <p class="desc3">* CONDIÇÕES EXCLUSIVAS PARA VENDAS DIRETA  </p>
                         </div>
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-s10.jsp">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-eco.jsp">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
             
                         <div class="card">
-                            <h5 class="titulo" id="title">TRACKER MIDNIGHT</h5>
-                            <p class="desc">MOTOR 1.4 TURBO ECOTEC</p>
-                            <p class="desc2">2019/2020</p>
+                            <h5 class="titulo" id="title">RANGER</h5>
+                            <p class="desc">XLS 2.2 Diesel 4x2 AT</p>
+                            <p class="desc2">2020</p>
                             <hr>
-                            <p class="preco">R$ 93.990,00</p>
+                            <p class="preco">R$ 124.900,00</p>
                             <hr>
-                            <img class="card-img-top" src="http://localhost/imagens/carros/tracker.png" alt="Imagem de capa do card">
+                            <img class="card-img-top" src="http://localhost/imagens/carros/ranger.png" alt="Imagem de capa do card">
                             <div class="card-body">
+                                <br>
                                 <p class="desc3">* 3 PRIMEIRAS REVISÕES INCLUSAS</p>
                             </div>
+                    
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-tracker.jsp">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-ranger.jsp">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
                       </div>
                     </div>
+  
   
 
     

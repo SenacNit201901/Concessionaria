@@ -99,7 +99,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="comprar-accord.jsp">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-accord.jsp">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -118,7 +118,7 @@
                     
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="comprar-city.jsp">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-city.jsp">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
