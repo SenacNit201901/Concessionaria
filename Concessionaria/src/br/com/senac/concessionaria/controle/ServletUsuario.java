@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
 
-@WebServlet({ "/usuario/adicionar", "/usuario/remover", "/usuario/listar", "/usuario/localizar", "/usuario/editar", "/usuario/atualizar" })
+@WebServlet({ "/usuario/adicionar", "/usuario/perfil", "/usuario/listar", "/usuario/localizar", "/usuario/editar", "/usuario/atualizar" })
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private UsuarioServico u;
@@ -24,9 +24,9 @@ public class ServletUsuario extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getServletPath().equals("/usuario/remover")) { 
-			remover(request, response);
-		} else if(request.getServletPath().equals("/usuario/editar")) { 
+    	if(request.getServletPath().equals("/usuario/perfil")) { 
+			request.getRequestDispatcher("/views/perfil.jsp").forward(request, response);
+		} else  if(request.getServletPath().equals("/usuario/editar")) { 
 			editar(request, response);
 		} else if(request.getServletPath().equals("/usuario/listar")) { 
 			listar(request, response);
@@ -39,7 +39,7 @@ public class ServletUsuario extends HttpServlet {
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getServletPath().equals("/usuario/adicionar")) { 
+    	if(request.getServletPath().equals("/usuario/adicionar")) { 
 			adicionar(request, response);
 		} else if(request.getServletPath().equals("/usuario/atualizar")) {
 			atualizar(request, response);
@@ -70,7 +70,7 @@ public class ServletUsuario extends HttpServlet {
 		
 		try {
 			request.setAttribute("user", u.listarUser());
-			request.getRequestDispatcher("/usuario.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/usuario.jsp").forward(request, response);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
