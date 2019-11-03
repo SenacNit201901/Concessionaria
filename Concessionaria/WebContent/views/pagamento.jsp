@@ -39,12 +39,13 @@
                                     Quantidade: ${c.quantidade}</small>
                                     
                             </div>
-                            
+                       
                             <span class="text-muted">R$${c.sub_Total}</span>
                            <label for="submit" ><span class="text-muted"><i class="fas fa-times" style="cursor: pointer;" id="x"></i></span></label> 
                            <input style="display: none;" id="submit" type="submit" />
                            </form>
                         </li>
+                
                         <!--Fim do foreach-->
                  	</c:forEach>
                     </ul>
@@ -142,9 +143,9 @@
                     <h4 class="mb-3">Pagamento</h4>
 
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked
+                        <input id="credit" name="paymentMethod" type="radio"  class="custom-control-input" checked
                             required>
-                        <input type="radio" id="botao" name="check" class="cred1" checked>
+                        <input type="radio" id="botao" name="check" class="cred1"  checked>
                         <label for="credit">Cartão de crédito</label>
                     </div>
                     <div id="cart1">
@@ -277,7 +278,7 @@
 
                 <div class="custom-control custom-radio">
                     <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                    <input type="radio" id="botao" name="check" class="cred" checked>
+                    <input type="radio" id="botao" name="formPag" class="cred" checked>
                     <label for="credit">Cartão de crédito</label>
                 </div>
                 <div id="cart">
@@ -315,13 +316,15 @@
                         </div>
                     </div>
                 </div>
+               
 
                 <div class="custom-control custom-radio">
-                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <input type="radio" id="botao" name="check" class="bol">
+                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"   required>
+                    <input type="radio" id="botao" name="check"  class="bol">
                     <label for="debit">Boleto</label>
                 </div>
                 <hr class="mb-4">
+                 <form action="comprar" method="post">
                 <button class="btn btn-dark btn-lg btn-block" type="submit">Comprar</button>
                 </form>
                 <br><br>

@@ -125,7 +125,7 @@ private Connection conn;
 	
 
 	
-public FormaPagamento busca(int id) throws SQLException {
+public FormaPagamento busca(FormaPagamento f) throws SQLException {
 		
 		abreConexao();
 		
@@ -133,8 +133,8 @@ public FormaPagamento busca(int id) throws SQLException {
 		ResultSet rs = null;
 		
 		try {
-			pstmt = conn.prepareStatement("select * from forma_pagamento where id_forma_pagamento = ?");
-			pstmt.setInt(1, id);
+			pstmt = conn.prepareStatement("select * from forma_pagamento where tipo_pagamento = ?");
+			pstmt.setString(1, f.getTipo_pagamento());
 			
 			rs = pstmt.executeQuery();
 			

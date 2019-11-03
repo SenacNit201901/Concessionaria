@@ -8,11 +8,11 @@ import java.util.List;
 import br.com.senac.concessionaria.dao.CombustivelDAO;
 import br.com.senac.concessionaria.dao.CorDAO;
 import br.com.senac.concessionaria.dao.FormaPagamentoDAO;
+import br.com.senac.concessionaria.dao.ItemPedidoDao;
 import br.com.senac.concessionaria.dao.MarcaDAO;
 import br.com.senac.concessionaria.dao.PedidoDAO;
 import br.com.senac.concessionaria.dao.UsuarioDAO;
 import br.com.senac.concessionaria.dao.VeiculoDAO;
-import br.com.senac.concessionaria.modelo.Combustivel;
 import br.com.senac.concessionaria.modelo.FormaPagamento;
 import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Pedido;
@@ -64,17 +64,17 @@ public class PedidoServico {
 
 
 
-	private void gravarPedido(Pedido p) throws SQLException {
+	public void gravarPedido(Pedido p) throws SQLException {
 		PedidoDAO pedido = new PedidoDAO();
 		pedido.gravar(p);
 	}
 	
 	
 	
-	public void cadastrarPagamento(String formaPag)  throws SQLException{
-		this.formPag = new FormaPagamento(formaPag);
+	public FormaPagamento buscarPagamento(FormaPagamento f)  throws SQLException{
+		
 		FormaPagamentoDAO fm = new FormaPagamentoDAO();
-		fm.gravar(this.formPag);
+		return fm.busca(f);
 	}
 	
 /*	
@@ -90,13 +90,13 @@ public class PedidoServico {
 		gravarCarrinho();
 	}
 
+*/
 
-
-	private void gravarCarrinho() throws SQLException {
+	public void gravarCarrinho(List<ItemPedido> item) throws SQLException {
 		ItemPedidoDao i = new ItemPedidoDao();
-		i.gravar(this.carrinho);
+		i.gravar(item);
 	}
-	*/
+	
 	
 	private void selUsuario(int id_Usuario) throws SQLException{
 		this.usuario = new Usuario();

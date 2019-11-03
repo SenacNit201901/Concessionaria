@@ -3,6 +3,7 @@ package br.com.senac.concessionaria.controle;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,13 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.senac.concessionaria.modelo.FormaPagamento;
 import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Pedido;
+import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.servico.PedidoServico;
 
 
-@WebServlet({ "/pedido/adicionar", "/pedido/remover", "/pedido/listar", "/pedido/localizar", "/pedido/editar", "/pedido/atualizar", "/pedido/comprar", "/pedido/carrinho" })
+@WebServlet({ "/pedido/adicionar", "/pedido/remover", "/pedido/listar", "/pedido/localizar", "/pedido/editar", "/pedido/atualizar", "/pedido/comprar", "/pedido/carrinho", "/pedido/finalizar" })
 public class ServletPedido extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ItemPedido p;
@@ -34,6 +37,8 @@ public class ServletPedido extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if(request.getServletPath().equals("/pedido/listar")) { 
 			listar(request, response);
+		} else if(request.getServletPath().equals("/pedido/finalizar" )) { 
+			request.getRequestDispatcher("/views/finalizar.jsp").forward(request, response);
 		} else	if(request.getServletPath().equals("/pedido/carrinho")) { 
 			request.getRequestDispatcher("/views/pagamento.jsp").forward(request, response);
 		} else if(request.getServletPath().equals("/pedido/localizar")) { 
@@ -178,7 +183,38 @@ public class ServletPedido extends HttpServlet {
 	
 	protected void comprar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		List<ItemPedido> carrinho = new ArrayList<>();
+		String formPag = "Débito";
 		carrinho = (List<ItemPedido>) request.getSession().getAttribute("carrinho");
+		Double valorTotal = (Double) request.getSession().getAttribute("valor");
+			try {
+				FormaPagamento f = new FormaPagamento();
+				ps = new PedidoServico();
+				Usuario u = new Usuario();
+				
+				f.setTipo_pagamento(formPag);
+				Pedido ped = new Pedido();
+				ped.setData_pedido(new Date());
+				f = ps.buscarPagamento(f);
+				ped.setPagamento(f);
+				int id = (int) request.getSession().getAttribute("id");
+				u.setId_usuario(id);
+				ped.setUsuario(u);
+				ped.setValor_total(valorTotal);
+				ps.gravarPedido(ped);
+				for(ItemPedido p:carrinho) {
+					p.setPedido(ped);
+				}
+				
+				ps.gravarCarrinho(carrinho);
+				response.sendRedirect("pedido/finalizar");
+					
+					
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
 		
 	}
 	
