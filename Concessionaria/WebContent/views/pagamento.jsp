@@ -192,15 +192,15 @@
                 <h4 class="mb-3">Endereço de cobrança</h4>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="primeiroNome">Nome(Teste Cadastro)</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="José" value="" required>
+                        <label for="primeiroNome">Nome</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="José" value="${nome}" required>
                         <div class="invalid-feedback">
                             É necessário o primeiro nome válido.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="ultimoNome">Sobrenome</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="da Silva" value="" required>
+                        <input type="text" class="form-control" id="lastName" placeholder="da Silva" value="${sobrenome}" required>
                         <div class="invalid-feedback">
                             é necessário o ultimo nome válido.
                         </div>
@@ -209,7 +209,7 @@
 
                 <div class="mb-3">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control" id="email" value="${email}" placeholder="you@example.com">
                     <div class="invalid-feedback">
                         Digite um endereço de e-mail válido para atualizações de remessa.
                     </div>
@@ -228,14 +228,14 @@
 
                     <div class="mb-3">
                         <label for="zip">CEP</label>
-                        <input type="text" class="form-control" id="cep1" placeholder="24000-99" required>
+                        <input type="text" class="form-control" id="cep1" value="${cep}" placeholder="24000-99" required>
                         <div class="invalid-feedback">
                             Digite um CEP válido.
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="endereço">Endereço</label>
-                        <input type="text" class="form-control" id="rua1" placeholder="Rua Clemente 13" required>
+                        <label for="endereço">Rua</label>
+                        <input type="text" class="form-control" id="rua1" value="${rua}" placeholder="Rua Clemente 13" required>
                         <div class="invalid-feedback">
                             Por favor insira seu endereço de entrega.
                         </div>
@@ -245,32 +245,26 @@
 
                     <div class="col-md-5 mb-3">
                         <label for="estado">Estado</label>
-                        <input type="text" class="form-control" id="uf1" placeholder="Digite o nome do estado">
+                        <input type="text" class="form-control" value="${estado}" id="uf1" placeholder="Digite o nome do estado">
                         <div class="invalid-feedback">
                             Por favor insira um estado válido.
                         </div>
                     </div>
                     <div class="col-md-5 mb-3">
                         <label for="cidade">Cidade</label>
-                        <input type="text" class="form-control" id="cidade1" placeholder="Digite o nome do estado">
+                        <input type="text" class="form-control" value="${cidade}" id="cidade1" placeholder="Digite o nome do estado">
                         <div class="invalid-feedback">
                             Por favor insira um estado válido.
                         </div>
                     </div>
                     <div class="col-md-2">
                         <label for="num">Número</label>
-                        <input type="text" class="form-control" id="num">
+                        <input type="text" class="form-control" value="${numero}" id="num">
                     </div>
                 </div>
                 <label for="complemento">Complemento <span class="text-muted">(opcional)</span></label>
-                <input type="text" class="form-control" id="address2" placeholder="Apartamento ou casa">
+                <input type="text" class="form-control" value="${complemento}" id="address2" placeholder="Apartamento ou casa">
                 <br>
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="radio" checked class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">O endereço de entrega é igual ao meu
-                        endereço de cobrança</label>
-                </div>
 
                 <hr class="mb-4">
 
