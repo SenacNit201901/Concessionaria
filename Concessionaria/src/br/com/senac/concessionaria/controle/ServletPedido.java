@@ -70,6 +70,8 @@ public class ServletPedido extends HttpServlet {
 			List<ItemPedido> carrinho = new ArrayList<>();
 			carrinho = (List<ItemPedido>) request.getSession().getAttribute("carrinho");
 			int qtd = (int) request.getSession().getAttribute("qtd");
+			String marca;
+			String modelo;
 
 			Double valorTotal = (Double) request.getSession().getAttribute("valor");
 			int q = 1;
@@ -81,6 +83,8 @@ public class ServletPedido extends HttpServlet {
 				ps.selVeiculo(id);
 				
 				p = new ItemPedido(q, ps.retornoVeiculo());
+				marca = ps.retornoVeiculo().getMarca().getNome_marca();
+				modelo = ps.retornoVeiculo().getModeloVeiculo();
 				Double subTotal = ps.retornoVeiculo().getValorVeiculo() * p.getQuantidade();	
 				p.setSub_Total(subTotal);
 				p.setId_item(carrinho.size());
@@ -100,6 +104,8 @@ public class ServletPedido extends HttpServlet {
 				
 				
 				p = new ItemPedido(q, ps.retornoVeiculo());
+				marca = ps.retornoVeiculo().getMarca().getNome_marca();
+				modelo = ps.retornoVeiculo().getModeloVeiculo();
 				Double subTotal = ps.retornoVeiculo().getValorVeiculo() * p.getQuantidade();	
 				p.setSub_Total(subTotal);
 				p.setId_item(carrinho.size());
@@ -114,7 +120,9 @@ public class ServletPedido extends HttpServlet {
 			qtd = carrinho.size();
 			sessao.setAttribute("qtd", qtd);
 			sessao.setAttribute("carrinho", carrinho);
-			response.sendRedirect("/Concessionaria/veiculo/listar");
+			modelo = modelo.toLowerCase();
+			marca = marca.toLowerCase();
+			response.sendRedirect("/Concessionaria/veiculos/"+ marca +"/"+ modelo);
 				
 			
 	
@@ -206,7 +214,14 @@ public class ServletPedido extends HttpServlet {
 				}
 				
 				ps.gravarCarrinho(carrinho);
-				response.sendRedirect("pedido/finalizar");
+				carrinho.removeAll(carrinho);
+				HttpSession sessao = request.getSession(true);
+				sessao.setAttribute("carrinho", carrinho);
+				int qtd = carrinho.size();
+				sessao.setAttribute("qtd", qtd);
+				valorTotal = 0.0;
+				sessao.setAttribute("valor", valorTotal);
+				response.sendRedirect("finalizar");
 					
 					
 			} catch (SQLException e) {

@@ -25,7 +25,7 @@
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="cruze">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/cruze">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -45,7 +45,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="onix">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/onix">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -65,7 +65,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="prisma">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/prisma">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -89,7 +89,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="s10">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/s10">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="tracker">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/tracker">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  

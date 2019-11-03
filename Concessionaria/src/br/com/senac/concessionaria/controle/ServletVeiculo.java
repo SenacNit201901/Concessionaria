@@ -15,7 +15,7 @@ import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.VeiculoServico;
 
 
-@WebServlet({ "/veiculo/adicionar", "/veiculo/remover", "/veiculo/listar", "/veiculo/localizar", "/veiculo/editar", "/veiculo/atualizar", "/veiculos/ford", "/veiculos/chevrolet", 
+@WebServlet({ "/veiculos/adicionar", "/veiculos/remover", "/veiculos/listar", "/veiculos/localizar", "/veiculos/editar", "/veiculos/atualizar", "/veiculos/ford", "/veiculos/chevrolet", 
 	"/veiculos/chevrolet/onix", "/veiculos/chevrolet/prisma", "/veiculos/chevrolet/cruze", "/veiculos/chevrolet/s10", "/veiculos/chevrolet/tracker", "/veiculos/fiat", "/veiculos/honda", 
 	"/veiculos/renault", "/veiculos/volkswagen"})
 public class ServletVeiculo extends HttpServlet implements Serializable {
@@ -31,8 +31,10 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	if(request.getServletPath().equals("/veiculos/chevrolet")) { 
 			request.getRequestDispatcher("/views/chevrolet.jsp").forward(request, response);
+			
 		} else if(request.getServletPath().equals("/veiculos/chevrolet/onix")) { 
 			request.getRequestDispatcher("/views/compra-onix.jsp").forward(request, response);
+			
 		} else if(request.getServletPath().equals("/veiculos/chevrolet/cruze")) { 
 			request.getRequestDispatcher("/views/compra-cruze.jsp").forward(request, response);
 		} else if(request.getServletPath().equals("/veiculos/chevrolet/prisma")) { 
