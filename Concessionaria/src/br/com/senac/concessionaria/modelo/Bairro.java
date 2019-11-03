@@ -1,6 +1,12 @@
 package br.com.senac.concessionaria.modelo;
 
 public class Bairro {
+	
+	@Override
+	public String toString() {
+		return "Bairro [id_bairro=" + id_bairro +", nome_Bairro=" + nome_Bairro + "]";
+	}
+	
 	private int id_bairro;
 	private String nome_Bairro;
 	

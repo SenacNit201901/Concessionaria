@@ -2,6 +2,11 @@ package br.com.senac.concessionaria.modelo;
 
 public class Cidade {
 	
+	@Override
+	public String toString() {
+		return "Cidade [id_cidade=" + id_cidade +", nome_cidade=" + nome_cidade + "]";
+	}
+	
 	private int id_cidade;
 	private String nome_cidade;
 	
