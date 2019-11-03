@@ -6,8 +6,6 @@
 
       <!--################### LOGIN  ##########################-->
       <hr><hr>
-<div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
-
 
       <div class="row">
           <div id="" class="col-md-6 offset-md-3" >
@@ -49,6 +47,9 @@
 
       </form>
       <!-- Default form login -->
+      
+
+
 
 
 </div>

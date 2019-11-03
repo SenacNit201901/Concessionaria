@@ -64,8 +64,10 @@ public class ServletPedido extends HttpServlet {
 		try {
 			List<ItemPedido> carrinho = new ArrayList<>();
 			carrinho = (List<ItemPedido>) request.getSession().getAttribute("carrinho");
+			int qtd = (int) request.getSession().getAttribute("qtd");
+
 			Double valorTotal = (Double) request.getSession().getAttribute("valor");
-			int q = Integer.parseInt(request.getParameter("quantidade"));
+			int q = 1;
 			
 			if(carrinho.size() == 0) {
 				ps = new PedidoServico();
@@ -104,8 +106,8 @@ public class ServletPedido extends HttpServlet {
 			}
 			
 			
-			
-
+			qtd = carrinho.size();
+			sessao.setAttribute("qtd", qtd);
 			sessao.setAttribute("carrinho", carrinho);
 			response.sendRedirect("/Concessionaria/veiculo/listar");
 				
@@ -156,12 +158,14 @@ public class ServletPedido extends HttpServlet {
 				
 				
 
-		
+		HttpSession sessao = request.getSession(true);
 		
 			
-		
-		
-		response.sendRedirect("/Concessionaria/veiculo/listar");
+		int qtd = (int) request.getSession().getAttribute("qtd");
+
+		qtd = carrinho.size();
+		sessao.setAttribute("qtd", qtd);
+		response.sendRedirect("/Concessionaria/pedido/carrinho");
 	}
 	
 	protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

@@ -82,8 +82,10 @@ public class ServletLogin extends HttpServlet {
 				
 				List<ItemPedido> carrinho = new ArrayList<>();
 				Double valor = 0.0;
+				int qtd = 0;
 				sessao.setAttribute("carrinho", carrinho);
 				sessao.setAttribute("valor", valor);
+				sessao.setAttribute("qtd", qtd);
 
 				
 				

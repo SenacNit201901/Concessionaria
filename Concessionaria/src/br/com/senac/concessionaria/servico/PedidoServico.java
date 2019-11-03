@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.com.senac.concessionaria.dao.CombustivelDAO;
+import br.com.senac.concessionaria.dao.CorDAO;
 import br.com.senac.concessionaria.dao.FormaPagamentoDAO;
-import br.com.senac.concessionaria.dao.ItemPedidoDao;
+import br.com.senac.concessionaria.dao.MarcaDAO;
 import br.com.senac.concessionaria.dao.PedidoDAO;
 import br.com.senac.concessionaria.dao.UsuarioDAO;
 import br.com.senac.concessionaria.dao.VeiculoDAO;
+import br.com.senac.concessionaria.modelo.Combustivel;
 import br.com.senac.concessionaria.modelo.FormaPagamento;
 import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Pedido;
@@ -109,9 +112,15 @@ public class PedidoServico {
 		this.veiculo.setId_Veiculo(id_Veiculo);
 		
 		VeiculoDAO v = new VeiculoDAO();
-		v.listarVeiculoId(this.veiculo);
-	
+		CorDAO c = new CorDAO();
+		MarcaDAO m = new MarcaDAO();
+		CombustivelDAO com = new CombustivelDAO();
 		
+		v.listarVeiculoId(this.veiculo);
+		
+		this.veiculo.setMarca(m.busca(this.veiculo.getMarca().getId_marca()));
+		this.veiculo.setCor(c.busca(this.veiculo.getCor().getId_cor()));
+		this.veiculo.setCombustivel(com.busca(this.veiculo.getCombustivel().getId_combustivel()));
 		
 	}
 	public Veiculo retornoVeiculo() {

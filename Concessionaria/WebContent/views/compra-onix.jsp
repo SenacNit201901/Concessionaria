@@ -18,10 +18,12 @@
             <!--compra-->
 
           <br>
-
+				<form action="/Concessionaria/pedido/adicionar" method="post" >
+				<input type="hidden"  name="id" value="16"/>
     <div class="container">
     <div class="card-deck">
     <div class="card">
+ 
         <h5 class="titulo" id="title">ONIX</h5>
         <p class="desc">MOTOR 1.0L</p>
               <img class="card-img-top" src="http://localhost/imagens/carros/onix.png" alt="Imagem de capa do card" style="width: 80%;">
@@ -76,13 +78,15 @@
                                 
                     </div>
                     <center>
-                      <a type="button" class="btn btn-secondary" href="">ADICIONAR AO CARRINHO</a>
+                      <input type="submit" class="btn btn-secondary" onclick="mostraDialogo('Item adicionado no carrinho')"  value="ADICIONAR AO CARRINHO"/>
                     </center>
+                  
                 </div>
+                
             </div>
           </div>
         </div>
-    
+      </form>
                     
 
 

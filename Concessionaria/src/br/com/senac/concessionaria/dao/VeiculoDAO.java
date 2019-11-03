@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.senac.concessionaria.modelo.Combustivel;
+import br.com.senac.concessionaria.modelo.Cor;
+import br.com.senac.concessionaria.modelo.Marca;
 import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.util.DAO;
 
@@ -78,7 +81,15 @@ public class VeiculoDAO extends DAO {
 				v.setAnoVeiculo(rs.getInt(3));
 				v.setChassiVeiculo(rs.getString(4));
 				v.setValorVeiculo(rs.getDouble(5));
-
+				Cor c = new Cor();
+				Marca m = new Marca();
+				Combustivel com = new Combustivel();
+				c.setId_cor(rs.getInt(6));
+				m.setId_marca(rs.getInt(7));
+				com.setId_combustivel(rs.getInt(8));
+				v.setCor(c);
+				v.setMarca(m);
+				v.setCombustivel(com);
 			
 				
 			}

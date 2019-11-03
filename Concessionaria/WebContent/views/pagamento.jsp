@@ -24,30 +24,35 @@
                         <span class="text-muted">Seu carrinho</span>
                         
                         <!--Quantidade de produtos do carrinho-->
-                        <span class="badge badge-secondary badge-pill">3</span>
+                        <span class="badge badge-secondary badge-pill">${qtd}</span>
                     </h4>
                     <ul class="list-group mb-3">
 
                         <!--Inicio do Foreach-->
+                        			<c:forEach items="${carrinho}" var="c">
+                        			<form action="/Concessionaria/pedido/remover" method="post" >
+                        			<input type="hidden" value="${c.id_item}" name="id_item"/>
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-0">Nome do produto</h6>
+                                <h6 class="my-0">${c.veiculo.modeloVeiculo}</h6>
                                 <small class="text-muted">
-                                    Quantidade</small>
+                                    Quantidade: ${c.quantidade}</small>
                                     
                             </div>
                             
-                            <span class="text-muted">R$12</span>
-                            <span class="text-muted"><i class="fas fa-times" style="cursor: pointer;" id="x"></i></span>
+                            <span class="text-muted">R$${c.sub_Total}</span>
+                           <label for="submit" ><span class="text-muted"><i class="fas fa-times" style="cursor: pointer;" id="x"></i></span></label> 
+                           <input style="display: none;" id="submit" type="submit" />
+                           </form>
                         </li>
                         <!--Fim do foreach-->
-                 
+                 	</c:forEach>
                     </ul>
                 </div>
 
                 <li class="list-group-item d-flex justify-content-between">
                         <span>Total (R$)</span>
-                        <strong>R$20</strong>
+                        <strong>R$:${valor}</strong>
                     </li>
             </div>
 

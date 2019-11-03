@@ -20,6 +20,10 @@
 		#x:hover{
 			color: red;
 		}
+		#alert-login{
+		    width: 25%;
+		  
+		}
 	</style>
           <title>Home</title>
 
@@ -57,12 +61,12 @@
                             VEÍCULOS
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Concessionaria/veiculo/chevrolet">CHEVROLET</a>
-                            <a class="dropdown-item" href="Concessionaria/veiculo/fiat">FIAT</a>
-                            <a class="dropdown-item" href="Concessionaria/veiculo/ford">FORD</a>
-                            <a class="dropdown-item" href="Concessionaria/veiculo/honda">HONDA</a>
-                            <a class="dropdown-item" href="Concessionaria/veiculo/renault">RENAULT</a>
-                            <a class="dropdown-item" href="Concessionaria/veiculo/volkswagen">VOLKSWAGEN</a>
+                            <a class="dropdown-item" href="/Concessionaria/veiculos/chevrolet">CHEVROLET</a>
+                            <a class="dropdown-item" href="/Concessionaria/veiculos/fiat">FIAT</a>
+                            <a class="dropdown-item" href="/Concessionaria/veiculos/ford">FORD</a>
+                            <a class="dropdown-item" href="/Concessionaria/veiculos/honda">HONDA</a>
+                            <a class="dropdown-item" href="/Concessionaria/veiculos/renault">RENAULT</a>
+                            <a class="dropdown-item" href="/Concessionaria/veiculos/volkswagen">VOLKSWAGEN</a>
                             <div class="dropdown-divider"></div>
                           </div>
                         </li>

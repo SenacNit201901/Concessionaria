@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
-<html
-xmlns="http://www.w3.org/1998/xhtml"
-xmlns="http://xmlns.jsp.org/jsf/html"
-xmlns="http://primefaces.org/ui"
->
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
 	
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -46,7 +46,7 @@ xmlns="http://primefaces.org/ui"
 			<%} %>
 		</div>
 	</nav>
-	
+
     <div class="container">
 		<table class="table table-striped">
 			<caption>Lista de Clientes </caption>

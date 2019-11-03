@@ -7,7 +7,8 @@
            <!--CHEVROLET-->
 
           <br>
-        <div class="container">
+          
+        <div  Style="margin-top: 115px;"class="container">
           <div class="card-deck">
               <div class="card">
                   <h5 class="titulo" id="title">CRUZE LTZ</h5>
@@ -24,7 +25,7 @@
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-cruze.jsp">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="cruze">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -44,7 +45,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-onix.jsp">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="onix">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -64,7 +65,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-prisma.jsp">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="prisma">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -88,7 +89,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-s10.jsp">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="s10">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -106,7 +107,7 @@
                             </div>
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-tracker.jsp">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="tracker">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
