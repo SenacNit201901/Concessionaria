@@ -1,8 +1,9 @@
 CREATE DATABASE concessionariaDB;
+ALTER DATABASE concessionariaDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE concessionariaDB;
 
----- CRIACAO DAS TABELAS -------
+---- CRIAÇÃO DAS TABELAS -------
 
 CREATE TABLE estado(
 id_estado INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,6 +24,8 @@ CREATE TABLE tipo_usuario(
 id_tipo_usuario INT AUTO_INCREMENT PRIMARY KEY,
 tipo_usuario VARCHAR(50)
 );
+
+
 
 CREATE TABLE cor(
 id_cor INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,13 +55,13 @@ CREATE TABLE veiculos(
   valor_unitario DECIMAL(10,2),
   id_cor INT NOT NULL,
   CONSTRAINT fk_cor FOREIGN KEY(id_cor)
-  REFERENCES cor (id_cor) ON DELETE CASCADE ON UPDATE CASCADE,
+  REFERENCES cor (id_cor) on delete cascade,
   id_marca INT NOT NULL,
   CONSTRAINT fk_marca FOREIGN KEY(id_marca)
-  REFERENCES marca(id_marca) N DELETE CASCADE ON UPDATE CASCADE,
+  REFERENCES marca(id_marca) on delete cascade,
   id_combustivel INT NOT NULL,
   CONSTRAINT fk_combustivel FOREIGN KEY(id_combustivel)
-  REFERENCES combustivel(id_combustivel) N DELETE CASCADE ON UPDATE CASCADE
+  REFERENCES combustivel(id_combustivel) on delete cascade
 );
 
 CREATE TABLE endereco(
@@ -69,13 +72,13 @@ CREATE TABLE endereco(
 	complemento VARCHAR (50),
 	id_estado INT NOT NULL,	
 	CONSTRAINT fk_estado FOREIGN KEY(id_estado)
-	REFERENCES estado(id_estado) ON DELETE CASCADE ON UPDATE CASCADE,
+	REFERENCES estado(id_estado) on delete cascade,
 	id_bairro INT NOT NULL,
 	CONSTRAINT fk_bairro FOREIGN KEY(id_bairro)
-	REFERENCES bairro(id_bairro) ON DELETE CASCADE ON UPDATE CASCADE,
+	REFERENCES bairro(id_bairro) on delete cascade,
 	id_cidade INT NOT NULL,
 	CONSTRAINT fk_cidade FOREIGN KEY(id_cidade)
-	REFERENCES cidade(id_cidade) ON DELETE CASCADE ON UPDATE CASCADE
+	REFERENCES cidade(id_cidade) on delete cascade
 );
 
 CREATE TABLE usuario(
@@ -87,10 +90,10 @@ CREATE TABLE usuario(
 	senha VARCHAR (12) NOT NULL,
 	id_endereco INT NOT NULL,
 	CONSTRAINT fk_endereco FOREIGN KEY(id_endereco)
-	REFERENCES endereco(id_endereco) N DELETE CASCADE ON UPDATE CASCADE,
+	REFERENCES endereco(id_endereco) on delete cascade,
 	id_tipo_usuario INT NOT NULL,
 	CONSTRAINT fk_tipo_usuario FOREIGN KEY(id_tipo_usuario)
-	REFERENCES tipo_usuario(id_tipo_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+	REFERENCES tipo_usuario(id_tipo_usuario) on delete cascade
 
 );
 
@@ -100,7 +103,7 @@ id_contato INT AUTO_INCREMENT PRIMARY KEY,
 telefone VARCHAR (20) NOT NULL,
 id_usuario INT NOT NULL,
 CONSTRAINT fk_usuario FOREIGN KEY(id_usuario)
-REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+REFERENCES usuario(id_usuario) on delete cascade
 );
 
 CREATE TABLE pedidos(
@@ -111,9 +114,9 @@ CREATE TABLE pedidos(
   id_usuario INT NOT NULL,
   id_forma_pagamento INT NOT NULL,
   CONSTRAINT fk_usuarioPedido FOREIGN KEY(id_usuario)
-   REFERENCES usuario(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE,
+   REFERENCES usuario(id_usuario) on delete cascade,
    CONSTRAINT fk_forma_pagamento FOREIGN KEY(id_forma_pagamento)
-   REFERENCES forma_pagamento(id_forma_pagamento) ON DELETE CASCADE ON UPDATE CASCADE
+   REFERENCES forma_pagamento(id_forma_pagamento) on delete cascade
 );
 
 
@@ -125,19 +128,19 @@ quantidade INT NOT NULL,
 subtotal DECIMAL(10,2) NOT NULL,
 id_veiculos_pedido INT NOT NULL,
 CONSTRAINT fk_veiculos FOREIGN KEY(id_veiculos_pedido)
-REFERENCES veiculos(id_veiculo) ON DELETE CASCADE ON UPDATE CASCADE,
+REFERENCES veiculos(id_veiculo) on delete cascade,
 id_pedido INT NOT NULL,
 CONSTRAINT fk_pedido FOREIGN KEY(id_pedido)
-REFERENCES pedidos(id_pedido) ON DELETE CASCADE ON UPDATE CASCADE
+REFERENCES pedidos(id_pedido) on delete cascade
 );
 
 
--- 15 INSERTS NA TABELA BAIRRO;
+-- INSERT 15 BAIRRO;
 
 INSERT INTO bairro VALUES (null, 'Centro');
 INSERT INTO bairro VALUES (null, 'Icarai');
 INSERT INTO bairro VALUES (null, 'Inga');
-INSERT INTO bairro VALUES (null, 'Sao Francisco');
+INSERT INTO bairro VALUES (null, 'São Francisco');
 INSERT INTO bairro VALUES (null, 'Piratininga');
 INSERT INTO bairro VALUES (null, 'Columbande');
 INSERT INTO bairro VALUES (null, 'Itauna');
@@ -148,47 +151,47 @@ INSERT INTO bairro VALUES (null, 'Camboinhas');
 INSERT INTO bairro VALUES (null, 'Engenho do Mato');
 INSERT INTO bairro VALUES (null, 'Fonseca');
 INSERT INTO bairro VALUES (null, 'Itaipu');
-INSERT INTO bairro VALUES (null, 'Itaipuacu');
+INSERT INTO bairro VALUES (null, 'Itaipuaçu');
 
--- 5 INSERTS NA TABELA CIDADES
+-- INSERT 5 CIDADES
 
-INSERT INTO cidade VALUES (null, 'Niteroi');
-INSERT INTO cidade VALUES (null, 'Sao Goncalo');
+INSERT INTO cidade VALUES (null, 'Niterói');
+INSERT INTO cidade VALUES (null, 'Sao Gonçalo');
 INSERT INTO cidade VALUES (null, 'Rio de Janeiro');
-INSERT INTO cidade VALUES (null, 'Marica');
-INSERT INTO cidade VALUES (null, 'Itaborai');
+INSERT INTO cidade VALUES (null, 'Maricá');
+INSERT INTO cidade VALUES (null, 'Itaboraí');
 
--- 2 INSERTS NA TABELA COMBUSTIVEL
+-- INSERT 4 Combustivel
 
 
 INSERT INTO combustivel VALUES (null, 'Flex');
 INSERT INTO combustivel VALUES (null, 'Diesel');
 
--- INSERTS NA TABELA CONTATO VIA JAVA
+-- INSERT CONTATO *** JAVA
 
--- INSERT NA TABELA ENDERECO VIA JAVA
+-- INSERT endereco *** JAVA
 
--- 3 INSERTS NA TABELA ESTADO
+-- INSERT 3 estado
 
 INSERT INTO estado VALUES (null, 'RJ');
 INSERT INTO estado VALUES (null, 'SP');
 INSERT INTO estado VALUES (null, 'MG');
 
--- 3 INSERTS NA TABELA FORMA_PAGAMENTO
+-- INSERT 3 forma_pagamento
 
-INSERT INTO forma_pagamento VALUES (null, 'Credito');
-INSERT INTO forma_pagamento VALUES (null, 'Debito');
+INSERT INTO forma_pagamento VALUES (null, 'Crédito');
+INSERT INTO forma_pagamento VALUES (null, 'Débito');
 INSERT INTO forma_pagamento VALUES (null, 'Boleto');
 
--- INSERTS NA TABELA ITEM_PEDIDO VIA JAVA
+-- INSERT item_pedidos *** JAVA
 
 
--- 2 INSERTS NA TABELA TIPO_USUARIO
+-- INSERT 2 tipo_usuario
 
-INSERT INTO tipo_usuario VALUES (null, 'Funcionario');
+INSERT INTO tipo_usuario VALUES (null, 'Funcionário');
 INSERT INTO tipo_usuario VALUES (null, 'Cliente');
 
--- 7 INSERTS NA TABELA COR
+-- INSERT 7 CORES
  
 INSERT INTO cor VALUES (null, 'Branco'); -- 1 
 INSERT INTO cor VALUES (null, 'Prata'); -- 2
@@ -198,7 +201,7 @@ INSERT INTO cor VALUES (null, 'Laranja'); -- 5
 INSERT INTO cor VALUES (null, 'Preto'); -- 6
 INSERT INTO cor VALUES (null, 'Vermelho'); -- 7
 
--- 6 INSERTS NA TABELA MARCA
+-- INSERT 6 MARCA
 
 INSERT INTO marca VALUES (null, 'Volkswagen'); -- 1
 INSERT INTO marca VALUES (null, 'Fiat'); -- 2
@@ -208,9 +211,9 @@ INSERT INTO marca VALUES (null, 'Honda'); -- 5
 INSERT INTO marca VALUES (null, 'Renault'); -- 6
 
 
--- INSERT NA TABELA USUARIO VIA JAVA
+-- INSERT USUARIO *** JAVA
 
--- 30 INSERTS NA TABELA VEICULO
+-- INSERT VEICULOS
 
 INSERT INTO veiculos VALUES (null, 'Accord', 2020, 'abc123456qwerty00', 204900.00, 2, 5, 1);
 INSERT INTO veiculos VALUES (null, 'Civic', 2020, 'abc123456qwerty01', 97900.0, 2, 5, 1);
@@ -242,7 +245,5 @@ INSERT INTO veiculos VALUES (null, 'Cruze', 2020, 'abc123456qwerty26', 96490.00,
 INSERT INTO veiculos VALUES (null, 'Cronos', 2020, 'abc123456qwerty27', 53266.00, 2, 2, 1);
 INSERT INTO veiculos VALUES (null, 'Captur', 2020, 'abc123456qwerty28', 88867.00, 1, 6, 1);
 INSERT INTO veiculos VALUES (null, 'Argo', 2020, 'abc123456qwerty29', 49590.00, 1, 2, 1);
-
-
 
 -- drop database concessionariadb;
