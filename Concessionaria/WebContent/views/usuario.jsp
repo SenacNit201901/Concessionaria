@@ -6,11 +6,11 @@
 	<br>
 	<br>
 	<br>
-    <div class="container">
+    <div class="container" style="min-height: 500px;">
 		<table class="table table-striped">
 			<caption>Lista de Clientes </caption>
 			<thead>
-				<tr>
+				<tr>    
 					<th>id</th>
 					<th>Nome</th>
 					<th>SobreNome</th>					
