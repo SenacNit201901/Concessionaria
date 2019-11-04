@@ -12,13 +12,13 @@ public class DAO {
 				Class.forName("com.mysql.jdbc.Driver"); 
 			} catch (ClassNotFoundException cnfe) { 
 				cnfe.printStackTrace();
-				System.out.println("Classe Driver não encontrada. Erro: " + cnfe.getMessage());
+				System.out.println("Classe Driver nï¿½o encontrada. Erro: " + cnfe.getMessage());
 			}
 		}
 		
 
 		public Connection getConnection() throws SQLException {
-			return DriverManager.getConnection("jdbc:mysql://localhost:3361/concessionariaDB", "root", "");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/concessionariaDB", "root", "");
 		}
 	}
 
