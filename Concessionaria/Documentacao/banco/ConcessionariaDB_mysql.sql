@@ -84,8 +84,8 @@ CREATE TABLE usuario(
 	id_usuario INT AUTO_INCREMENT PRIMARY KEY,
 	nome VARCHAR (40) NOT NULL,
 	sobrenome VARCHAR (40) NOT NULL,
-	cpf VARCHAR (11) NOT NULL,
-	email VARCHAR (45) NOT NULL,
+	cpf VARCHAR (11) NOT NULL UNIQUE,
+	email VARCHAR (45) NOT NULL UNIQUE,
 	senha VARCHAR (12) NOT NULL,
 	id_endereco INT NOT NULL,
 	CONSTRAINT fk_endereco FOREIGN KEY(id_endereco)
@@ -95,6 +95,8 @@ CREATE TABLE usuario(
 	REFERENCES tipo_usuario(id_tipo_usuario) on delete cascade
 
 );
+
+
 CREATE TABLE contato(
 id_contato INT AUTO_INCREMENT PRIMARY KEY,
 telefone VARCHAR (20) NOT NULL,
