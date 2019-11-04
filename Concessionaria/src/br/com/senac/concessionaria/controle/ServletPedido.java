@@ -44,7 +44,7 @@ public class ServletPedido extends HttpServlet {
 		} else if(request.getServletPath().equals("/pedido/localizar")) { 
 			localizar(request, response);
 		} else {
-			response.getWriter().append("Página não localizada!!! " + request.getMethod());
+			response.getWriter().append("Pï¿½gina nï¿½o localizada!!! " + request.getMethod());
 		}
 	}
 
@@ -58,7 +58,7 @@ public class ServletPedido extends HttpServlet {
 		} else if(request.getServletPath().equals("/pedido/remover")) { 
 			remover(request, response);
 		} else {
-			response.getWriter().append("Página não localizada!!! " + request.getMethod());
+			response.getWriter().append("Pï¿½gina nï¿½o localizada!!! " + request.getMethod());
 		}
 	}
 	
@@ -183,16 +183,16 @@ public class ServletPedido extends HttpServlet {
 	}
 	
 	protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 	
 	protected void localizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 	
 	protected void comprar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		List<ItemPedido> carrinho = new ArrayList<>();
-		String formPag = "Débito";
+		String formPag = "DÃ©bito";
 		carrinho = (List<ItemPedido>) request.getSession().getAttribute("carrinho");
 		Double valorTotal = (Double) request.getSession().getAttribute("valor");
 			try {
@@ -243,7 +243,7 @@ public class ServletPedido extends HttpServlet {
 	}
 	
 	protected void atualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 
 }
