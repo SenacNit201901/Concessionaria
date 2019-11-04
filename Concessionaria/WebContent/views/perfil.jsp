@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/functions"prefix="p"  %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="p"%>
         
 <c:import url="header.jsp"></c:import>
 
 
-  <!-- ###################### INICIO DO CONTEUDO #####################################-->
+
   <h3 class="text-center">Meu Perfil</h3>
   <div id="" class="container-perfil" style="padding-top:70px; padding-bottom:20px;">
     <div class="row">
@@ -89,7 +89,7 @@
         <h3>Ultimas Compras</h3><br><br>
         <div class="container-compras">
         
-        <!-- Inicio do Foreach -->
+
           <div class="container-item">
                 <table class="table text-center">
                   <thead>
@@ -106,7 +106,7 @@
                   </tbody>
                 </table>
             </div>
-            <!-- Fim do Foreach -->
+
             
           </div>
 
