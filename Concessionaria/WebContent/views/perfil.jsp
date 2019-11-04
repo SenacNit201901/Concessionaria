@@ -130,9 +130,7 @@
     					</script>
     					
   <script>
-    //https://api.jquery.com/click/
     $("#add-campo").click(function () {
-      //https://api.jquery.com/append/
       $("#formulario").append('<label>Telefone: </label> <input type="text" name="telefone" class="input-form" >');
     });
   </script>
