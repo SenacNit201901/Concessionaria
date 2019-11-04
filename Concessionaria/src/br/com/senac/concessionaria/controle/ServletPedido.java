@@ -183,7 +183,7 @@ public class ServletPedido extends HttpServlet {
 	}
 	
 	protected void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("M�todo: " + request.getMethod());
+		request.getRequestDispatcher("/views/pedidos.jsp").forward(request, response);
 	}
 	
 	protected void localizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
