@@ -35,7 +35,7 @@
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-ka.jsp">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="ford/ka">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -55,7 +55,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-sedan.jsp">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="ford/ka-sedan">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-fiesta.jsp">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="ford/fiesta">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -118,7 +118,7 @@
                     
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-ranger.jsp">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="ford/ranger">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
