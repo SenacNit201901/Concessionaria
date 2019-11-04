@@ -11,6 +11,8 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
 <title>Usuario</title>
 </head>
 <body >
@@ -69,7 +71,7 @@
 						<td>${cliente.nome}</td>
 						<td>${cliente.sobrenome}</td>
 						
-						<td>${cliente.cpf}</td>
+						<td id="cpf">${cliente.cpf}</td>
 						<td>${cliente.email}</td>
 						<td><a href="editar?id=${cliente.id_usuario}">Editar</a></td>
 					</tr>
@@ -83,7 +85,9 @@
 	
 	
 	
-	
+	    <script>
+        $("#cpf").mask("000.000.000-00");
+    </script>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
