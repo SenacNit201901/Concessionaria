@@ -91,13 +91,8 @@
                                     <option>SP</option>
                                     <option>SE</option>
                                     <option>TO</option>
-                                    <option>EX</option>
 					      </select>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                          <label class="custom-control-label" for="defaultLoginFormRemember">Declaro que li e aceito os Termos</label>
-                      </div>
                        <button class="btn btn-dark btn-block my-4" type="submit">Cadastrar</button>
 
                         </div>
