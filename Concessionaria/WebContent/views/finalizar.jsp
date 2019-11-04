@@ -10,7 +10,7 @@
         <center><i class="fas fa-check" style="font-size: 200px; color: rgb(21, 177, 21)"></i>
             <p class="text-muted" style="font-size: 35px; font-family: helvetica,sans-serif">Pedido finalizado com
                 sucesso!</p>
-            <p class="text-muted" style="font-size: 25px; font-family: helvetica,sans-serif">Número do pedido:</p>
+            <p class="text-muted" style="font-size: 25px; font-family: helvetica,sans-serif">Número do pedido: ${idPedido}</p>
             <div style="max-width: 80%; margin: 0 auto;">
                 <p class="text-muted">Obrigado por comprar em nossa loja, em breve iremos enviar os dados dessa compra
                     pelo

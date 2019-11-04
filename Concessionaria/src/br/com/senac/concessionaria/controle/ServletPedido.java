@@ -220,7 +220,10 @@ public class ServletPedido extends HttpServlet {
 				int qtd = carrinho.size();
 				sessao.setAttribute("qtd", qtd);
 				valorTotal = 0.0;
+				int idPedido = ped.getId_pedido();
 				sessao.setAttribute("valor", valorTotal);
+				sessao.setAttribute("idPedido", idPedido);
+
 				response.sendRedirect("finalizar");
 					
 					
