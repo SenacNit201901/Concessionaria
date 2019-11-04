@@ -37,7 +37,7 @@
 
         <div class="card-footer">
             <center>
-              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-kwid.jsp">FICHA TÉCNICA</a>
+              <a type="button" class="btn btn-secondary" id="veiculos" href="renault/kwid">FICHA TÉCNICA</a>
             </center>
         </div>
       </div>
@@ -56,7 +56,7 @@
 
         <div class="card-footer">
               <center>
-                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-sandero.jsp">FICHA TÉCNICA</a>
+                <a type="button" class="btn btn-secondary" id="veiculos" href="renault/sandero">FICHA TÉCNICA</a>
               </center>
         </div>
       </div>
@@ -75,7 +75,7 @@
 
         <div class="card-footer">
               <center>
-                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-logan.jsp">FICHA TÉCNICA</a>
+                <a type="button" class="btn btn-secondary" id="veiculos" href="renault/logan">FICHA TÉCNICA</a>
               </center>
         </div>
       </div>
@@ -99,7 +99,7 @@
     
             <div class="card-footer">
                   <center>
-                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-duster.jsp">FICHA TÉCNICA</a>
+                    <a type="button" class="btn btn-secondary" id="veiculos" href="renault/duster">FICHA TÉCNICA</a>
                   </center>
             </div>
           </div>
@@ -119,7 +119,7 @@
       
               <div class="card-footer">
                     <center>
-                      <a type="button" class="btn btn-secondary" id="veiculos" href="compra-captur.jsp">FICHA TÉCNICA</a>
+                      <a type="button" class="btn btn-secondary" id="veiculos" href="renault/captur">FICHA TÉCNICA</a>
                     </center>
               </div>
             </div>

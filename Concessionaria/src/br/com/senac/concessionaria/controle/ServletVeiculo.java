@@ -105,7 +105,7 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 			
 										//HONDA LINKS
 			} else if(request.getServletPath().equals("/veiculos/honda")) { 
-			request.getRequestDispatcher("/views/ford.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/honda.jsp").forward(request, response);
 			
 										 //WRV
 			} else if(request.getServletPath().equals("/veiculos/honda/wrv")) { 

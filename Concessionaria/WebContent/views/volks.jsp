@@ -33,7 +33,7 @@
           
                   <div class="card-footer">
                         <center>
-                          <a type="button" class="btn btn-secondary" id="veiculos" href="compra-tcross.jsp">FICHA TÉCNICA</a>
+                          <a type="button" class="btn btn-secondary" id="veiculos" href="volkswagen/t-cross">FICHA TÉCNICA</a>
                         </center>
                   </div>
                 </div>
@@ -52,7 +52,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="compra-polo.jsp">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="volkswagen/polo">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="compra-virtus.jsp">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="volkswagen/virtus">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -95,7 +95,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-jetta.jsp">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="volkswagen/jetta">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>
@@ -114,7 +114,7 @@
                     
                             <div class="card-footer">
                                   <center>
-                                    <a type="button" class="btn btn-secondary" id="veiculos" href="compra-gol.jsp">FICHA TÉCNICA</a>
+                                    <a type="button" class="btn btn-secondary" id="veiculos" href="volkswagen/gol">FICHA TÉCNICA</a>
                                   </center>
                             </div>
                           </div>  
