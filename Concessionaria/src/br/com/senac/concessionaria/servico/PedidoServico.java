@@ -126,5 +126,10 @@ public class PedidoServico {
 	public Veiculo retornoVeiculo() {
 		return this.veiculo;
 	}
+	public List<Pedido> buscaPedido(int id) throws SQLException {
+		PedidoDAO p = new PedidoDAO();
+		return p.busca(id);
+		
+	}
 	
 }

@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import br.com.senac.concessionaria.modelo.FormaPagamento;
 import br.com.senac.concessionaria.modelo.Pedido;
 import br.com.senac.concessionaria.util.DAO;
 
@@ -55,6 +58,45 @@ public class PedidoDAO extends DAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Erro ao tentar abrir a conexão");
+		}
+	}
+public List<Pedido> busca(int id) throws SQLException {
+		
+		abreConexao();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement("select p.id_pedido, p.data_pedido, p.valor_total, p.quantidade_parcelamento, f.tipo_pagamento, p.id_usuario from pedidos as p inner join forma_pagamento as f on f.id_forma_pagamento = p.id_forma_pagamento where id_usuario = ?");
+			pstmt.setInt(1, id);
+			
+			rs = pstmt.executeQuery();
+			List<Pedido> ps = new ArrayList<>();
+			if(rs.next()) {
+				Pedido p = new Pedido();
+				p.setId_pedido(rs.getInt(1));
+				p.setData_pedido(rs.getDate(2));
+				p.setValor_total(rs.getDouble(3));
+				p.setQuantidade_parcelamento(rs.getInt(4));
+				FormaPagamento f = new FormaPagamento();
+				f.setTipo_pagamento(rs.getString(5));
+				p.setPagamento(f);
+				
+				ps.add(p);
+			}
+			
+			return ps;
+		} finally {
+			if(conn != null) {
+				conn.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(rs != null) {
+				rs.close();
+			}
 		}
 	}
 }

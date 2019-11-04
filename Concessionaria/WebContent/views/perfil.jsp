@@ -89,22 +89,28 @@
         <h3>Ultimas Compras</h3><br><br>
         <div class="container-compras">
         
-
+	
           <div class="container-item">
+        
                 <table class="table text-center">
                   <thead>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Valor</th>
                     <th scope="col">N° Pedido</th>
+                    <th scope="col">data</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Tipo de pagamento</th>
                   </thead>
+                    	<c:forEach items="${pedido}" var="p">
                   <tbody>
-                    <td>Ford Focus</td>
-                    <td>5</td>
-                    <td>R$ 200.000</td>
-                    <td>12</td>
+                  
+                    <td>${p.id_pedido}</td>
+                    <td>${p.data_pedido}</td>
+                    <td>${p.valor_total}</td>
+                    <td>${p.forma_pagamento.tipo_pagamento}</td>
                   </tbody>
+                  </c:forEach>
                 </table>
+                				
+                
             </div>
 
             

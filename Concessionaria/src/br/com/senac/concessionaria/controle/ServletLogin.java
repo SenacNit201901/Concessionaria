@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.senac.concessionaria.modelo.Endereco;
 import br.com.senac.concessionaria.modelo.ItemPedido;
+import br.com.senac.concessionaria.modelo.Pedido;
 import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.servico.PedidoServico;
@@ -77,9 +78,12 @@ public class ServletLogin extends HttpServlet {
 				request.getSession().setAttribute("numero", e.getNumero());
 				request.getSession().setAttribute("complemento", e.getComplemento());
 				
-
+				List<Pedido> pl = new ArrayList<>();
+				PedidoServico ps = new PedidoServico();
+				pl =  ps.buscaPedido(user.getId_usuario());
 				
 				
+				sessao.setAttribute("pedido", pl);
 				List<ItemPedido> carrinho = new ArrayList<>();
 				Double valor = 0.0;
 				int qtd = 0;

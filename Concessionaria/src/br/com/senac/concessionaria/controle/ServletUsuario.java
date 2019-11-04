@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
 
-@WebServlet({ "/usuario/adicionar", "/usuario/remover", "/usuario/listar", "/usuario/localizar", "/usuario/editar", "/usuario/atualizar" })
+@WebServlet({ "/usuario/adicionar", "/usuario/remover", "/usuario/listar", "/usuario/localizar", "/usuario/editar", "/usuario/atualizar" , "/usuario/perfil"})
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private UsuarioServico u;
@@ -24,7 +24,9 @@ public class ServletUsuario extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getServletPath().equals("/usuario/remover")) { 
+    	if(request.getServletPath().equals("/usuario/perfil")) { 
+			request.getRequestDispatcher("/views/perfil.jsp").forward(request, response);;
+		} else if(request.getServletPath().equals("/usuario/remover")) { 
 			remover(request, response);
 		} else if(request.getServletPath().equals("/usuario/editar")) { 
 			editar(request, response);
