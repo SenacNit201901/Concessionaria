@@ -18,8 +18,7 @@
             <!--compra-->
 
           <br>
-				<form action="/Concessionaria/pedido/adicionar" method="post" >
-				<input type="hidden"  name="id" value="16"/>
+				
     <div class="container">
     <div class="card-deck">
     <div class="card">
@@ -77,16 +76,18 @@
                         <br>
                                 
                     </div>
+                    <form action="/Concessionaria/pedido/adicionar" method="post" >
+				<input type="hidden"  name="id" value="16"/>
                     <center>
                       <input type="submit" class="btn btn-secondary" onclick="mostraDialogo('Item adicionado no carrinho')"  value="ADICIONAR AO CARRINHO"/>
                     </center>
-                  
+                   </form>
                 </div>
                 
             </div>
           </div>
         </div>
-      </form>
+     
                     
 
 

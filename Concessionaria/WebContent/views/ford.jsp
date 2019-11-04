@@ -98,7 +98,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="compra-eco.jsp">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="ford/eco-sport">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>

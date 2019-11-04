@@ -85,8 +85,11 @@
                   <ul class="navbar-nav mr-">
                     <li class="nav-item active">
                       <a class="nav-link" href="/Concessionaria/pedido/carrinho"><%
-                      
-                      int qtd = (int) request.getSession().getAttribute("qtd");
+                      int qtd = 0;
+                      if(request.getSession().getAttribute("qtd") !=null){
+                    	   qtd = (int) request.getSession().getAttribute("qtd");
+                      }
+                    
                       if( qtd != 0){ %> <span class="badge badge-secondary badge-pill">${qtd}</span><%} %><i class="fas fa-shopping-cart"></i></a>
                     </li>
                   </ul>

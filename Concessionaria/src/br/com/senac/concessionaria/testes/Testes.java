@@ -82,7 +82,7 @@ public class Testes {
 		PedidoServico ps = new PedidoServico();
 		
 
-		ps.cadastrarPagamento("cartao");
+		
 		ps.cadastrarPedido(new Date(), 2, 2);
 		
 		Veiculo v = new Veiculo();

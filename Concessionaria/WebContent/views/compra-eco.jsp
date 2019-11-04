@@ -90,9 +90,12 @@
                         <br>
                                 
                     </div>
+                  <form action="/Concessionaria/pedido/adicionar" method="post" >
+				<input type="hidden"  name="id" value="16"/>
                     <center>
-                    <button type="button" class="btn btn-secondary">ADICIONAR AO CARRINHO</button>
+                      <input type="submit" class="btn btn-secondary" onclick="mostraDialogo('Item adicionado no carrinho')"  value="ADICIONAR AO CARRINHO"/>
                     </center>
+                   </form>
                 </div>
             </div>
           </div>

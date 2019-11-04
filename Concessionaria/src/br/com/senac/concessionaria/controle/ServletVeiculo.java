@@ -3,7 +3,6 @@ package br.com.senac.concessionaria.controle;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.SQLException;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,17 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.VeiculoServico;
 
+@WebServlet({ "/veiculos/adicionar", "/veiculos/remover", "/veiculos/listar", "/veiculos/localizar", "/veiculos/editar", "/veiculos/atualizar", "/veiculos/ford", "/veiculos/chevrolet", "/veiculos/chevrolet/onix", "/veiculos/chevrolet/prisma", "/veiculos/chevrolet/cruze", "/veiculos/chevrolet/s10", "/veiculos/chevrolet/tracker", "/veiculos/fiat", "/veiculos/fiat/toro", "/veiculos/fiat/uno", "/veiculos/fiat/grandsiena", "/veiculos/fiat/cronos", "/veiculos/fiat/argo", "/veiculos/honda", "/veiculos/honda/wrv", "/veiculos/honda/civic", "/veiculos/honda/hrv", "/veiculos/honda/accord", "/veiculos/honda/city", "/veiculo/ford", "/veiculos/ford/ka", "/veiculos/ford/ka-sedan", "/veiculos/ford/eco-sport", "/veiculos/ford/ranger", "/veiculos/ford/fiesta", "/veiculos/renault", "/veiculos/renault/kwid", "/veiculos/renault/sandero", "/veiculos/renault/logan", "/veiculos/renault/duster", "/veiculos/renault/captur", "/veiculos/volkswagen", "/veiculos/volkswagen/t-cross", "/veiculos/volkswagen/polo", "/veiculos/volkswagen/virtus", "/veiculos/volkswagen/jetta", "/veiculos/volkswagen/gol" })
 
-@WebServlet({ "/veiculos/adicionar", "/veiculos/remover", "/veiculos/listar", "/veiculos/localizar", "/veiculos/editar", "/veiculos/atualizar", "/veiculos/ford", "/veiculos/chevrolet", 
-	"/veiculos/chevrolet/onix", "/veiculos/chevrolet/prisma", "/veiculos/chevrolet/cruze", "/veiculos/chevrolet/s10", "/veiculos/chevrolet/tracker", 
-	"/veiculos/fiat", "/veiculos/fiat/toro", "/veiculos/fiat/uno", "/veiculos/fiat/grandsiena", "/veiculos/fiat/grandsiena", "/veiculos/fiat/cronos", "/veiculos/fiat/argo",
-	"/veiculos/honda", "/veiculos/honda/wrv", 	"/veiculos/honda/civic", "/veiculos/honda/hrv"	, "/veiculos/honda/accord", "/veiculos/honda/city",
-	"/veiculo/ford", 	"/veiculos/ford/ka"	, "/veiculos/ford/ka-sedan"	, "/veiculos/ford/eco-sport", "/veiculos/ford/ranger", "/veiculos/ford/fiesta",
-	"/veiculos/renault", "/veiculos/renault/kwid", "/veiculos/renault/sandero", "/veiculos/renault/logan", "/veiculos/renault/duster", "/veiculos/renault/captur",
-	"/veiculos/volkswagen", "/veiculos/volkswagen/t-cross", "/veiculos/volkswagen/polo", "/veiculos/volkswagen/virtus", "/veiculos/volkswagen/jetta", "/veiculos/volkswagen/gol"})
 public class ServletVeiculo extends HttpServlet implements Serializable {
 	private static final long serialVersionUID = 1L;
     VeiculoServico vs;
