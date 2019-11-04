@@ -123,7 +123,6 @@
 
 
   </div>
-  <!--Script para Mascara -->
 		<script>
        						$('#cpf').mask('000.000.000-00');
        						$("#tel").mask("(99) 99999-9999");
