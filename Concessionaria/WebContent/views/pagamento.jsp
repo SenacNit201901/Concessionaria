@@ -40,7 +40,7 @@
                                     
                             </div>
                        
-                            <span class="text-muted">R$${c.sub_Total}</span>
+                            <span class="text-muted din">R$${c.sub_Total}</span>
                            <label for="submit" ><span class="text-muted"><i class="fas fa-times" style="cursor: pointer;" id="x"></i></span></label> 
                            <input style="display: none;" id="submit" type="submit" />
                            </form>
@@ -53,7 +53,7 @@
 
                 <li class="list-group-item d-flex justify-content-between">
                         <span>Total (R$)</span>
-                        <strong>R$:${valor}</strong>
+                        <strong><span id="dinheiro">${valor}</span></strong>
                     </li>
             </div>
 
@@ -459,6 +459,10 @@
         $("#ccredito1").mask("0000 0000 0000 0000");
         $("#tel1").mask("(99) 99999-9999");
         $("#cep1").mask("00000-000");
+        $('#dinheiro').mask('##.#00,0', {reverse: true});
+        $('.din').mask('R$ ##.#00,0', {reverse: true});
     </script>
+    
+
 
 <c:import url="footer.jsp"></c:import>
