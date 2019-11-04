@@ -40,7 +40,7 @@
                                     
                             </div>
                        
-                            <span class="text-muted din">R$${c.sub_Total}</span>
+                            <span class="text-muted din">${c.sub_Total}</span>
                            <label for="submit" ><span class="text-muted"><i class="fas fa-times" style="cursor: pointer;" id="x"></i></span></label> 
                            <input style="display: none;" id="submit" type="submit" />
                            </form>
@@ -53,7 +53,7 @@
 
                 <li class="list-group-item d-flex justify-content-between">
                         <span>Total (R$)</span>
-                        <strong><span id="dinheiro">${valor}</span></strong>
+                        <strong><div id="dinheiro">${valor}</div></strong>
                     </li>
             </div>
 
@@ -319,8 +319,8 @@
                
 
                 <div class="custom-control custom-radio">
-                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"   required>
-                    <input type="radio" id="botao" name="check"  class="bol">
+                     <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"   required>
+                    <input type="radio" id="botao" name="formPag"  class="bol">
                     <label for="debit">Boleto</label>
                 </div>
                 <hr class="mb-4">
@@ -460,7 +460,7 @@
         $("#tel1").mask("(99) 99999-9999");
         $("#cep1").mask("00000-000");
         $('#dinheiro').mask('##.#00,0', {reverse: true});
-        $('.din').mask('R$ ##.#00,0', {reverse: true});
+        $('.din').mask('##.#00,0');
     </script>
     
 
