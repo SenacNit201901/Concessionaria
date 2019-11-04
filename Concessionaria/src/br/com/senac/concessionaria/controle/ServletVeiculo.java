@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.senac.concessionaria.servico.VeiculoServico;
 
-@WebServlet({ "/veiculos/adicionar", "/veiculos/remover", "/veiculos/listar", "/veiculos/localizar", "/veiculos/editar", "/veiculos/atualizar", "/veiculos/ford", "/veiculos/chevrolet", "/veiculos/chevrolet/onix", "/veiculos/chevrolet/prisma", "/veiculos/chevrolet/cruze", "/veiculos/chevrolet/s10", "/veiculos/chevrolet/tracker", "/veiculos/fiat", "/veiculos/fiat/toro", "/veiculos/fiat/uno", "/veiculos/fiat/grandsiena", "/veiculos/fiat/cronos", "/veiculos/fiat/argo", "/veiculos/honda", "/veiculos/honda/wrv", "/veiculos/honda/civic", "/veiculos/honda/hrv", "/veiculos/honda/accord", "/veiculos/honda/city", "/veiculo/ford", "/veiculos/ford/ka", "/veiculos/ford/ka-sedan", "/veiculos/ford/eco-sport", "/veiculos/ford/ranger", "/veiculos/ford/fiesta", "/veiculos/renault", "/veiculos/renault/kwid", "/veiculos/renault/sandero", "/veiculos/renault/logan", "/veiculos/renault/duster", "/veiculos/renault/captur", "/veiculos/volkswagen", "/veiculos/volkswagen/t-cross", "/veiculos/volkswagen/polo", "/veiculos/volkswagen/virtus", "/veiculos/volkswagen/jetta", "/veiculos/volkswagen/gol" })
+@WebServlet({ "/veiculos/adicionar", "/veiculos/remover", "/veiculos/listar", "/veiculos/localizar", "/veiculos/editar", "/veiculos/atualizar", "/veiculos/ford", "/veiculos/chevrolet", "/veiculos/chevrolet/onix", "/veiculos/chevrolet/prisma", "/veiculos/chevrolet/cruze", "/veiculos/chevrolet/sltz", "/veiculos/chevrolet/tracker", "/veiculos/fiat", "/veiculos/fiat/toro", "/veiculos/fiat/unoattractive", "/veiculos/fiat/grandsiena", "/veiculos/fiat/cronos", "/veiculos/fiat/argo", "/veiculos/honda", "/veiculos/honda/wrv", "/veiculos/honda/civic", "/veiculos/honda/hrv", "/veiculos/honda/accord", "/veiculos/honda/city", "/veiculo/ford", "/veiculos/ford/ka", "/veiculos/ford/kasedan", "/veiculos/ford/ecosport", "/veiculos/ford/ranger", "/veiculos/ford/newfiesta", "/veiculos/renault", "/veiculos/renault/kwid", "/veiculos/renault/sanderolife", "/veiculos/renault/logan", "/veiculos/renault/duster", "/veiculos/renault/captur", "/veiculos/volkswagen", "/veiculos/volkswagen/t-cross", "/veiculos/volkswagen/polo", "/veiculos/volkswagen/virtus", "/veiculos/volkswagen/jetta", "/veiculos/volkswagen/gol" })
 
 public class ServletVeiculo extends HttpServlet implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -46,7 +46,7 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 			
 			
 										//S10
-		} else if(request.getServletPath().equals("/veiculos/chevrolet/s10")) { 
+		} else if(request.getServletPath().equals("/veiculos/chevrolet/sltz")) { 
 			request.getRequestDispatcher("/views/compra-s10.jsp").forward(request, response);
 										//TRACKER
 		} else if(request.getServletPath().equals("/veiculos/chevrolet/tracker")) { 
@@ -62,7 +62,7 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 				request.getRequestDispatcher("/views/compra-toro.jsp").forward(request, response);
 				
 										//UNO
-			} else if(request.getServletPath().equals("/veiculos/fiat/uno")) { 
+			} else if(request.getServletPath().equals("/veiculos/fiat/unoattractive")) { 
 				request.getRequestDispatcher("/views/compra-uno.jsp").forward(request, response);
 				
 							
@@ -88,18 +88,18 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 			request.getRequestDispatcher("/views/compra-ka.jsp").forward(request, response);
 			
 								//SEDAN
-			} else if(request.getServletPath().equals("/veiculos/ford/ka-sedan")) { 
+			} else if(request.getServletPath().equals("/veiculos/ford/kasedan")) { 
 			request.getRequestDispatcher("/views/compra-sedan.jsp").forward(request, response);
 			
 					
 									//ECO-SPORT		
-			} else if(request.getServletPath().equals("/veiculos/ford/eco-sport")) { 
+			} else if(request.getServletPath().equals("/veiculos/ford/ecosport")) { 
 			request.getRequestDispatcher("/views/compra-eco.jsp").forward(request, response);
 									//RANGER
 			} else if(request.getServletPath().equals("/veiculos/ford/ranger")) { 
 			request.getRequestDispatcher("/views/compra-ranger.jsp").forward(request, response);
 										//FIESTA
-			} else if(request.getServletPath().equals("/veiculos/ford/fiesta")) { 
+			} else if(request.getServletPath().equals("/veiculos/ford/newfiesta")) { 
 			request.getRequestDispatcher("/views/compra-fiesta.jsp").forward(request, response);
 			
 			
@@ -129,14 +129,14 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 			
 										//RENAULT LINKS
 			} else if(request.getServletPath().equals("/veiculos/renault")) { 
-			request.getRequestDispatcher("/views/ford.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/renault.jsp").forward(request, response);
 			
 						 				//KWID
 			} else if(request.getServletPath().equals("/veiculos/renault/kwid")) { 
 			request.getRequestDispatcher("/views/compra-kwid.jsp").forward(request, response);
 			
 										//SANDERO
-			} else if(request.getServletPath().equals("/veiculos/renault/sandero")) { 
+			} else if(request.getServletPath().equals("/veiculos/renault/sanderolife")) { 
 			request.getRequestDispatcher("/views/compra-sandero.jsp").forward(request, response);
 			
 			
@@ -154,11 +154,11 @@ public class ServletVeiculo extends HttpServlet implements Serializable {
 			
 										//VOLKSWAGEN LINKS
 			} else if(request.getServletPath().equals("/veiculos/volkswagen")) { 
-			request.getRequestDispatcher("/views/ford.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/volks.jsp").forward(request, response);
 			
 										//T-CROSS
 			} else if(request.getServletPath().equals("/veiculos/volkswagen/t-cross")) { 
-			request.getRequestDispatcher("/views/compra-t-cross.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/compra-tcross.jsp").forward(request, response);
 			
 										//POLO
 			} else if(request.getServletPath().equals("/veiculos/volkswagen/polo")) { 

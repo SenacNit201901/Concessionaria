@@ -56,7 +56,7 @@
 
         <div class="card-footer">
               <center>
-                <a type="button" class="btn btn-secondary" id="veiculos" href="renault/sandero">FICHA TÉCNICA</a>
+                <a type="button" class="btn btn-secondary" id="veiculos" href="renault/sanderolife">FICHA TÉCNICA</a>
               </center>
         </div>
       </div>

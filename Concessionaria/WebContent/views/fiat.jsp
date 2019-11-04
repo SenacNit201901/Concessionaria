@@ -100,7 +100,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="fiat/uno">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="fiat/unoattractive">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>

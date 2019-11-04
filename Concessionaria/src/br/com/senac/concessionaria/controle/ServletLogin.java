@@ -104,7 +104,9 @@ public class ServletLogin extends HttpServlet {
 		}
 	}
 	protected void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
-		doPost(request, response);
+		HttpSession sessao = request.getSession(true);
+		sessao.invalidate();
+		response.sendRedirect("/Concessionaria/home");
 	}
 	
 	

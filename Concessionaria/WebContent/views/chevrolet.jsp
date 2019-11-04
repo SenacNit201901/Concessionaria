@@ -89,7 +89,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/s10">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="chevrolet/sltz">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>

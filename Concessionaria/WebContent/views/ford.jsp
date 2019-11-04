@@ -55,7 +55,7 @@
             
                     <div class="card-footer">
                           <center>
-                            <a type="button" class="btn btn-secondary" id="veiculos" href="ford/ka-sedan">FICHA TÉCNICA</a>
+                            <a type="button" class="btn btn-secondary" id="veiculos" href="ford/kasedan">FICHA TÉCNICA</a>
                           </center>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
               
                       <div class="card-footer">
                             <center>
-                              <a type="button" class="btn btn-secondary" id="veiculos" href="ford/fiesta">FICHA TÉCNICA</a>
+                              <a type="button" class="btn btn-secondary" id="veiculos" href="ford/newfiesta">FICHA TÉCNICA</a>
                             </center>
                       </div>
                     </div>  
@@ -98,7 +98,7 @@
                 
                         <div class="card-footer">
                               <center>
-                                <a type="button" class="btn btn-secondary" id="veiculos" href="ford/eco-sport">FICHA TÉCNICA</a>
+                                <a type="button" class="btn btn-secondary" id="veiculos" href="ford/ecosport">FICHA TÉCNICA</a>
                               </center>
                         </div>
                       </div>

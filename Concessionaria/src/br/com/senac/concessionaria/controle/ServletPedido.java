@@ -120,8 +120,9 @@ public class ServletPedido extends HttpServlet {
 			qtd = carrinho.size();
 			sessao.setAttribute("qtd", qtd);
 			sessao.setAttribute("carrinho", carrinho);
-			modelo = modelo.toLowerCase();
-			marca = marca.toLowerCase();
+			modelo = modelo.toLowerCase().replace(" ","").replace(".", "").replace("1", "").replace("0", "");
+			marca = marca.toLowerCase().replace(" ","").replace(".", "").replace("1", "").replace("0", "");
+			
 			response.sendRedirect("/Concessionaria/veiculos/"+ marca +"/"+ modelo);
 				
 			
