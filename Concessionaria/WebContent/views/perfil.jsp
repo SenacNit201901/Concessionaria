@@ -10,7 +10,7 @@
   <h3 class="text-center">Meu Perfil</h3>
   <div id="" class="container-perfil" style="padding-top:70px; padding-bottom:20px;">
     <div class="row">
-      <div id="" class="col-md-6">
+      <div id="" class="col-xl-5 col-md-4">
         <br>
         <form action="" method=POST>
           <h3>Dados Pessoais</h3><br>
@@ -83,7 +83,7 @@
           <button class="btn btn-dark btn-block my-4" type="submit">Atualizar</button>
         </form>
       </div>
-      <div id="" class="col-md-6">
+      <div id="" class="col-xl-7 col-md-8">
         <br>
 
         <h3>Ultimas Compras</h3><br><br>
