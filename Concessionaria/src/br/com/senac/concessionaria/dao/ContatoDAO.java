@@ -90,7 +90,7 @@ private Connection conn;
 		
 	}
 	
-public Contato busca(int id) throws SQLException {
+public List<Contato> busca(int id) throws SQLException {
 		
 		abreConexao();
 		
@@ -102,12 +102,15 @@ public Contato busca(int id) throws SQLException {
 			pstmt.setInt(1, id);
 			
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				return criaContato(rs);
+			List<Contato> c = new ArrayList<>();
+			while(rs.next()) {
+				c.add(criaContato(rs));
+				
+				
+				
 			}
 			
-			return null;
+			return c;
 		} finally {
 			if(conn != null) {
 				conn.close();
@@ -181,7 +184,7 @@ public void editarContato(Contato contato) throws SQLException {
 			conn = getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Erro ao tentar abrir a conexão");
+			System.out.println("Erro ao tentar abrir a conexï¿½o");
 		}
 	}
 	

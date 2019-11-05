@@ -33,17 +33,40 @@ public class UsuarioServico{
 		BairroDAO b;
 		CidadeDAO c;
 		EstadoDAO es;
+		String erro = null;
 		
 		
-	public void cadastrarUsuario(String nome, String sobrenome, String cpf, String email, String senha) throws SQLException {
+	public void cadastrarUsuario(String nome, String sobrenome, String cpf, String email, String senha) {
 		
-		this.tipo_usuario = new TipoUsuario("Cliente");
-		usuario = new Usuario(nome, sobrenome, cpf, email, senha, this.tipo_usuario, this.endereco);
 		
-		TipoUsuarioDAO t = new TipoUsuarioDAO();
-		t.gravar(this.tipo_usuario);
-		UsuarioDAO u = new UsuarioDAO();
-		u.gravar(this.usuario);
+		try {
+			this.tipo_usuario = new TipoUsuario("Cliente");
+			usuario = new Usuario(nome, sobrenome, cpf, email, senha, this.tipo_usuario, this.endereco);
+			TipoUsuarioDAO t = new TipoUsuarioDAO();
+			t.gravar(this.tipo_usuario);
+			UsuarioDAO u = new UsuarioDAO();
+			u.gravar(this.usuario);
+			
+		} catch (SQLException e) {
+			
+			String m = e.getMessage();
+			String em ="email";
+			String c = "cpf";
+			if(m.contains(em)) {
+				
+				erro = "erro email";
+				
+				
+			} else if (m.contains(c)) {
+				
+				erro = "erro cpf";
+				
+			}
+		}
+		
+	}
+	public String erroGravar() {
+		return erro;
 	}
 	
 	public void cadastrarEndereco(String endereco, String complemento, String cep, String numResidencial, String bairro, String cidade, String estado) throws SQLException{
@@ -84,6 +107,10 @@ public class UsuarioServico{
 		c.gravar(this.contato);
 		
 	}
+	public List<Contato> buscar(int id) throws SQLException{
+		ContatoDAO c = new ContatoDAO();
+		return c.busca(id);
+	}
 	
 	public List<Usuario> listarUser() throws SQLException{
 		
@@ -112,6 +139,7 @@ public class UsuarioServico{
 		this.c = new CidadeDAO();
 		
 		this.endereco = e.busca(id);
+		
 		this.estado = this.es.busca(this.endereco.getEstado().getId_UF());
 		this.bairro = this.b.busca(this.endereco.getBairro().getId_bairro());
 		this.cidade = this.c.busca(this.endereco.getCidade().getId_cidade());
@@ -128,5 +156,31 @@ public class UsuarioServico{
 		this.u = new UsuarioDAO();
 		u.deletaUsuario(id);
 	}
+	public void atualizaUser(Usuario u) throws SQLException {
+		UsuarioDAO user = new UsuarioDAO();
+		user.editarUsuario(u);
+		
+	}
+	public void atualizaEnd(Endereco e) throws SQLException {
+		EnderecoDAO end = new EnderecoDAO();
+		end.editarEnd(e);
+		
+	}
+	public void atualizaBairro(Bairro b) throws SQLException {
+		BairroDAO ba = new BairroDAO();
+		ba.editarBairro(b);
+		
+	}
+	public void atualizaCidade(Cidade c) throws SQLException {
+		CidadeDAO cidade = new CidadeDAO();
+		cidade.editarCidade(c);
+		
+	}
+	public void atualizaEstado(Estado e) throws SQLException {
+		EstadoDAO es = new EstadoDAO();
+		es.editarEstado(e);
+		
+	}
+	
 		
 }

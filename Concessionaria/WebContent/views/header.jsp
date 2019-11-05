@@ -31,7 +31,7 @@
 			cursor: pointer;
 		}
 	</style>
-          <title>Home</title>
+          <title>Senac Motors</title>
 
   </head>
   <body>
@@ -113,12 +113,11 @@
                        <% if (request.getSession().getAttribute("nome") != null){ %>
                       
                        
-                                              
+                        <c:if test="${tipo}">               
                        
                        
                       <a class="dropdown-item" href="/Concessionaria/usuario/listar">Usuarios</a>
-                      <a class="dropdown-item" href="/Concessionaria/pedido/listar">Pedidos</a>
-                      
+                      </c:if>  
                     
                       <a class="dropdown-item" href="/Concessionaria/logout">Sair</a>
                     </div>

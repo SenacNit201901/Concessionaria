@@ -216,6 +216,7 @@ INSERT INTO marca VALUES (null, 'Renault'); -- 6
 select * from usuario where senha = md5('admin');
 select  md5('admin');
 INSERT INTO USUARIO VALUES(null, 'admin', 'senac', '12345678921', 'admin@senac.com.br', md5('admin'), 1, 1);
+SELECT * FROM USUARIO;
 -- INSERT CONTATO *** JAVA
 
 -- INSERT VEICULOS

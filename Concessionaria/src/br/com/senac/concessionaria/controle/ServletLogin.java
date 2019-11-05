@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.senac.concessionaria.modelo.Contato;
 import br.com.senac.concessionaria.modelo.Endereco;
 import br.com.senac.concessionaria.modelo.ItemPedido;
 import br.com.senac.concessionaria.modelo.Pedido;
@@ -45,8 +46,16 @@ public class ServletLogin extends HttpServlet {
 		
 	}
 	protected void logar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		// TODO Auto-generated method stub
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+		String email = null;
+		String senha = null;
+		if(request.getParameter("email") != null) {
+			 email = request.getParameter("email");
+			 senha = request.getParameter("senha");
+		} else if (request.getSession().getAttribute("email") != null) {
+			email = (String) request.getSession().getAttribute("email");
+			senha = (String) request.getSession().getAttribute("senha");
+		}
+		
 		
 		UsuarioServico u = new UsuarioServico();
 		try {
@@ -60,16 +69,24 @@ public class ServletLogin extends HttpServlet {
 				TipoUsuario tp = new TipoUsuario();
 				
 				user = u.listar(user);
-			
+				int id_endereco = user.getTipo_usuario().getId_tipo_usuario();
 				tp = u.listarTipoUser(user.getTipo_usuario().getId_tipo_usuario());
+				String tipo = tp.getTipo_usuario();
 				e = u.listarEndereco(user.getEndereco().getId_endereco());
-				
+				int idBairro = e.getBairro().getId_bairro();
+				int idCidade = e.getCidade().getId_cidade();
+				int idEstado = e.getEstado().getId_UF();
 				HttpSession sessao = request.getSession(true);
 				sessao.setAttribute("nome", user.getNome());
 				sessao.setAttribute("id", user.getId_usuario());
 				request.getSession().setAttribute("sobrenome", user.getSobrenome());
 				request.getSession().setAttribute("cpf", user.getCpf());
 				request.getSession().setAttribute("email", user.getEmail());
+				request.getSession().setAttribute("idEndereco", id_endereco);
+				request.getSession().setAttribute("idBairro", idBairro);
+				request.getSession().setAttribute("idCidade", idCidade);
+				request.getSession().setAttribute("idEstado", idEstado);
+				
 				request.getSession().setAttribute("cep", e.getCep());
 				request.getSession().setAttribute("rua", e.getRua());
 				request.getSession().setAttribute("bairro", e.getBairro().getNome_Bairro());
@@ -77,18 +94,29 @@ public class ServletLogin extends HttpServlet {
 				request.getSession().setAttribute("estado", e.getEstado().getUF());
 				request.getSession().setAttribute("numero", e.getNumero());
 				request.getSession().setAttribute("complemento", e.getComplemento());
-				
+				List<Contato> c = new ArrayList<>();
+				c = u.buscar(user.getId_usuario());
 				List<Pedido> pl = new ArrayList<>();
+				List<ItemPedido> itemPedido = new ArrayList<>();
 				PedidoServico ps = new PedidoServico();
+				
+				itemPedido = ps.buscaItem();
+				
 				pl =  ps.buscaPedido(user.getId_usuario());
 				int pedidoqtd = pl.size();
 				
-				sessao.setAttribute("pedido", pl);
-				sessao.setAttribute("pedidoqtd", pedidoqtd);
-
 				List<ItemPedido> carrinho = new ArrayList<>();
 				Double valor = 0.0;
 				int qtd = 0;
+				if(tipo == "Funcionário") {
+					sessao.setAttribute("tipo", true);
+
+				}
+
+				sessao.setAttribute("item", itemPedido);
+				sessao.setAttribute("contato", c);
+				sessao.setAttribute("pedido", pl);
+				sessao.setAttribute("pedidoqtd", pedidoqtd);
 				sessao.setAttribute("carrinho", carrinho);
 				sessao.setAttribute("valor", valor);
 				sessao.setAttribute("qtd", qtd);

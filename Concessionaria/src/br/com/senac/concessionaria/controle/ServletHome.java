@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletHome
@@ -22,7 +23,11 @@ public class ServletHome extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if(request.getServletPath().equals("/home") || request.getServletPath().equals("/")) {
+			HttpSession sessao = request.getSession(true);
+			sessao.setAttribute("erroEmail", false);
+			sessao.setAttribute("erroCpf", false);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}

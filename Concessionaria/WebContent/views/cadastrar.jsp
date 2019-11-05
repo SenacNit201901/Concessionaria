@@ -3,6 +3,8 @@
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="header.jsp"></c:import>
 
+
+
             <!-- FORMULARIO CADASTRO -->
             <form action="cadastrar" method="post" id="cadastro">
             <div id="" class="container" style="padding-top:70px; padding-bottom:20px;">
@@ -22,10 +24,13 @@
                       <div class="form-group">
                             <label for="exampleFormControlInput1">CPF </label>
                             <input name="cpf" type="text" class="form-control" name="cpf" id="cpf" placeholder=" 999.999.999-99 " required>
+                           <c:if test="${erroCpf}"><span style="color:red; size:10px;"> Cpf ja existe!!</span></c:if> 
                         </div>
+                        
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email </label>
                             <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="exemplo123@gmail.com" required>
+                             <c:if test="${erroEmail}"><span style="color:red; size:10px;"> Email ja existe!!</span></c:if> 
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Senha </label>

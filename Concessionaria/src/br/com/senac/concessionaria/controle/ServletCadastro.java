@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
@@ -37,13 +38,16 @@ public class ServletCadastro extends HttpServlet {
 		if(request.getServletPath().equals("/cadastro")) {
 			request.getRequestDispatcher("views/cadastrar.jsp").forward(request, response);
 		} else if(request.getServletPath().equals("/cadastrar")) {
+			HttpSession sessao = request.getSession(true);
+			sessao.setAttribute("erroEmail", false);
+			sessao.setAttribute("erroCpf", false);
 			cadastrar(request, response);
 		}
 		
 		
 	}
 	protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		String nome = request.getParameter("nome");
 		String sobrenome = request.getParameter("sobrenome");
 		String cpf = request.getParameter("cpf").replace(".", "").replace("-", "");
@@ -59,15 +63,33 @@ public class ServletCadastro extends HttpServlet {
 		String estado = request.getParameter("estado");
 		
 		UsuarioServico u = new UsuarioServico();
-		
+		HttpSession sessao = request.getSession(true);
 		try {
 			u.cadastrarEndereco(endereco, complemento, cep, numResidencial, bairro, cidade, estado);
 			u.cadastrarUsuario(nome, sobrenome, cpf, email, senha);
+			String erro = u.erroGravar();
+			if(erro == "erro email") {
+				
+				sessao.setAttribute("erroEmail", true);
+				response.sendRedirect("cadastro");
+				
+			} else if (erro == "erro cpf") {
+				
+				sessao.setAttribute("erroCpf", true);
+				response.sendRedirect("cadastro");
+				
+			}
 			u.cadastrarContato(telefone);
-			response.sendRedirect("login");
+			
+			
+			
+		
+			sessao.setAttribute("email", email);
+			sessao.setAttribute("senha", senha);
+			response.sendRedirect("logar");
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

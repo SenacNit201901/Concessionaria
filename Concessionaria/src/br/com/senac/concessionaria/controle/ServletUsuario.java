@@ -8,7 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import br.com.senac.concessionaria.modelo.Bairro;
+import br.com.senac.concessionaria.modelo.Cidade;
+import br.com.senac.concessionaria.modelo.Endereco;
+import br.com.senac.concessionaria.modelo.Estado;
+import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.servico.UsuarioServico;
 
 
@@ -89,7 +95,57 @@ public class ServletUsuario extends HttpServlet {
 	}
 	
 	protected void atualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("M�todo: " + request.getMethod());
+		HttpSession sessao = request.getSession(true);
+		Usuario u = new Usuario();
+		int id = (int) sessao.getAttribute("id");
+		String nome = (String) request.getParameter("nome");
+		String sobrenome = (String) request.getParameter("sobrenome");
+		String email = (String) request.getParameter("email");
+		String cpf = (String) request.getParameter("cpf");
+		
+		int idEnd= (int) sessao.getAttribute("idEndereco");
+		int idBairro= (int) sessao.getAttribute("idBairro");
+		int idCidade= (int) sessao.getAttribute("idCidade");
+		int idEstado= (int) sessao.getAttribute("idEstado");
+
+		String cep = (String) request.getParameter("cep");
+		String bairro = (String) request.getParameter("bairro");
+		String rua = (String) request.getParameter("rua");
+		String cidade = (String) request.getParameter("cidade");
+		String estado = (String) request.getParameter("estado");
+		String complemento = (String) request.getParameter("complemento");
+		String numero = (String) request.getParameter("numero");
+		
+		u.setId_usuario(id);
+		u.setNome(nome);
+		u.setSobrenome(sobrenome);
+		u.setCpf(cpf);
+		u.setEmail(email);
+		Estado es = new Estado(estado);
+		es.setId_UF(idEstado);
+		Bairro b = new Bairro(bairro);
+		b.setId_bairro(idBairro);
+		Cidade c = new Cidade(cidade);
+		c.setId_cidade(idCidade);
+		
+		Endereco e = new Endereco(cep, rua, numero, complemento, c, es, b);
+		e.setId_endereco(idEnd);
+		
+		UsuarioServico us = new UsuarioServico();
+		try {
+			us.atualizaBairro(b);
+			us.atualizaCidade(c);
+			us.atualizaEnd(e);
+			us.atualizaEstado(es);
+			us.atualizaUser(u);
+			
+			response.sendRedirect("/Concessionaria/usuario/perfil");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 	}
 
 }

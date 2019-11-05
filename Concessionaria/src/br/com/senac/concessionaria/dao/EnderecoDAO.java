@@ -57,6 +57,36 @@ public class EnderecoDAO extends DAO{
 		}
 		
 	}
+	public void editarEnd(Endereco e) throws SQLException {
+		abrirConexao();
+
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement("update endereco SET  cep = ?, rua = ?, numero = ?, complemento = ? where id_endereco = ?");
+			
+			pstmt.setString(1, e.getCep());
+			pstmt.setString(2, e.getRua());
+			pstmt.setString(3, e.getNumero());
+			pstmt.setString(4, e.getComplemento());
+
+			
+			int flag = pstmt.executeUpdate();
+			
+			if(flag == 0) {				
+				throw new SQLException("Erro ao atualizar o estado: " + e.getId_endereco() + " no banco!");
+			}
+			
+		} finally {
+			if(conn != null) {
+				conn.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+	}
+		
 
 	public Endereco busca(int id) throws SQLException {
 		
@@ -95,7 +125,7 @@ public class EnderecoDAO extends DAO{
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			System.out.println("Erro ao tentar abrir a conexão");
+			System.out.println("Erro ao tentar abrir a conexï¿½o");
 		}
 	}
 	

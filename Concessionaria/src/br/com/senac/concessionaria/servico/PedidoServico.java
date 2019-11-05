@@ -131,5 +131,9 @@ public class PedidoServico {
 		return p.busca(id);
 		
 	}
+	public List<ItemPedido> buscaItem() throws SQLException{
+		ItemPedidoDao ip = new ItemPedidoDao();
+		return ip.listarVeiculoP();
+	}
 	
 }
