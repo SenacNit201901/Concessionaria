@@ -63,7 +63,7 @@
                 <form action="comprar" method="post"class="needs-validation">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="primeiroNome">Nome(Teste Novo Endereço)</label>
+                            <label for="primeiroNome">Nome</label>
                             <input type="text" class="form-control" id="firstName" placeholder="José" value="" required>
                             <div class="invalid-feedback">
                                 É necessário o primeiro nome válido.
