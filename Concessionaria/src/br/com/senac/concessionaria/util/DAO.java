@@ -18,7 +18,7 @@ public class DAO {
 		
 
 		public Connection getConnection() throws SQLException {
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/concessionariaDB", "root", "");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3361/concessionariaDB", "root", "");
 		}
 	}
 
