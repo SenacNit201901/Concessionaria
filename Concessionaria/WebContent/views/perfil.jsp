@@ -3,7 +3,7 @@
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
         
-<c:import url="header.jsp"></c:import>
+<c:import url="/views/header.jsp"></c:import>
 
 
 
@@ -87,33 +87,35 @@
         <br>
 
         <h3>Ultimas Compras</h3><br><br>
+       
         <div class="container-compras">
         
-	
+		<c:forEach items="${pedido}" var="p">
           <div class="container-item">
         
                 <table class="table text-center">
                   <thead>
-                    <th scope="col">N° Pedido</th>
-                    <th scope="col">data</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col">Tipo de pagamento</th>
+                    <th>N° Pedido</th>
+                    <th>data</th>
+                    <th>Valor</th>
+                    <th>Tipo de pagamento</th>
                   </thead>
-                    	<c:forEach items="${pedido}" var="p">
+                    
                   <tbody>
                   
                     <td>${p.id_pedido}</td>
                     <td>${p.data_pedido}</td>
                     <td>${p.valor_total}</td>
-                    <td>${p.forma_pagamento.tipo_pagamento}</td>
+                    <td></td>
                   </tbody>
-                  </c:forEach>
+                
                 </table>
                 				
                 
             </div>
-
-            
+	
+              </c:forEach>
+              
           </div>
 
  
@@ -134,4 +136,4 @@
       $("#formulario").append('<label>Telefone: </label> <input type="text" name="telefone" class="input-form" >');
     });
   </script>
-<c:import url="footer.jsp"></c:import>
+<c:import url="/views/footer.jsp"></c:import>

@@ -57,7 +57,7 @@ public class PedidoDAO extends DAO{
 			conn = getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Erro ao tentar abrir a conexão");
+			System.out.println("Erro ao tentar abrir a conexï¿½o");
 		}
 	}
 public List<Pedido> busca(int id) throws SQLException {
@@ -73,7 +73,8 @@ public List<Pedido> busca(int id) throws SQLException {
 			
 			rs = pstmt.executeQuery();
 			List<Pedido> ps = new ArrayList<>();
-			if(rs.next()) {
+			
+			while(rs.next()) {
 				Pedido p = new Pedido();
 				p.setId_pedido(rs.getInt(1));
 				p.setData_pedido(rs.getDate(2));

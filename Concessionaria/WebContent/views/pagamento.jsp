@@ -323,7 +323,7 @@
                 </div>
                 <hr class="mb-4">
                  <form action="comprar" method="post">
-                <button class="btn btn-dark btn-lg btn-block" type="submit">Comprar</button>
+                <button class="btn btn-dark btn-lg btn-block" >Comprar</button>
                 </form>
                 <br><br>
             </div>
@@ -333,7 +333,7 @@
 
 
     </div>
-    
+
      <script>
         $(function () {
             $('.bol').click(function () {
@@ -460,6 +460,7 @@
         $('#dinheiro').mask('##.#00,0', {reverse: true});
         $('.din').mask('##.#00,0', {reverse: true});
     </script>
+    
     
 
 

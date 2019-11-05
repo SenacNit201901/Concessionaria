@@ -1,6 +1,11 @@
 package br.com.senac.concessionaria.modelo;
 
 public class FormaPagamento {
+	@Override
+	public String toString() {
+		return "FormaPagamento [id_forma_pagamento=" + id_forma_pagamento + ", tipo_pagamento=" + tipo_pagamento + "]";
+	}
+
 	private int id_forma_pagamento;
 	private String tipo_pagamento;
 	

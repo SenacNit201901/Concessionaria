@@ -21,7 +21,7 @@
                       </div>
                       <div class="form-group">
                             <label for="exampleFormControlInput1">CPF </label>
-                            <input name="cpf" type="text" class="form-control" id="cpf" placeholder=" 999.999.999-99 " required>
+                            <input name="cpf" type="text" class="form-control" name="cpf" id="cpf" placeholder=" 999.999.999-99 " required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email </label>
@@ -93,7 +93,7 @@
                                     <option>TO</option>
 					      </select>
                         </div>
-                       <button class="btn btn-dark btn-block my-4" type="submit">Cadastrar</button>
+                       <button class="btn btn-dark btn-block my-4" onclick="return validar();" type="submit">Cadastrar</button>
 
                         </div>
                  
@@ -101,6 +101,7 @@
                            
             </div>
             </form>
+         
               <script>
     $(function(){
       $("#cadastro").submit(function(){
@@ -179,5 +180,39 @@
             });
         });
 
+    </script>
+    
+    <script>
+    $("#cpf").validate({
+    	rules: {
+    	    'cpf': {
+    	        required: true,
+    	        cpf: true,
+    	        remote: {
+    	            url: "/api/findUserByCpf",
+    	            type: "GET",
+    	            data: {
+    	                cpf: function() {
+    	                    return $("#validationCpfOperador").val()
+    	                }
+    	            },
+    	            dataType: 'json',
+    	            success: function(data) {
+    	                if (data.existe == true) {
+    	                    console.log("Já existe o CPF cadastrado")
+    	                } else {
+    	                    console.log("CPF disponivel")
+    	                }
+    	            }
+    	        }
+    	    },
+    	},
+    	messages: {
+    	    'cpf': {
+    	        required: "Informe o CPF",
+    	        remote: 'CPF já cadastrado'
+    	    },
+    	}
+    	});
     </script>
 <c:import url="footer.jsp"></c:import>
