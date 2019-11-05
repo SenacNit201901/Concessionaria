@@ -36,7 +36,7 @@ public class ServletUsuario extends HttpServlet {
 		} else if(request.getServletPath().equals("/usuario/localizar")) { 
 			localizar(request, response);
 		} else {
-			response.getWriter().append("Página não localizada!!! " + request.getMethod());
+			response.getWriter().append("Pï¿½gina nï¿½o localizada!!! " + request.getMethod());
 		}
 	}
 
@@ -46,12 +46,12 @@ public class ServletUsuario extends HttpServlet {
 		} else if(request.getServletPath().equals("/usuario/atualizar")) {
 			atualizar(request, response);
 		} else {
-			response.getWriter().append("Página não localizada!!! " + request.getMethod());
+			response.getWriter().append("Pagina nÃ£o localizada!!! " + request.getMethod());
 		}
 	}
 	
 	protected void adicionar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 	
 	protected void remover(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -72,7 +72,7 @@ public class ServletUsuario extends HttpServlet {
 		
 		try {
 			request.setAttribute("user", u.listarUser());
-			request.getRequestDispatcher("/usuario.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/usuario.jsp").forward(request, response);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -81,15 +81,15 @@ public class ServletUsuario extends HttpServlet {
 	}
 	
 	protected void localizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 	
 	protected void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 	
 	protected void atualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.getWriter().append("Método: " + request.getMethod());
+		response.getWriter().append("Mï¿½todo: " + request.getMethod());
 	}
 
 }

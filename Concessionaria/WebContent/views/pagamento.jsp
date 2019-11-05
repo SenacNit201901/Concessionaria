@@ -143,8 +143,6 @@
                     <h4 class="mb-3">Pagamento</h4>
 
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio"  class="custom-control-input" checked
-                            required>
                         <input type="radio" id="botao" name="check" class="cred1"  checked>
                         <label for="credit">Cartão de crédito</label>
                     </div>
@@ -319,7 +317,7 @@
                
 
                 <div class="custom-control custom-radio">
-                     <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"   required>
+
                     <input type="radio" id="botao" name="formPag"  class="bol">
                     <label for="debit">Boleto</label>
                 </div>
@@ -460,7 +458,7 @@
         $("#tel1").mask("(99) 99999-9999");
         $("#cep1").mask("00000-000");
         $('#dinheiro').mask('##.#00,0', {reverse: true});
-        $('.din').mask('##.#00,0');
+        $('.din').mask('##.#00,0', {reverse: true});
     </script>
     
 
