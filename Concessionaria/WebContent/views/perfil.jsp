@@ -89,7 +89,11 @@
         <h3>Ultimas Compras</h3><br><br>
        
         <div class="container-compras">
+        <% 
+        	int p = (int) request.getSession().getAttribute("pedidoqtd");
+        if(p != 0){
         
+        %>
 		<c:forEach items="${pedido}" var="p">
           <div class="container-item">
         
@@ -159,10 +163,12 @@
             
 	
               </c:forEach>
-              
+              <%} else { %>
+            <h1 style="    padding: 60px;text-align: center;color: gray;"> Voce ainda nao realizou compras</h1>
+                <%} %>
           </div>
 
- 
+
 
     </div>
     </div>

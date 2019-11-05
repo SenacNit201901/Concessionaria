@@ -10,6 +10,7 @@ import java.util.List;
 import br.com.senac.concessionaria.modelo.Endereco;
 import br.com.senac.concessionaria.modelo.TipoUsuario;
 import br.com.senac.concessionaria.modelo.Usuario;
+import br.com.senac.concessionaria.util.Criptografia;
 import br.com.senac.concessionaria.util.DAO;
 
 public class UsuarioDAO extends DAO{
@@ -29,7 +30,7 @@ public class UsuarioDAO extends DAO{
 			pstmt.setString(2, u.getSobrenome());
 			pstmt.setString(3, u.getCpf());
 			pstmt.setString(4, u.getEmail());
-			pstmt.setString(5, u.getSenha());
+			pstmt.setString(5, Criptografia.criptografar(u.getSenha()));
 			pstmt.setObject(6, u.getEndereco().getId_endereco());
 			pstmt.setObject(7, u.getTipo_usuario().getId_tipo_usuario());
 
@@ -69,7 +70,7 @@ public class UsuarioDAO extends DAO{
 		try {
 			pstmt = conn.prepareStatement("select * from usuario where email = ? and senha = ?");
 			pstmt.setString(1, u.getEmail());
-			pstmt.setString(2, u.getSenha());
+			pstmt.setString(2, Criptografia.criptografar(u.getSenha()));
 
 
 			rs = pstmt.executeQuery();
@@ -105,7 +106,7 @@ public class UsuarioDAO extends DAO{
 		try {
 			pstmt = conn.prepareStatement("select * from usuario where email = ? and senha = ?");
 			pstmt.setString(1, u.getEmail());
-			pstmt.setString(2, u.getSenha());
+			pstmt.setString(2, Criptografia.criptografar(u.getSenha()));
 
 
 
@@ -250,7 +251,7 @@ public class UsuarioDAO extends DAO{
 			conn = getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Erro ao tentar abrir a conexão");
+			System.out.println("Erro ao tentar abrir a conexï¿½o");
 		}
 	}
 }

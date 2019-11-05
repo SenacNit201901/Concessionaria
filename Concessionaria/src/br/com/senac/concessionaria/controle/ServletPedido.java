@@ -228,7 +228,10 @@ public class ServletPedido extends HttpServlet {
 				List<Pedido> pl = new ArrayList<>();
 				PedidoServico ps = new PedidoServico();
 				pl =  ps.buscaPedido(id);
+				int pedidoqtd = pl.size();
+				
 				sessao.setAttribute("pedido", pl);
+				sessao.setAttribute("pedidoqtd", pedidoqtd);
 				
 				response.sendRedirect("finalizar");
 					

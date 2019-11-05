@@ -1,10 +1,9 @@
 package br.com.senac.concessionaria.testes;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 import br.com.senac.concessionaria.modelo.Bairro;
 import br.com.senac.concessionaria.modelo.Cidade;
@@ -19,6 +18,7 @@ import br.com.senac.concessionaria.modelo.Usuario;
 import br.com.senac.concessionaria.modelo.Veiculo;
 import br.com.senac.concessionaria.servico.PedidoServico;
 import br.com.senac.concessionaria.servico.UsuarioServico;
+import br.com.senac.concessionaria.util.Criptografia;
 
 public class Testes {
 
@@ -91,10 +91,11 @@ public class Testes {
 		ps.cadastrarItem(2, 1);
 	
 		
-		 
-			
-		Usuario jj = new Usuario();
-		System.out.println(jj);
+		String j = "admin";
+	
+		System.out.println(Criptografia.criptografar(j).toLowerCase());
+		
+		
 		
 	
 		
@@ -114,5 +115,7 @@ public class Testes {
 		
 		
 	}
+
+
 
 }

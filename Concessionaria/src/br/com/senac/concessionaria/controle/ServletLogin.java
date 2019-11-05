@@ -81,9 +81,11 @@ public class ServletLogin extends HttpServlet {
 				List<Pedido> pl = new ArrayList<>();
 				PedidoServico ps = new PedidoServico();
 				pl =  ps.buscaPedido(user.getId_usuario());
-				
+				int pedidoqtd = pl.size();
 				
 				sessao.setAttribute("pedido", pl);
+				sessao.setAttribute("pedidoqtd", pedidoqtd);
+
 				List<ItemPedido> carrinho = new ArrayList<>();
 				Double valor = 0.0;
 				int qtd = 0;
