@@ -100,7 +100,7 @@
 
                         <div class="mb-3">
                             <label for="zip">CEP</label>
-                            <input type="text" class="form-control" id="cep" placeholder="24000-99" required>
+                            <input type="text" class="form-control" id="cep" placeholder="24000-909" required>
                             <div class="invalid-feedback">
                                 Digite um CEP válido.
                             </div>
@@ -150,7 +150,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="cc-name">Nome do cartão</label>
-                                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                <input type="text" class="form-control sumir" id="cc-name" placeholder="" required>
                                 <small class="text-muted">Full name as displayed on card</small>
                                 <div class="invalid-feedback">
                                     Name on card is required
@@ -158,7 +158,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="cc-number">Número do cartão de crédito</label>
-                                <input type="text" class="form-control" id="ccredito1" placeholder="" required>
+                                <input type="text" class="form-control sumir" id="ccredito1" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Credit card number is required
                                 </div>
@@ -167,14 +167,14 @@
                         <div class="row">
                             <div class="col-md-3 mb-3">
                                 <label for="cc-expiration">Data de validade</label>
-                                <input type="text" class="form-control" id="data1" placeholder="" required>
+                                <input type="text" class="form-control sumir" id="data1" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Expiration date required
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="cc-expiration">CVV</label>
-                                <input type="text" class="form-control" id="cvv1" placeholder="" required>
+                                <input type="text" class="form-control sumir" id="cvv1" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Security code required
                                 </div>
@@ -183,7 +183,6 @@
                     </div>
 
                     <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
                         <input type="radio" id="botao" name="check" class="bol1">
                         <label for="debit">Boleto</label>
                     </div>
@@ -194,7 +193,7 @@
 
             <div class="col-md-8 order-md-1" id="esc1">
                 <h4 class="mb-3">Endereço de cobrança</h4>
-                <form action="comprar" method="post"class="needs-validation">
+                <form action="comprar" id="comprar" method="post"class="needs-validation">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="primeiroNome">Nome</label>
@@ -284,7 +283,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name">Nome do cartão</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                            <input type="text" class="form-control sumir" id="cc-name" placeholder="" required>
                             <small class="text-muted">Full name as displayed on card</small>
                             <div class="invalid-feedback">
                                 Name on card is required
@@ -292,7 +291,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cc-number">Número do cartão de crédito</label>
-                            <input type="text" class="form-control" id="ccredito" placeholder="" required>
+                            <input type="text" class="form-control sumir" id="ccredito" placeholder="" required>
                             <div class="invalid-feedback">
                                 Credit card number is required
                             </div>
@@ -301,14 +300,14 @@
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">Data de validade</label>
-                            <input type="text" class="form-control" id="data" placeholder="" required>
+                            <input type="text" class="form-control sumir" id="data" placeholder="" required>
                             <div class="invalid-feedback">
                                 Expiration date required
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration">CVV</label>
-                            <input type="text" class="form-control" id="cvv" placeholder="" required>
+                            <input type="text" class="form-control sumir" id="cvv" placeholder="" required>
                             <div class="invalid-feedback">
                                 Security code required
                             </div>
@@ -324,7 +323,7 @@
                 </div>
                 <hr class="mb-4">
 
-                <button class="btn btn-dark btn-lg btn-block" >Comprar</button>
+                <button class="btn btn-dark btn-lg btn-block" form="comprar">Comprar</button>
                 </form>
                 <br><br>
             </div>
@@ -401,6 +400,18 @@
             });
         });
 
+        $(function () {
+            $('.bol').click(function () {
+                $('.sumir').removeAttr('required');
+            });
+        });
+        
+        $(function () {
+            $('.bol1').click(function () {
+                $('.sumir').removeAttr('required');
+            });
+        });
+        
         $(function () {
             $('.cred1').click(function () {
                 $('#cart1').removeClass('cartao');
