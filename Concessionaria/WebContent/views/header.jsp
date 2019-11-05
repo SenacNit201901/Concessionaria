@@ -25,6 +25,11 @@
 		    width: 25%;
 		  
 		}
+		
+		#detalhe:hover{
+			color: gray;
+			cursor: pointer;
+		}
 	</style>
           <title>Home</title>
 

@@ -99,14 +99,16 @@
                     <th>data</th>
                     <th>Valor</th>
                     <th>Tipo de pagamento</th>
+                    <th>Detalhe</th>
                   </thead>
                     
                   <tbody>
                   
                     <td>${p.id_pedido}</td>
                     <td>${p.data_pedido}</td>
-                    <td>${p.valor_total}</td>
+                    <td class="valor">${p.valor_total}</td>
                     <td></td>
+                    <td><span id="detalhe" data-toggle="modal" data-target="#ExemploModalCentralizado" ><i class="fas fa-scroll"></i></span></td>
                   </tbody>
                 
                 </table>
@@ -125,6 +127,54 @@
 
 
   </div>
+  
+      <!-- Modal -->
+    <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado">Detalhe da Compra</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <h3>Dados da compra</h3>
+                    <label>Nome do Comprador: </label><br>
+                    <label>CPF do Comprador: </label><br>
+                    <label>Valor Total: </label><br>
+                    <hr>
+                    <h3>Endereço de Entrega</h3>
+                    <label>Rua: </label><br>
+                    <label>Número: </label><br>
+                    <label>Complemento: </label><br>
+                    <label>Estado: </label><br>
+                    <label>Cidade: </label><br>
+                    <label>Bairro: </label><br>
+                    <hr>
+                    <h3>Itens do Pedido:</h3>
+                    <label>Produto: Teste &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;Valor: <span class="valor">1000000</span></label><br>
+                    <hr>
+                    <h3>Data da Compra:</h3>
+                    <label>Data: Variavel</label><br>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br></br><br></br><br></br><br></br>
+    <script>
+        $('.valor').mask('##.#00,0', { reverse: true });
+    </script>
+    
+    
 		<script>
        						$('#cpf').mask('000.000.000-00');
        						$("#tel").mask("(99) 99999-9999");
@@ -133,7 +183,7 @@
     					
   <script>
     $("#add-campo").click(function () {
-      $("#formulario").append('<label>Telefone: </label> <input type="text" name="telefone" class="input-form" >');
+      $("#formulario").append('<label>Telefone:</label> <input type="text" name="telefone" class="input-form" ><br>');
     });
   </script>
 <c:import url="/views/footer.jsp"></c:import>
