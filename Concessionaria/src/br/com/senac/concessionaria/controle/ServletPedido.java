@@ -192,7 +192,7 @@ public class ServletPedido extends HttpServlet {
 	
 	protected void comprar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		List<ItemPedido> carrinho = new ArrayList<>();
-		String formPag = "Débito";
+		String formPag = "Debito";
 		carrinho = (List<ItemPedido>) request.getSession().getAttribute("carrinho");
 		Double valorTotal = (Double) request.getSession().getAttribute("valor");
 			try {
