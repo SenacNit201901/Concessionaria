@@ -87,7 +87,7 @@ CREATE TABLE usuario(
 	sobrenome VARCHAR (40) NOT NULL,
 	cpf VARCHAR (11) NOT NULL UNIQUE,
 	email VARCHAR (45) NOT NULL UNIQUE,
-	senha VARCHAR (12) NOT NULL,
+	senha VARCHAR (100) NOT NULL,
 	id_endereco INT NOT NULL,
 	CONSTRAINT fk_endereco FOREIGN KEY(id_endereco)
 	REFERENCES endereco(id_endereco) on delete cascade,
