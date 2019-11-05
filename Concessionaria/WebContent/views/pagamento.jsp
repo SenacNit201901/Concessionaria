@@ -60,7 +60,7 @@
 
             <div class="col-md-8 order-md-1 esconder" id="esc2">
                 <h4 class="mb-3">Endereço de cobrança</h4>
-                <form class="needs-validation" novalidate>
+                <form action="comprar" method="post"class="needs-validation">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="primeiroNome">Nome(Teste Novo Endereço)</label>
@@ -194,6 +194,7 @@
 
             <div class="col-md-8 order-md-1" id="esc1">
                 <h4 class="mb-3">Endereço de cobrança</h4>
+                <form action="comprar" method="post"class="needs-validation">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="primeiroNome">Nome</label>
@@ -322,7 +323,7 @@
                     <label for="debit">Boleto</label>
                 </div>
                 <hr class="mb-4">
-                 <form action="comprar" method="post">
+
                 <button class="btn btn-dark btn-lg btn-block" >Comprar</button>
                 </form>
                 <br><br>
@@ -333,6 +334,53 @@
 
 
     </div>
+    
+     <!-- Modal -->
+    <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="TituloModalCentralizado">Detalhe da Compra</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <h3>Dados da compra</h3>
+                    <label>Nome do Comprador: </label><br>
+                    <label>CPF do Comprador: </label><br>
+                    <label>Valor Total: </label><br>
+                    <hr>
+                    <h3>Endereço de Entrega</h3>
+                    <label>Rua: </label><br>
+                    <label>Número: </label><br>
+                    <label>Complemento: </label><br>
+                    <label>Estado: </label><br>
+                    <label>Cidade: </label><br>
+                    <label>Bairro: </label><br>
+                    <hr>
+                    <h3>Itens do Pedido:</h3>
+                    <label>Produto: Teste &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;Valor: <span id="valor">1000000</span></label><br>
+                    <hr>
+                    <h3>Data da Compra:</h3>
+                    <label>Data: Variavel</label><br>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br></br><br></br><br></br><br></br>
+    <script>
+        $('#valor').mask('##.#00,0', { reverse: true });
+    </script>
+    
 
      <script>
         $(function () {
